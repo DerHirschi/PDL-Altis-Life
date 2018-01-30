@@ -3,19 +3,33 @@
     File: init.sqf
     Author: Bryan "Tonic" Boardwine
 
-    Edit: Nanou for HeadlessClient optimization.
+    Edits: Nanou for HeadlessClient optimization.
+		   MasTo - Die Liga - add Liga script pack
     Please read support for more informations.
 
     Description:
     Initialize the server and required systems.
 */
 private ["_dome","_rsb","_timeStamp","_extDBNotLoaded"];
+life_server_isReady = false;
+publicVariable "life_server_isReady";
+
+if(isNil "extDB3_var_loaded") exitWith{};
+if(!extDB3_var_loaded) exitWith{};
+
+_timeStamp = diag_tickTime;
+diag_log "----------------------------------------------------------------------------------------------------";
+diag_log "---------------------------------- Starting PDL Server Init ----------------------------------------";
+diag_log "---------------------------------- Altis Life RPG Vers 5.0.0 ----------------------------------------";
+diag_log format["-------------------------------------- PDL Version %1 -------------------------------------------",(LIFE_SETTINGS(getText, "Vers")];
+diag_log "----------------------------------------------------------------------------------------------------";
+
 DB_Async_Active = false;
 DB_Async_ExtraLock = false;
-life_server_isReady = false;
+
 _extDBNotLoaded = "";
 serv_sv_use = [];
-publicVariable "life_server_isReady";
+
 life_save_civilian_position = if (LIFE_SETTINGS(getNumber,"save_civilian_position") isEqualTo 0) then {false} else {true};
 fn_whoDoneIt = compile preprocessFileLineNumbers "\life_server\Functions\Systems\fn_whoDoneIt.sqf";
 
@@ -72,13 +86,8 @@ publicVariable "life_server_extDB_notLoaded";
 ["CALL deleteOldHouses",1] call DB_fnc_asyncCall;
 ["CALL deleteOldGangs",1] call DB_fnc_asyncCall;
 
-_timeStamp = diag_tickTime;
-diag_log "----------------------------------------------------------------------------------------------------";
-diag_log "---------------------------------- Starting Altis Life Server Init ---------------------------------";
-diag_log "------------------------------------------ Version 5.0.0 -------------------------------------------";
-diag_log "----------------------------------------------------------------------------------------------------";
 
-if (LIFE_SETTINGS(getNumber,"save_civilian_position_restart") isEqualTo 1) then {
+if(LIFE_SETTINGS(getNumber,"save_civilian_position_restart") isEqualTo 1) then {
     [] spawn {
         _query = "UPDATE players SET civ_alive = '0' WHERE civ_alive = '1'";
         [_query,1] call DB_fnc_asyncCall;
@@ -87,33 +96,34 @@ if (LIFE_SETTINGS(getNumber,"save_civilian_position_restart") isEqualTo 1) then 
 
 /* Map-based server side initialization. */
 master_group attachTo[bank_obj,[0,0,0]];
-
-{
-    _hs = createVehicle ["Land_Hospital_main_F", [0,0,0], [], 0, "NONE"];
-    _hs setDir (markerDir _x);
-    _hs setPosATL (getMarkerPos _x);
-    _var = createVehicle ["Land_Hospital_side1_F", [0,0,0], [], 0, "NONE"];
-    _var attachTo [_hs, [4.69775,32.6045,-0.1125]];
-    detach _var;
-    _var = createVehicle ["Land_Hospital_side2_F", [0,0,0], [], 0, "NONE"];
-    _var attachTo [_hs, [-28.0336,-10.0317,0.0889387]];
-    detach _var;
-    if (worldName isEqualTo "Tanoa") then {
-        if (_forEachIndex isEqualTo 0) then {
-            atm_hospital_2 setPos (_var modelToWorld [4.48633,0.438477,-8.25683]);
-            vendor_hospital_2 setPos (_var modelToWorld [4.48633,0.438477,-8.25683]);
-            "medic_spawn_3" setMarkerPos (_var modelToWorld [8.01172,-5.47852,-8.20022]);
-            "med_car_2" setMarkerPos (_var modelToWorld [8.01172,-5.47852,-8.20022]);
-            hospital_assis_2 setPos (_hs modelToWorld [0.0175781,0.0234375,-0.231956]);
-        } else {
-            atm_hospital_3 setPos (_var modelToWorld [4.48633,0.438477,-8.25683]);
-            vendor_hospital_3 setPos (_var modelToWorld [4.48633,0.438477,-8.25683]);
-            "medic_spawn_1" setMarkerPos (_var modelToWorld [-1.85181,-6.07715,-8.24944]);
-            "med_car_1" setMarkerPos (_var modelToWorld [5.9624,11.8799,-8.28493]);
-            hospital_assis_2 setPos (_hs modelToWorld [0.0175781,0.0234375,-0.231956]);
-        };
-    };
-} forEach ["hospital_2","hospital_3"];
+if(LIFE_SETTINGS(getNumber,"have_no_good_mapper") isEqualTo 1) then {
+	{
+		_hs = createVehicle ["Land_Hospital_main_F", [0,0,0], [], 0, "NONE"];
+		_hs setDir (markerDir _x);
+		_hs setPosATL (getMarkerPos _x);
+		_var = createVehicle ["Land_Hospital_side1_F", [0,0,0], [], 0, "NONE"];
+		_var attachTo [_hs, [4.69775,32.6045,-0.1125]];
+		detach _var;
+		_var = createVehicle ["Land_Hospital_side2_F", [0,0,0], [], 0, "NONE"];
+		_var attachTo [_hs, [-28.0336,-10.0317,0.0889387]];
+		detach _var;
+		if (worldName isEqualTo "Tanoa") then {
+			if (_forEachIndex isEqualTo 0) then {
+				atm_hospital_2 setPos (_var modelToWorld [4.48633,0.438477,-8.25683]);
+				vendor_hospital_2 setPos (_var modelToWorld [4.48633,0.438477,-8.25683]);
+				"medic_spawn_3" setMarkerPos (_var modelToWorld [8.01172,-5.47852,-8.20022]);
+				"med_car_2" setMarkerPos (_var modelToWorld [8.01172,-5.47852,-8.20022]);
+				hospital_assis_2 setPos (_hs modelToWorld [0.0175781,0.0234375,-0.231956]);
+			} else {
+				atm_hospital_3 setPos (_var modelToWorld [4.48633,0.438477,-8.25683]);
+				vendor_hospital_3 setPos (_var modelToWorld [4.48633,0.438477,-8.25683]);
+				"medic_spawn_1" setMarkerPos (_var modelToWorld [-1.85181,-6.07715,-8.24944]);
+				"med_car_1" setMarkerPos (_var modelToWorld [5.9624,11.8799,-8.28493]);
+				hospital_assis_2 setPos (_hs modelToWorld [0.0175781,0.0234375,-0.231956]);
+			};
+		};
+	} forEach ["hospital_2","hospital_3"];
+};
 
 {
     if (!isPlayer _x) then {
@@ -214,5 +224,5 @@ life_attachment_point setVectorDirAndUp [[0,1,0], [0,0,1]];
 publicVariable "life_attachment_point";
 
 diag_log "----------------------------------------------------------------------------------------------------";
-diag_log format ["               End of Altis Life Server Init :: Total Execution Time %1 seconds ",(diag_tickTime) - _timeStamp];
+diag_log format ["               End of PDL Server Init :: Total Execution Time %1 seconds ",(diag_tickTime) - _timeStamp];
 diag_log "----------------------------------------------------------------------------------------------------";
