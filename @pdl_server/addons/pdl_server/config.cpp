@@ -1,20 +1,39 @@
 class DefaultEventhandlers;
+
 class CfgPatches {
-    class life_server {
+    class pdl_server {
         units[] = {"C_man_1"};
         weapons[] = {};
         requiredAddons[] = {"A3_Data_F","A3_Soft_F","A3_Soft_F_Offroad_01","A3_Characters_F"};
-        fileName = "life_server.pbo";
-        author = "Tonic";
-    };
+        fileName = "pdl_server.pbo";
+        author[] = {"Tonic", "Modified by Die Liga Team"};
+    };	
+	class extDB3
+	{
+		projectName="extDB3";
+		author="Torndeco";
+		version="1.032";
+		requiredAddons[] = {};
+		units[] = {};
+	};
 };
 
 class CfgFunctions {
+	
+	class extDB3
+	{
+		class system
+		{
+			file = "\pdl_server\extDB3";
+			class preInit {preInit = 1;};
+		};
+	};
+	
     class MySQL_Database {
         tag = "DB";
         class MySQL
         {
-            file = "\life_server\Functions\MySQL";
+            file = "\pdl_server\Functions\MySQL";
             class numberSafe {};
             class mresArray {};
             class queryRequest{};
@@ -32,7 +51,7 @@ class CfgFunctions {
     class Life_System {
         tag = "life";
         class Wanted_Sys {
-            file = "\life_server\Functions\WantedSystem";
+            file = "\pdl_server\Functions\WantedSystem";
             class wantedFetch {};
             class wantedPerson {};
             class wantedBounty {};
@@ -43,19 +62,19 @@ class CfgFunctions {
         };
 
         class Jail_Sys {
-            file = "\life_server\Functions\Jail";
+            file = "\pdl_server\Functions\Jail";
             class jailSys {};
         };
 
         class Client_Code {
-            file = "\life_server\Functions\Client";
+            file = "\pdl_server\Functions\Client";
         };
     };
 
     class TON_System {
         tag = "TON";
         class Systems {
-            file = "\life_server\Functions\Systems";
+            file = "\pdl_server\Functions\Systems";
             class managesc {};
             class cleanup {};
             class huntingZone {};
@@ -80,7 +99,7 @@ class CfgFunctions {
         };
 
         class Housing {
-            file = "\life_server\Functions\Housing";
+            file = "\pdl_server\Functions\Housing";
             class addHouse {};
             class addContainer {};
             class deleteDBContainer {};
@@ -95,7 +114,7 @@ class CfgFunctions {
         };
 
         class Gangs {
-            file = "\life_server\Functions\Gangs";
+            file = "\pdl_server\Functions\Gangs";
             class insertGang {};
             class queryPlayerGang {};
             class removeGang {};
@@ -103,12 +122,12 @@ class CfgFunctions {
         };
 
         class Actions {
-            file = "\life_server\Functions\Actions";
+            file = "\pdl_server\Functions\Actions";
             class pickupAction {};
         };
 
         class PlayTime {
-            file = "\life_server\Functions\PlayTime";
+            file = "\pdl_server\Functions\PlayTime";
             class setPlayTime {};
             class getPlayTime {};
         };
@@ -125,7 +144,7 @@ class CfgVehicles {
 
     class C_man_1 : Civilian_F {
         class EventHandlers: EventHandlers {
-            init = "(_this select 0) execVM ""\life_server\fix_headgear.sqf""";
+            init = "(_this select 0) execVM ""\pdl_server\fix_headgear.sqf""";
         };
     };
 };

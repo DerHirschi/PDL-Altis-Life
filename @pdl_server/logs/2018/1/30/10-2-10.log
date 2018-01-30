@@ -1,0 +1,31 @@
+
+extDB3: https://bitbucket.org/torndeco/extdb3/wiki/Home
+extDB3: Version: 1.032
+extDB3: Windows Version
+Message: All development for extDB3 is done on a Linux Dedicated Server
+Message: If you would like to Donate to extDB3 Development
+Message: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2SUEFTGABTAM2
+Message: Also leave a message if there is any particular feature you would like to see added.
+Message: Thanks for all the people that have donated.
+Message: Torndeco: 18/05/15
+
+
+extDB3: Found extdb3-conf.ini
+extDB3: Detected 12 Cores, Setting up 6 Worker Threads
+extDB3: ...
+extDB3: ...
+extDB3: ...
+extDB3: ...
+extDB3: ...
+extDB3: ...
+
+
+[10:02:12:350285 +01:00] [Thread 6148] extDB3: SQL: Initialized: Add Quotes around TEXT Datatypes mode: 2
+[10:02:12:350285 +01:00] [Thread 6148] extDB3: SQL: Initialized: NULL = ""
+[10:02:12:350285 +01:00] [Thread 6148] extDB3: Locked
+[10:02:12:362285 +01:00] [Thread 9836] extDB3: SQL: Error MariaDBQueryException: DELETE command denied to user 'arma3'@'localhost' for table 'vehicles'
+[10:02:12:362285 +01:00] [Thread 9192] extDB3: SQL: Error MariaDBQueryException: DELETE command denied to user 'arma3'@'localhost' for table 'houses'
+[10:02:12:362285 +01:00] [Thread 9836] extDB3: SQL: Error MariaDBQueryException: Input: CALL deleteDeadVehicles
+[10:02:12:362285 +01:00] [Thread 9192] extDB3: SQL: Error MariaDBQueryException: Input: CALL deleteOldHouses
+[10:02:12:364286 +01:00] [Thread 9860] extDB3: SQL: Error MariaDBQueryException: DELETE command denied to user 'arma3'@'localhost' for table 'gangs'
+[10:02:12:364286 +01:00] [Thread 9860] extDB3: SQL: Error MariaDBQueryException: Input: CALL deleteOldGangs

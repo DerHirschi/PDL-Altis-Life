@@ -10,19 +10,36 @@ class CfgPatches
         units[] = {};
         weapons[] = {};
         requiredAddons[] = {"A3_Data_F"};
-        fileName = "life_hc.pbo";
-        author[] = {"Nanou"};
+        fileName = "pdl_hc.pbo";
+        author[] = {"Nanou", "Modified by Die Liga Team"};
     };
+	class extDB3
+	{
+		projectName="extDB3";
+		author="Torndeco";
+		version="1.032";
+		requiredAddons[] = {};
+		units[] = {};
+	};
 };
 
 class CfgFunctions
 {
+	class extDB3
+	{
+		class system
+		{
+			file = "\pdl_hc\extDB3";
+			class preInit {preInit = 1;};
+		};
+	};
+	
     class Headless_Client
     {
         tag = "HC";
         class General
         {
-            file = "\life_hc\MySQL\General";
+            file = "\pdl_hc\MySQL\General";
             class asyncCall {};
             class bool {};
             class insertRequest {};
@@ -41,14 +58,14 @@ class CfgFunctions
 
         class PlayTime
         {
-            file = "\life_hc\MySQL\PlayTime";
+            file = "\pdl_hc\MySQL\PlayTime";
             class getPlayTime {};
             class setPlayTime {};
         };
 
         class Housing
         {
-            file = "\life_hc\MySQL\Housing";
+            file = "\pdl_hc\MySQL\Housing";
             class addContainer {};
             class addHouse {};
             class deleteDBContainer {};
@@ -63,7 +80,7 @@ class CfgFunctions
 
         class Gangs
         {
-            file = "\life_hc\MySQL\Gangs";
+            file = "\pdl_hc\MySQL\Gangs";
             class insertGang {};
             class queryPlayerGang {};
             class removeGang {};
@@ -72,7 +89,7 @@ class CfgFunctions
 
         class Vehicles
         {
-            file = "\life_hc\MySQL\Vehicles";
+            file = "\pdl_hc\MySQL\Vehicles";
             class chopShopSell {};
             class getVehicles {};
             class spawnVehicle {};
@@ -85,7 +102,7 @@ class CfgFunctions
 
         class Wanted_Sys
         {
-            file = "\life_hc\MySQL\WantedSystem";
+            file = "\pdl_hc\MySQL\WantedSystem";
             class wantedFetch {};
             class wantedPerson {};
             class wantedBounty {};
@@ -97,13 +114,13 @@ class CfgFunctions
 
         class Jail
         {
-            file = "\life_hc\MySQL\Jail";
+            file = "\pdl_hc\MySQL\Jail";
             class jailSys;
         };
 
         class Items
         {
-            file = "\life_hc\MySQL\Items";
+            file = "\pdl_hc\MySQL\Items";
             class spikeStrip {};
         };
 
