@@ -1,3 +1,5 @@
+#define true 1
+#define false 0
 /*
 *    FORMAT:
 *        STRING (Conditions) - Must return boolean :

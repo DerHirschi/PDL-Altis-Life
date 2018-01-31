@@ -77,6 +77,18 @@ class CfgSounds {
         sound[] = {"\sounds\carUnlock.ogg", 0.75, 1};
         titles[] = {};
     };
+
+	class eat {
+		name = "eat";
+		sound[] = {"\sounds\eat.ogg", 1, 1};
+		titles[] = {};
+	};
+	
+	class drink	{
+		name = "drink";
+		sound[] = {"\sounds\drink.ogg", 2, 1};
+		titles[] = {};
+	};
 };
 
 class CfgDebriefing {
