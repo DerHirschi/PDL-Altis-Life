@@ -137,7 +137,7 @@ class VirtualShops {
 *        buyPrice = Item Buy Price
 *        sellPrice = Item Sell Price
 *        illegal = Illegal Item
-*        edible = Item Edible (-1 = Disabled)
+*        essbar = Item essbar (-1 = Disabled)
 *        icon = Item Icon
 *        processedItem = Processed Item
 */
@@ -146,47 +146,122 @@ class VirtualItems {
 
     //Misc
     class pickaxe {
-        variable = "pickaxe";
+        variable 	= "pickaxe";
         displayName = "STR_Item_Pickaxe";
-        weight = 2;
-        buyPrice = 750;
-        sellPrice = 350;
-        illegal = false;
-        edible = -1;
-        icon = "icons\ico_pickaxe.paa";
+        weight 		= 2;
+        buyPrice 	= 750;
+        sellPrice 	= 350;
+        illegal 	= false;
+		
+		saveable	= true;
+		closeDiag	= true;
+
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = + 0.5
+		
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+        
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "[]spawn { life_action_gathering 	= true; _handle = []spawn life_fnc_whereAmI; waitUntil {scriptDone _handle}; life_action_gathering 	= false;	";       
+	
+		hinttext	= "STR_USE_WIN";
+		titletext	= "";
+
+        icon 		= "icons\ico_pickaxe.paa";
+		sound 		= "";
+
     };
 
     class defibrillator {
-        variable = "defibrillator";
+        variable 	= "defibrillator";
         displayName = "STR_Item_Defibrillator";
-        weight = 4;
-        buyPrice = 900;
-        sellPrice = 450;
-        illegal = false;
-        edible = -1;
-        icon = "icons\ico_defibrillator.paa";
+        weight 		= 4;
+        buyPrice 	= 900;
+        sellPrice 	= 450;
+        illegal 	= false;
+		
+		saveable	= true;
+		closeDiag	= true;
+		
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = + 0.5
+		
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+		
+        icon 		= "icons\ico_defibrillator.paa";
+		sound 		= "";
     };
 
     class toolkit {
-        variable = "toolkit";
+        variable 	= "toolkit";
         displayName = "STR_Item_Toolkit";
-        weight = 4;
-        buyPrice = 350;
-        sellPrice = 100;
-        illegal = false;
-        edible = -1;
-        icon = "\a3\weapons_f\items\data\UI\gear_toolkit_ca.paa";
+        weight 		= 4;
+        buyPrice 	= 350;
+        sellPrice 	= 100;
+        illegal 	= false;
+
+		saveable	= true;
+		closeDiag	= true;
+		
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = + 0.5
+		
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+        
+		icon 		= "\a3\weapons_f\items\data\UI\gear_toolkit_ca.paa";
+		sound 		= "";
     };
 
     class fuelEmpty {
-        variable = "fuelEmpty";
+        variable 	= "fuelEmpty";
         displayName = "STR_Item_FuelE";
-        weight = 2;
-        buyPrice = -1;
-        sellPrice = 10;
-        illegal = false;
-        edible = -1;
-        icon = "icons\ico_fuelEmpty.paa";
+        weight 		= 2;
+        buyPrice 	= -1;
+        sellPrice 	= 10;
+        illegal 	= false;
+
+		saveable	= true;
+		closeDiag	= true;
+		
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = + 0.5
+		
+
+        verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+        
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "if (!(life_is_processing)) exitWith { closeDialog 0; [ObjNull,'','','methy'] spawn life_fnc_processAction;};	";       
+
+		hinttext	= "";
+		titletext	= "";
+		
+		
+        icon 		= "icons\ico_fuelEmpty.paa";
+		sound 		= "";
     };
 
     class fuelFull {
@@ -196,8 +271,26 @@ class VirtualItems {
         buyPrice = 850;
         sellPrice = 500;
         illegal = false;
-        edible = -1;
-        icon = "icons\ico_fuel.paa";
+		
+		saveable	= true;
+		closeDiag	= true;
+		
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = + 0.5
+
+        verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+        
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "if(vehicle player != player) exitWith {hint localize 'STR_ISTR_RefuelInVehicle'};		[] spawn life_fnc_jerryRefuel;	";       
+		hinttext	= "";
+		titletext	= "";
+		
+		
+        icon 		= "icons\ico_fuel.paa";
+		sound 		= "";
     };
 
     class spikeStrip {
@@ -207,8 +300,24 @@ class VirtualItems {
         buyPrice = 2500;
         sellPrice = 1200;
         illegal = true;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_spikeStrip.paa";
+		sound 		= "";
     };
 
     class lockpick {
@@ -218,8 +327,23 @@ class VirtualItems {
         buyPrice = 150;
         sellPrice = 75;
         illegal = true;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_lockpick.paa";
+		sound 		= "";
     };
 
     class goldbar {
@@ -229,8 +353,23 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = 95000;
         illegal = true;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_goldBar.paa";
+		sound 		= "";
     };
 
     class blastingcharge {
@@ -240,8 +379,23 @@ class VirtualItems {
         buyPrice = 35000;
         sellPrice = 10000;
         illegal = true;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_blastingCharge.paa";
+		sound 		= "";
     };
 
     class boltcutter {
@@ -251,8 +405,23 @@ class VirtualItems {
         buyPrice = 7500;
         sellPrice = 1000;
         illegal = true;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_boltCutter.paa";
+		sound 		= "";
     };
 
     class defusekit {
@@ -262,8 +431,23 @@ class VirtualItems {
         buyPrice = 2500;
         sellPrice = 2000;
         illegal = true;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_defuseKit.paa";
+		sound 		= "";
     };
 
     class storagesmall {
@@ -273,8 +457,23 @@ class VirtualItems {
         buyPrice = 75000;
         sellPrice = 50000;
         illegal = false;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_storageSmall.paa";
+		sound 		= "";
     };
 
     class storagebig {
@@ -284,8 +483,23 @@ class VirtualItems {
         buyPrice = 150000;
         sellPrice = 125000;
         illegal = false;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_storageBig.paa";
+		sound 		= "";
     };
 
     //Mined Items
@@ -296,8 +510,23 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = -1;
         illegal = false;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_oilUnprocessed.paa";
+		sound 		= "";
     };
 
     class oil_processed {
@@ -307,8 +536,23 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = 3200;
         illegal = false;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_oilProcessed.paa";
+		sound 		= "";
     };
 
     class copper_unrefined {
@@ -318,8 +562,23 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = -1;
         illegal = false;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_copperOre.paa";
+		sound 		= "";
     };
 
     class copper_refined {
@@ -329,8 +588,23 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = 1500;
         illegal = false;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_copper.paa";
+		sound 		= "";
     };
 
     class iron_unrefined {
@@ -340,8 +614,23 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = -1;
         illegal = false;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_ironOre.paa";
+		sound 		= "";
     };
 
     class iron_refined {
@@ -351,8 +640,23 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = 3200;
         illegal = false;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_iron.paa";
+		sound 		= "";
     };
 
     class salt_unrefined {
@@ -362,8 +666,23 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = -1;
         illegal = false;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_saltUnprocessed.paa";
+		sound 		= "";
     };
 
     class salt_refined {
@@ -373,8 +692,23 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = 1450;
         illegal = false;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_saltProcessed.paa";
+		sound 		= "";
     };
 
     class sand {
@@ -384,8 +718,23 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = -1;
         illegal = false;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_sand.paa";
+		sound 		= "";
     };
 
     class glass {
@@ -395,8 +744,23 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = 1450;
         illegal = false;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_glass.paa";
+		sound 		= "";
     };
 
     class diamond_uncut {
@@ -406,8 +770,23 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = 750;
         illegal = false;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_diamondUncut.paa";
+		sound 		= "";
     };
 
     class diamond_cut {
@@ -417,8 +796,23 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = 2000;
         illegal = false;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_diamondCut.paa";
+		sound 		= "";
     };
 
     class rock {
@@ -428,8 +822,23 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = -1;
         illegal = false;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_rock.paa";
+		sound 		= "";
     };
 
     class cement {
@@ -439,8 +848,23 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = 1950;
         illegal = false;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_cement.paa";
+		sound 		= "";
     };
 
     //Drugs
@@ -451,9 +875,24 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = -1;
         illegal = true;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_heroinUnprocessed.paa";
         processedItem = "heroin_processed";
+		sound 		= "";
     };
 
     class heroin_processed {
@@ -463,8 +902,23 @@ class VirtualItems {
         buyPrice = 3500;
         sellPrice = 2560;
         illegal = true;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_heroinProcessed.paa";
+		sound 		= "";
     };
 
     class cannabis {
@@ -474,9 +928,24 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = -1;
         illegal = true;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_cannabis.paa";
         processedItem = "marijuana";
+		sound 		= "";
     };
 
     class marijuana {
@@ -486,8 +955,23 @@ class VirtualItems {
         buyPrice = 2800;
         sellPrice = 2350;
         illegal = true;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_marijuana.paa";
+		sound 		= "";
     };
 
     class cocaine_unprocessed {
@@ -497,9 +981,24 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = -1;
         illegal = true;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_cocaineUnprocessed.paa";
         processedItem = "cocaine_processed";
+		sound 		= "";
     };
 
     class cocaine_processed {
@@ -509,43 +1008,142 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = 5000;
         illegal = true;
-        edible = -1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_cocaineProcessed.paa";
+		sound 		= "";
     };
 
     //Drink
     class redgull {
-        variable = "redgull";
+        variable 	= "redgull";
         displayName = "STR_Item_RedGull";
-        weight = 1;
-        buyPrice = 1500;
-        sellPrice = 200;
-        illegal = false;
-        edible = 100;
-        icon = "icons\ico_redgull.paa";
+        weight 		= 1;
+        buyPrice 	= 1500;
+        sellPrice 	= 200;
+        illegal 	= false;
+		
+		saveable	= true;
+		closeDiag	= true;
+	
+        essbar 		= -1;
+        trinkbar 	= 100;
+		gulltime 	= 3;
+		fat			= 1;	// 0.5 = - 0.5
+
+        verbrauch 	= 1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+        
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		hinttext	= "";
+		titletext	= "";
+
+		icon 		= "icons\ico_redgull.paa";
+        sound 		= "drink";
+
     };
 
     class coffee {
-        variable = "coffee";
+        variable 	= "coffee";
         displayName = "STR_Item_Coffee";
-        weight = 1;
-        buyPrice = 10;
-        sellPrice = 5;
-        illegal = false;
-        edible = 100;
-        icon = "icons\ico_coffee.paa";
+        weight 		= 1;
+        buyPrice 	= 10;
+        sellPrice 	= 5;
+        illegal 	= false;
+
+		saveable	= true;
+		closeDiag	= true;
+		
+        essbar 		= -1;
+        trinkbar 	= 100;
+		gulltime 	= 2;
+		fat			= 1;	// 0.5 = - 0.5
+
+        verbrauch 	= 1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+        
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		hinttext	= "";
+		titletext	= "";
+
+		icon 		= "icons\ico_coffee.paa";
+        sound 		= "drink";
+
     };
 
     class waterBottle {
-        variable = "waterBottle";
+        variable 	= "waterBottle";
         displayName = "STR_Item_WaterBottle";
-        weight = 1;
-        buyPrice = 10;
-        sellPrice = 5;
-        illegal = false;
-        edible = 100;
-        icon = "icons\ico_waterBottle.paa";
+        weight 		= 1;
+        buyPrice 	= 10;
+        sellPrice 	= 5;
+        illegal 	= false;
+
+		saveable	= true;
+		closeDiag	= true;
+		
+        essbar 		= -1;
+        trinkbar 	= 65;
+		gulltime 	= -1;
+		fat			= 1;	// 0.5 = - 0.5
+
+        verbrauch 	= 1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+        
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		hinttext	= "";
+		titletext	= "";
+		
+        icon 		= "icons\ico_waterBottle.paa";
+		sound 		= "drink";
     };
+
+	class eBottle {
+        variable 	= "eBottle";
+        displayName = "STR_Item_EWaterBottle";        
+        buyPrice 	= 2250;
+        sellPrice 	= 1600;
+        illegal 	= -1;
+        		
+		saveable	= true;
+		closeDiag	= true;
+		
+		weight 		= 1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+
+        verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"a10",1},{"",-1}}	ITEM,stk		
+        
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        // useablefnc	= "if (!(life_is_processing)) exitWith {  [ObjNull,'','','moon'] spawn life_fnc_processAction; playSound 'FlBef';};";       
+        useablefnc	= "";       
+		hinttext	= "";
+		titletext	= "";
+
+		icon 		= "icons\flasche.paa";
+        sound 		= "";
+    };		
+
 
     //Food
     class apple {
@@ -555,8 +1153,26 @@ class VirtualItems {
         buyPrice = 65;
         sellPrice = 50;
         illegal = false;
-        edible = 10;
-        icon = "icons\ico_apple.paa";
+        		
+		saveable	= true;
+		closeDiag	= true;
+		
+        essbar 		= 10;
+        trinkbar 	= 2;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+
+        verbrauch 	= 1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+        
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		hinttext	= "";
+		titletext	= "";
+
+		icon 		= "icons\ico_apple.paa";
+        sound 		= "eat";
+
     };
 
     class peach {
@@ -566,8 +1182,25 @@ class VirtualItems {
         buyPrice = 68;
         sellPrice = 55;
         illegal = false;
-        edible = 10;
-        icon = "icons\ico_peach.paa";
+
+		saveable	= true;
+		closeDiag	= true;
+		
+        essbar 		= 12;
+        trinkbar 	= 3;
+		gulltime 	= -1;
+		fat			= 0.2;	// 0.5 = - 0.5
+
+        verbrauch 	= 1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+        
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		hinttext	= "";
+		titletext	= "";
+
+		icon 		= "icons\ico_peach.paa";
+        sound 		= "eat";        
     };
 
     class tbacon {
@@ -577,8 +1210,26 @@ class VirtualItems {
         buyPrice = 75;
         sellPrice = 25;
         illegal = false;
-        edible = 40;
-        icon = "icons\ico_tBacon.paa";
+		
+		saveable	= true;
+		closeDiag	= true;
+		
+        essbar 		= 40;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+
+        verbrauch 	= 1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+        
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		hinttext	= "";
+		titletext	= "";
+
+		icon 		= "icons\ico_tBacon.paa";
+        sound 		= "eat";
+        
     };
 
     class donuts {
@@ -588,8 +1239,23 @@ class VirtualItems {
         buyPrice = 120;
         sellPrice = 60;
         illegal = false;
-        edible = 30;
-        icon = "icons\ico_donuts.paa";
+		
+		saveable	= true;
+		closeDiag	= true;
+		essbar 		= 40;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+
+        verbrauch 	= 1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+        
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		hinttext	= "";
+		titletext	= "";
+        icon 		= "icons\ico_donuts.paa";
+		sound 		= "eat";
     };
 
     class rabbit_raw {
@@ -599,8 +1265,21 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = 95;
         illegal = false;
-        edible = -1;
+        essbar = -1;
+		trinkbar 	= -1;
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_rabbitRaw.paa";
+		sound 		= "";
     };
 
     class rabbit {
@@ -610,8 +1289,21 @@ class VirtualItems {
         buyPrice = 150;
         sellPrice = 115;
         illegal = false;
-        edible = 20;
+        essbar = 20;
+		trinkbar 	= -1;
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_rabbit.paa";
+		sound 		= "";
     };
 
     class salema_raw {
@@ -621,8 +1313,21 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = 45;
         illegal = false;
-        edible = -1;
+        essbar = -1;
+		trinkbar 	= -1;
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_salemaRaw.paa";
+		sound 		= "";
     };
 
     class salema {
@@ -632,8 +1337,21 @@ class VirtualItems {
         buyPrice = 75;
         sellPrice = 55;
         illegal = false;
-        edible = 30;
+        essbar = 30;
+		trinkbar 	= -1;
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_cookedFish.paa";
+		sound 		= "";
     };
 
     class ornate_raw {
@@ -643,8 +1361,21 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = 40;
         illegal = false;
-        edible = -1;
+        essbar = -1;
+		trinkbar 	= -1;
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_ornateRaw.paa";
+		sound 		= "";
     };
 
     class ornate {
@@ -654,8 +1385,21 @@ class VirtualItems {
         buyPrice = 175;
         sellPrice = 150;
         illegal = false;
-        edible = 25;
+        essbar = 25;
+		trinkbar 	= -1;
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_cookedFish.paa";
+		sound 		= "";
     };
 
     class mackerel_raw {
@@ -665,8 +1409,21 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = 175;
         illegal = false;
-        edible = -1;
+        essbar = -1;
+		trinkbar 	= -1;
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_mackerelRaw.paa";
+		sound 		= "";
     };
 
     class mackerel {
@@ -676,8 +1433,21 @@ class VirtualItems {
         buyPrice = 250;
         sellPrice = 200;
         illegal = false;
-        edible = 30;
+        essbar = 30;
+		trinkbar 	= -1;
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_cookedFish.paa";
+		sound 		= "";
     };
 
     class tuna_raw {
@@ -687,8 +1457,21 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = 700;
         illegal = false;
-        edible = -1;
+        essbar = -1;
+		trinkbar 	= -1;
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_tunaRaw.paa";
+		sound 		= "";
     };
 
     class tuna {
@@ -698,8 +1481,21 @@ class VirtualItems {
         buyPrice = 1250;
         sellPrice = 1000;
         illegal = false;
-        edible = 100;
+        essbar = 100;
+		trinkbar 	= -1;
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_cookedFish.paa";
+		sound 		= "";
     };
 
     class mullet_raw {
@@ -709,8 +1505,21 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = 250;
         illegal = false;
-        edible = -1;
+        essbar = -1;
+		trinkbar 	= -1;
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_mulletRaw.paa";
+		sound 		= "";
     };
 
     class mullet {
@@ -720,8 +1529,21 @@ class VirtualItems {
         buyPrice = 600;
         sellPrice = 400;
         illegal = false;
-        edible = 80;
+        essbar = 80;
+		trinkbar 	= -1;
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_cookedFish.paa";
+		sound 		= "";
     };
 
     class catshark_raw {
@@ -731,8 +1553,21 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = 300;
         illegal = false;
-        edible = -1;
+        essbar = -1;
+		trinkbar 	= -1;
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_catsharkRaw.paa";
+		sound 		= "";
     };
 
     class catshark {
@@ -742,8 +1577,21 @@ class VirtualItems {
         buyPrice = 750;
         sellPrice = 500;
         illegal = false;
-        edible = 100;
+        essbar = 100;
+		trinkbar 	= -1;
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_cookedFish.paa";
+		sound 		= "";
     };
 
     class turtle_raw {
@@ -753,8 +1601,21 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = 3000;
         illegal = true;
-        edible = -1;
+        essbar = -1;
+		trinkbar 	= -1;
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_turtleRaw.paa";
+		sound 		= "";
     };
 
     class turtle_soup {
@@ -764,8 +1625,21 @@ class VirtualItems {
         buyPrice = 1000;
         sellPrice = 750;
         illegal = false;
-        edible = 100;
+        essbar = 100;
+		trinkbar 	= 40;
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_turtleSoup.paa";
+		sound 		= "";
     };
 
     class hen_raw {
@@ -775,8 +1649,21 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = 65;
         illegal = false;
-        edible = -1;
+        essbar = -1;
+		trinkbar 	= -1;
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_wholeChickenRaw.paa";
+		sound 		= "";
     };
 
     class hen {
@@ -786,8 +1673,21 @@ class VirtualItems {
         buyPrice = 115;
         sellPrice = 85;
         illegal = false;
-        edible = 65;
+        essbar = 65;
+		trinkbar 	= -1;
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_wholeChicken.paa";
+		sound 		= "";
     };
 
     class rooster_raw {
@@ -797,8 +1697,21 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = 65;
         illegal = false;
-        edible = -1;
+        essbar = -1;
+		trinkbar 	= -1;
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_chickenDrumstickRaw.paa";
+		sound 		= "";
     };
 
     class rooster {
@@ -808,8 +1721,21 @@ class VirtualItems {
         buyPrice = 90;
         sellPrice = 85;
         illegal = false;
-        edible = 45;
+        essbar = 45;
+		trinkbar 	= -1;
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_chickenDrumstick.paa";
+		sound 		= "";
     };
 
     class sheep_raw {
@@ -819,8 +1745,21 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = 95;
         illegal = false;
-        edible = -1;
+        essbar = -1;
+		trinkbar 	= -1;
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_lambChopRaw.paa";
+		sound 		= "";
     };
 
     class sheep {
@@ -830,8 +1769,21 @@ class VirtualItems {
         buyPrice = 155;
         sellPrice = 115;
         illegal = false;
-        edible = 100;
+        essbar = 100;
+		trinkbar 	= -1;
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_lambChop.paa";
+		sound 		= "";
     };
 
     class goat_raw {
@@ -841,8 +1793,21 @@ class VirtualItems {
         buyPrice = -1;
         sellPrice = 115;
         illegal = false;
-        edible = -1;
+        essbar = -1;
+		trinkbar 	= -1;
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_muttonLegRaw.paa";
+		sound 		= "";
     };
 
     class goat {
@@ -852,7 +1817,21 @@ class VirtualItems {
         buyPrice = 175;
         sellPrice = 135;
         illegal = false;
-        edible = 100;
+        essbar = 100;
+		trinkbar 	= -1;
+		saveable	= true;
+		closeDiag	= true;
+	    verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+		
+		hinttext	= "";
+		titletext	= "";
+
         icon = "icons\ico_muttonLeg.paa";
+		sound 		= "";
+
     };
 };

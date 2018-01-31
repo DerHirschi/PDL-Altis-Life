@@ -3958,6 +3958,28 @@
             <Portuguese>Não foi possível adicionar o item ao seu inventário</Portuguese>
             <Polish>Nie można dodać tego do twojego wyposażenia</Polish>
         </Key>
+		<Key ID="STR_USE_WIN">
+            <Original></Original>
+            <Czech></Czech>
+            <Spanish></Spanish>
+            <Russian></Russian>
+            <German>Du kannst auch die Windows-Taste benutzen ....</German>
+            <French></French>
+            <Italian></Italian>
+            <Portuguese></Portuguese>
+            <Polish></Polish>
+        </Key>		
+		<Key ID="STR_EatMSG_toMuch">
+            <Original></Original>
+            <Czech></Czech>
+            <Spanish></Spanish>
+            <Russian></Russian>
+            <German>Du hast dich überfressen und fühlst dich müde!</German>
+            <French></French>
+            <Italian></Italian>
+            <Portuguese></Portuguese>
+            <Polish></Polish>
+        </Key>
         <Key ID="STR_NOTF_EatMSG_1">
             <Original>You haven't eaten anything in awhile, You should find something to eat soon!</Original>
             <Czech>Jste nejedli nic za čas, byste měli najít něco k jídlu brzy!</Czech>
@@ -6666,6 +6688,17 @@
             <Spanish>Botella de Agua</Spanish>
             <Russian></Russian>
             <German>Wasserflasche</German>
+            <French>Bouteille d'eau</French>
+            <Italian>Bottiglia d'acqua</Italian>
+            <Portuguese>Garrafa d'água</Portuguese>
+            <Polish>Butelka wody</Polish>
+        </Key>
+        <Key ID="STR_Item_EWaterBottle">
+            <Original>empty Bottle</Original>
+            <Czech>Láhev na vodu</Czech>
+            <Spanish>Botella de Agua</Spanish>
+            <Russian></Russian>
+            <German>leere Flasche</German>
             <French>Bouteille d'eau</French>
             <Italian>Bottiglia d'acqua</Italian>
             <Portuguese>Garrafa d'água</Portuguese>

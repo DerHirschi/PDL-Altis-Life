@@ -2,6 +2,7 @@
 /*
     File: fn_handleInv.sqf
     Author: Bryan "Tonic" Boardwine
+	Edit: MasTo - Die Liga
 
     Description:
     Do I really need one?
@@ -11,6 +12,7 @@ _math = [_this,0,false,[false]] call BIS_fnc_param; //true = add; false = SUB;
 _item = [_this,1,"",[""]] call BIS_fnc_param; //The item we are using to add or remove.
 _num = [_this,2,0,[0]] call BIS_fnc_param; //Number of items to add or remove.
 if (_item isEqualTo "" || _num isEqualTo 0) exitWith {false};
+if (_num isEqualTo -1) exitWith {true};
 
 _var = ITEM_VARNAME(_item);
 

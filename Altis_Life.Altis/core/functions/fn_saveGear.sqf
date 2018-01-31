@@ -4,13 +4,18 @@
     Author: Bryan "Tonic" Boardwine
     Full Gear/Y-Menu Save by Vampire
     Edited: Itsyuka
+	Edited: Hirschi - Die Liga
 
     Description:
     Saves the players gear for syncing to the database for persistence..
 */
 private ["_return","_uItems","_bItems","_vItems","_pItems","_hItems","_yItems","_uMags","_vMags","_bMags","_pMag","_hMag","_uni","_ves","_bag","_handled","_savedVirtualItems"];
 _return = [];
-_savedVirtualItems = LIFE_SETTINGS(getArray,"saved_virtualItems");
+{
+	if( (M_CONFIG(getNumber,"VirtualItems",(configName _x),"saveable") ) isEqualTo 1 ) then {
+		_savedVirtualItems pushBack (configName _x);
+	};	
+} forEach ("true" configClasses (missionConfigFile >> "VirtualLigaItems"));
 
 _return pushBack uniform player;
 _return pushBack vest player;
