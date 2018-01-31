@@ -4,8 +4,9 @@
 	
 	Cop Login
 	LIFE_fnc_jobLogin
+	TODO
 */
-
+liga_cop_on = false; //Dummy
 if(rebel)exitWith{hint "Du bist Rebell ... ";};
 		
 if!(liga_cop_on) then {
@@ -22,7 +23,7 @@ if!(liga_cop_on) then {
 	}else{
 		[player] join liga_cop_group;
 	};	
-	switch(__GETC__(life_coplevel)) do
+	switch([]call life_coplevel) do
 	 {
 		case 1: {life_paycheck = life_paycheck + 1000;};
 		case 2: {life_paycheck = life_paycheck + 2000;};
@@ -36,14 +37,14 @@ if!(liga_cop_on) then {
 		case 10: {life_paycheck = life_paycheck + 10000;};
 		case 11: {life_paycheck = life_paycheck + 11000;};
 	};	
-	player SVAR["rank",(__GETC__(life_coplevel)),true];
+	player setVariable["rank",([]call life_coplevel),true];
 	hint parseText format["<t align='center'><t color='#15C30C'><t size='3'>Angemeldet</t></t></t><br/><br/><t size='1.3'><t align='left'>Du hast dich angemeldet. <br/><br/>Ruhige Schicht ...<br/>"];
 	[player,false,civilian] remoteExecCall ["TON_fnc_managesc",RSERV];
 	[player,true,west] remoteExecCall ["TON_fnc_managesc",RSERV];
 }else{
 	liga_cop_on = false;
 	hint parseText format["<t align='center'><t color='#E0163B'><t size='3'>Abgemeldet</t></t></t><br/><br/><t size='1.3'><t align='left'>Du hast dich abgemeldet. <br/> <br/>  Schönen Feierabend ...<br/>"];
-	if(!(EQUAL(count life_gangData,0))) then {
+	if(!(count life_gangData isEqualTo 0)) then {
 		[player] join (createGroup civilian);
 		[] spawn life_fnc_initGang;
 	}else{

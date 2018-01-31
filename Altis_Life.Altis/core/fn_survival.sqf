@@ -52,7 +52,7 @@ _fnc_bp = {
 
 	_vp = vest player;
 	_bp = backpack player;	
-	if((_bp isEqualTo "") && (_vp isEqualTo "")) exitWith {life_maxWeight = life_maxWeightT;};
+	if((_bp isEqualTo "") && (_vp isEqualTo "")) exitWith {life_maxWeight = LIFE_SETTINGS(getNumber,"total_maxWeight");};
 	if!((_bp isEqualTo "") && (_vp isEqualTo "")) exitWith {
 		if(!isClass (missionConfigFile >> "CfgKlamotten" >> _vp )) then {
 			_vp = "Default"; //Use Default class if it doesn't exist	
@@ -60,17 +60,17 @@ _fnc_bp = {
 		_cfg = getNumber(configFile >> "CfgVehicles" >> (_bp) >> "maximumload");		
 		_load = round(_cfg / 8);			
 		_vescfg = M_CONFIG(getNumber,"CfgKlamotten",_vp,"LigaInv");	
-		life_maxWeight = life_maxWeightT + _load + _vescfg;		
+		life_maxWeight = life_maxWeight + _load + _vescfg;		
 	};		
-	if(_bp  isEqualTo "") then  
+	if(_bp isEqualTo "") then  
 	{	
 		_vescfg = M_CONFIG(getNumber,"CfgKlamotten",_vp,"LigaInv");	
-		life_maxWeight = life_maxWeightT + _vescfg;		
+		life_maxWeight = life_maxWeight + _vescfg;		
 			
 	}else{	
 		_cfg = getNumber(configFile >> "CfgVehicles" >> (_bp) >> "maximumload");		
 		_load = round(_cfg / 8);
-		life_maxWeight = life_maxWeightT + _load;			
+		life_maxWeight = life_maxWeight + _load;			
 	};
 };	
 
