@@ -32,7 +32,7 @@ HC_DC = ["HC_Disconnected","onPlayerDisconnected",
             HC_Life = false;
             publicVariable "HC_Life";
             cleanup = [] spawn TON_fnc_cleanup;
-            cleanupFSM = [] execFSM "\life_server\FSM\cleanup.fsm";
+            cleanupFSM = [] execFSM "\pdl_server\FSM\cleanup.fsm";
             [false] call TON_fnc_transferOwnership;
             aiSpawn = ["hunting_zone",30] spawn TON_fnc_huntingZone;
             diag_log "Headless client disconnected! Broadcasted the vars!";

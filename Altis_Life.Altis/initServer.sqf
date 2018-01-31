@@ -6,4 +6,4 @@
     Starts the initialization of the server.
 */
 if (!(_this select 0)) exitWith {}; //Not server
-[] call compile preprocessFileLineNumbers "\life_server\init.sqf";
+[] call compile preprocessFileLineNumbers "\pdl_server\server_init.sqf";

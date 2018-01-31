@@ -5,13 +5,13 @@
     Master settings for various features and functionality
 */
 class Life_Settings {
-	Vers = "0.1"
+	Vers = "0.1";
 /* Logging and Security Settings*/
     /* Security Settings */
     spyGlass_toggle = true; //Spyglass On/Off Toggle --> True = On & False = Off
 
 	/* Spawn Hospitals on Map */
-	have_no_good_mapper = false
+	have_no_good_mapper = false;
 	
     /* Data Logging Settings */
     battlEye_friendlyLogging = false; //False [default] - Read the logs from the server.rpt. True - Read the logs from the publicVariable.log. NOTE: Due to how diag_log works it will log to both files either way and the setting is merely for beautification purposes.

@@ -27,8 +27,9 @@ class CfgFunctions {
 			file = "\pdl_server\extDB3";
 			class preInit {preInit = 1;};
 		};
+		
 	};
-	
+		
     class MySQL_Database {
         tag = "DB";
         class MySQL
