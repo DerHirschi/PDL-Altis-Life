@@ -187,4 +187,13 @@ class Licenses {
         illegal = false;
         side = "med";
     };
+
+	//Cop Arbeitsvertrag
+    class jobCop {
+        variable = "jobCop";
+        displayName = "STR_License_CopJob";
+        price = 15000;
+        illegal = false;
+        side = "civ";
+    };
 };

@@ -7069,6 +7069,17 @@
             <Portuguese>Licença de Piloto</Portuguese>
             <Polish>Licencja Pilota</Polish>
         </Key>
+        <Key ID="STR_License_CopJob">
+            <Original></Original>
+            <Czech></Czech>
+            <Spanish></Spanish>
+            <Russian></Russian>
+            <German>Polizeiausweis</German>
+            <French></French>
+            <Italian></Italian>
+            <Portuguese></Portuguese>
+            <Polish></Polish>
+        </Key>
         <Key ID="STR_License_Heroin">
             <Original>Heroin Training</Original>
             <Czech>heroin Training</Czech>

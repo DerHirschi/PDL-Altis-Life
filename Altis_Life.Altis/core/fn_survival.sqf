@@ -2,11 +2,12 @@
 /*
     File: fn_survival.sqf
     Author: Bryan "Tonic" Boardwine
+	Edit: MasTo - Die Liga
 
     Description:
     All survival? things merged into one thread.
 */
-private ["_fnc_food","_fnc_water","_foodTime","_waterTime","_bp","_walkDis","_lastPos","_curPos"];
+private ["_fnc_bp","_fnc_food","_fnc_water","_foodTime","_waterTime","_vp","_bp","_un","_walkDis","_lastPos","_curPos"];
 _fnc_food =  {
     if (life_hunger < 2) then {player setDamage 1; hint localize "STR_NOTF_EatMSG_Death";}
     else
@@ -46,14 +47,43 @@ _fnc_water = {
     };
 };
 
+_fnc_bp = {
+	private["_bp","_vp","_load","_cfg","_vescfg"];
+
+	_vp = vest player;
+	_bp = backpack player;	
+	if((_bp isEqualTo "") && (_vp isEqualTo "")) exitWith {life_maxWeight = life_maxWeightT;};
+	if!((_bp isEqualTo "") && (_vp isEqualTo "")) exitWith {
+		if(!isClass (missionConfigFile >> "CfgKlamotten" >> _vp )) then {
+			_vp = "Default"; //Use Default class if it doesn't exist	
+		};		
+		_cfg = getNumber(configFile >> "CfgVehicles" >> (_bp) >> "maximumload");		
+		_load = round(_cfg / 8);			
+		_vescfg = M_CONFIG(getNumber,"CfgKlamotten",_vp,"LigaInv");	
+		life_maxWeight = life_maxWeightT + _load + _vescfg;		
+	};		
+	if(_bp  isEqualTo "") then  
+	{	
+		_vescfg = M_CONFIG(getNumber,"CfgKlamotten",_vp,"LigaInv");	
+		life_maxWeight = life_maxWeightT + _vescfg;		
+			
+	}else{	
+		_cfg = getNumber(configFile >> "CfgVehicles" >> (_bp) >> "maximumload");		
+		_load = round(_cfg / 8);
+		life_maxWeight = life_maxWeightT + _load;			
+	};
+};	
+
 //Setup the time-based variables.
-_foodTime = time;
-_waterTime = time;
-_walkDis = 0;
-_bp = "";
-_lastPos = visiblePosition player;
-_lastPos = (_lastPos select 0) + (_lastPos select 1);
-_lastState = vehicle player;
+_foodTime 		= time;
+_waterTime 		= time;
+_walkDis 		= 0;
+_lastPos 		= visiblePosition player;
+_lastPos 		= (_lastPos select 0) + (_lastPos select 1);
+_lastState 		= vehicle player;
+_vp 			= "";
+_bp 			= "";
+_un 			= "";
 
 for "_i" from 0 to 1 step 0 do {
     /* Thirst / Hunger adjustment that is time based */
@@ -61,6 +91,7 @@ for "_i" from 0 to 1 step 0 do {
     if ((time - _foodTime) > 850 && {!life_god}) then {[] call _fnc_food; _foodTime = time;};
 
     /* Adjustment of carrying capacity based on backpack changes */
+	/*
     if (backpack player isEqualTo "") then {
         life_maxWeight = LIFE_SETTINGS(getNumber,"total_maxWeight");
         _bp = backpack player;
@@ -70,10 +101,20 @@ for "_i" from 0 to 1 step 0 do {
             life_maxWeight = LIFE_SETTINGS(getNumber,"total_maxWeight") + round(FETCH_CONFIG2(getNumber,"CfgVehicles",_bp,"maximumload") / 4);
         };
     };
+	*/
+	if(!(backpack player isEqualTo _bp) || !(vest player isEqualTo _vp) || !(uniform player isEqualTo _un))then	{
+		[] call _fnc_bp; 
+		[]call life_fnc_ligaSetClothText;	
+		_vp = vest player;
+		_bp = backpack player;
+		_un = uniform player;
+	};
+
 
     /* Check if the player's state changed? */
     if (!(vehicle player isEqualTo _lastState) || {!alive player}) then {
         [] call life_fnc_updateViewDistance;
+		[] call life_fnc_fuelCheck;
         _lastState = vehicle player;
     };
 
