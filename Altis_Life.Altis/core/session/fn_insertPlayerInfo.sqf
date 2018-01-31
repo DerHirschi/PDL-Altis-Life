@@ -12,7 +12,7 @@ cutText[localize "STR_Session_QueryFail","BLACK FADED"];
 0 cutFadeOut 9999999;
 private ["_bank"];
 
-switch (playerSide) do {
+switch ((side player)) do {
     case west: {
         _bank = LIFE_SETTINGS(getNumber,"bank_cop");
     };

@@ -11,7 +11,7 @@ private ["_uid","_side","_sender"];
 if (life_session_completed) exitWith {}; //Why did this get executed when the client already initialized? Fucking arma...
 _sender = player;
 _uid = getPlayerUID _sender;
-_side = playerSide;
+_side = (side player);
 cutText[format [localize "STR_Session_Query",_uid],"BLACK FADED"];
 0 cutFadeOut 999999999;
 

@@ -15,7 +15,7 @@ if (isNull _unit || _item isEqualTo "") exitWith {}; //Bad thingies?
 _restrictedClothing = LIFE_SETTINGS(getArray,"restricted_uniforms");
 _restrictedWeapons = LIFE_SETTINGS(getArray,"restricted_weapons");
 
-switch (playerSide) do
+switch ((side player)) do
 {
     case west: {
         if (_item in ["U_Rangemaster"]) then {

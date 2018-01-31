@@ -47,7 +47,7 @@ if (count (_this select 6) > 0) then {
 };
 
 //Parse side specific information.
-switch (playerSide) do {
+switch ((side player)) do {
     case west: {
         CONST(life_coplevel,(_this select 7));
         CONST(life_medicLevel,0);

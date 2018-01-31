@@ -8,7 +8,7 @@ class Life_Settings {
 	Vers = "0.1";
 /* Logging and Security Settings*/
     /* Security Settings */
-    spyGlass_toggle = true; //Spyglass On/Off Toggle --> True = On & False = Off
+    spyGlass_toggle = false; //Spyglass On/Off Toggle --> True = On & False = Off
 
 	/* Spawn Hospitals on Map */
 	have_no_good_mapper = false;

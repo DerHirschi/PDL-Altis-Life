@@ -26,7 +26,7 @@ player setVariable ["name",nil,true];
 player setVariable ["Reviving",nil,true];
 
 //Load gear for a 'new life'
-switch (playerSide) do
+switch ((side player)) do
 {
     case west: {
         _handle = [] spawn life_fnc_copLoadout;

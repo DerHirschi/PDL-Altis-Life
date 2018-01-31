@@ -21,7 +21,7 @@ disableSerialization;
 //Long boring series of checks
 if (dialog) exitWith {};
 if (_shop isEqualTo "") exitWith {};
-if (!(_sideCheck isEqualTo sideUnknown) && {!(playerSide isEqualTo _sideCheck)}) exitWith {hint localize "STR_Shop_Veh_NotAllowed"};
+if (!(_sideCheck isEqualTo sideUnknown) && {!((side player) isEqualTo _sideCheck)}) exitWith {hint localize "STR_Shop_Veh_NotAllowed"};
 
 private _conditions = M_CONFIG(getText,"CarShops",_shop,"conditions");
 if !([_conditions] call life_fnc_levelCheck) exitWith {hint localize "STR_Shop_Veh_NotAllowed"};

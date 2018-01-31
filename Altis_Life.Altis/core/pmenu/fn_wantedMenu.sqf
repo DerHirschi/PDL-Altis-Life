@@ -8,7 +8,7 @@
 */
 disableSerialization;
 
-if !(playerSide isEqualTo west) exitWith {}; // Only for cops open this menu
+if !((side player) isEqualTo west) exitWith {}; // Only for cops open this menu
 
 createDialog "life_wanted_menu";
 

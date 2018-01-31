@@ -118,7 +118,7 @@ if (LIFE_SETTINGS(getNumber,"drop_weapons_onDeath") isEqualTo 0) then {
 };
 
 //Killed by cop stuff...
-if (side _killer isEqualTo west && !(playerSide isEqualTo west)) then {
+if (side _killer isEqualTo west && !((side player) isEqualTo west)) then {
     life_copRecieve = _killer;
     //Did I rob the federal reserve?
     if (!life_use_atm && {CASH > 0}) then {
@@ -141,10 +141,10 @@ CASH = 0;
 life_is_alive = false;
 
 [] call life_fnc_hudUpdate; //Get our HUD updated.
-[player,life_settings_enableSidechannel,playerSide] remoteExecCall ["TON_fnc_manageSC",RSERV];
+[player,life_settings_enableSidechannel,(side player)] remoteExecCall ["TON_fnc_manageSC",RSERV];
 
 [0] call SOCK_fnc_updatePartial;
 [3] call SOCK_fnc_updatePartial;
-if (playerSide isEqualTo civilian) then {
+if ((side player) isEqualTo civilian) then {
     [4] call SOCK_fnc_updatePartial;
 };

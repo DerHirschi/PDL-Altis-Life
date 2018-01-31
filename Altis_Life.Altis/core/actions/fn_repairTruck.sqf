@@ -51,17 +51,17 @@ if ((_veh isKindOf "Car") || (_veh isKindOf "Ship") || (_veh isKindOf "Air")) th
 
         _sideRepairArray = LIFE_SETTINGS(getArray,"vehicle_infiniteRepair");
 
-        //Check if playerSide has infinite repair enabled
-        if (playerSide isEqualTo civilian && (_sideRepairArray select 0) isEqualTo 0) then {
+        //Check if (side player) has infinite repair enabled
+        if ((side player) isEqualTo civilian && (_sideRepairArray select 0) isEqualTo 0) then {
             [false,"toolkit",1] call life_fnc_handleInv;
         };
-        if (playerSide isEqualTo west && (_sideRepairArray select 1) isEqualTo 0) then {
+        if ((side player) isEqualTo west && (_sideRepairArray select 1) isEqualTo 0) then {
             [false,"toolkit",1] call life_fnc_handleInv;
         };
-        if (playerSide isEqualTo independent && (_sideRepairArray select 2) isEqualTo 0) then {
+        if ((side player) isEqualTo independent && (_sideRepairArray select 2) isEqualTo 0) then {
             [false,"toolkit",1] call life_fnc_handleInv;
         };
-        if (playerSide isEqualTo east && (_sideRepairArray select 3) isEqualTo 0) then {
+        if ((side player) isEqualTo east && (_sideRepairArray select 3) isEqualTo 0) then {
             [false,"toolkit",1] call life_fnc_handleInv;
         };
 

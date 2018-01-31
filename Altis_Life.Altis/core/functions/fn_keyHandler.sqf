@@ -152,7 +152,7 @@ switch (_code) do {
     //Restraining (Shift + R)
     case 19: {
         if (_shift) then {_handled = true;};
-        if (_shift && playerSide isEqualTo west && {!isNull cursorObject} && {cursorObject isKindOf "Man"} && {(isPlayer cursorObject)} && {(side cursorObject in [civilian,independent])} && {alive cursorObject} && {cursorObject distance player < 3.5} && {!(cursorObject getVariable "Escorting")} && {!(cursorObject getVariable "restrained")} && {speed cursorObject < 1}) then {
+        if (_shift && (side player) isEqualTo west && {!isNull cursorObject} && {cursorObject isKindOf "Man"} && {(isPlayer cursorObject)} && {(side cursorObject in [civilian,independent])} && {alive cursorObject} && {cursorObject distance player < 3.5} && {!(cursorObject getVariable "Escorting")} && {!(cursorObject getVariable "restrained")} && {speed cursorObject < 1}) then {
             [] call life_fnc_restrainAction;
         };
     };
@@ -160,7 +160,7 @@ switch (_code) do {
     //Knock out, this is experimental and yeah... (Shift + G)
     case 34: {
         if (_shift) then {_handled = true;};
-        if (_shift && playerSide isEqualTo civilian && !isNull cursorObject && cursorObject isKindOf "Man" && isPlayer cursorObject && alive cursorObject && cursorObject distance player < 4 && speed cursorObject < 1) then {
+        if (_shift && (side player) isEqualTo civilian && !isNull cursorObject && cursorObject isKindOf "Man" && isPlayer cursorObject && alive cursorObject && cursorObject distance player < 4 && speed cursorObject < 1) then {
             if ((animationState cursorObject) != "Incapacitated" && (currentWeapon player == primaryWeapon player || currentWeapon player == handgunWeapon player) && currentWeapon player != "" && !life_knockout && !(player getVariable ["restrained",false]) && !life_istazed && !life_isknocked) then {
                 [cursorObject] spawn life_fnc_knockoutAction;
             };
@@ -199,10 +199,10 @@ switch (_code) do {
     //L Key?
     case 38: {
         //If cop run checks for turning lights on.
-        if (_shift && playerSide in [west,independent]) then {
+        if (_shift && (side player) in [west,independent]) then {
             if (!(isNull objectParent player) && (typeOf vehicle player) in ["C_Offroad_01_F","B_MRAP_01_F","C_SUV_01_F","C_Hatchback_01_sport_F","B_Heli_Light_01_F","B_Heli_Transport_01_F"]) then {
                 if (!isNil {vehicle player getVariable "lights"}) then {
-                    if (playerSide isEqualTo west) then {
+                    if ((side player) isEqualTo west) then {
                         [vehicle player] call life_fnc_sirenLights;
                     } else {
                         [vehicle player] call life_fnc_medicSirenLights;
@@ -224,7 +224,7 @@ switch (_code) do {
 
     //F Key
     case 33: {
-        if (playerSide in [west,independent] && {vehicle player != player} && {!life_siren_active} && {((driver vehicle player) == player)}) then {
+        if ((side player) in [west,independent] && {vehicle player != player} && {!life_siren_active} && {((driver vehicle player) == player)}) then {
             [] spawn {
                 life_siren_active = true;
                 sleep 4.7;
@@ -245,7 +245,7 @@ switch (_code) do {
                 titleText [localize "STR_MISC_SirensON","PLAIN"];
                 _veh setVariable ["siren",true,true];
                 private "_jip";
-                if (playerSide isEqualTo west) then {
+                if ((side player) isEqualTo west) then {
                     _jip = [_veh] remoteExec ["life_fnc_copSiren",RCLIENT,true];
                 } else {
                     _jip = [_veh] remoteExec ["life_fnc_medicSiren",RCLIENT,true];
@@ -277,7 +277,7 @@ switch (_code) do {
                 _veh = vehicle player;
             };
 
-            if (_veh isKindOf "House_F" && {playerSide isEqualTo civilian}) then {
+            if (_veh isKindOf "House_F" && {(side player) isEqualTo civilian}) then {
                 if (_veh in life_vehicles && {player distance _veh < 20}) then {
                     _door = [_veh] call life_fnc_nearestDoor;
                     if (_door isEqualTo 0) exitWith {hint localize "STR_House_Door_NotNear"};

@@ -45,7 +45,7 @@ switch (_option) do {
             profileNamespace setVariable ["life_enableSidechannel",false];
             life_settings_enableSidechannel = profileNamespace getVariable ["life_enableSidechannel",false];
         };
-        [player,life_settings_enableSidechannel,playerSide] remoteExecCall ["TON_fnc_manageSC",RSERV];
+        [player,life_settings_enableSidechannel,(side player)] remoteExecCall ["TON_fnc_manageSC",RSERV];
     };
 
     case "broadcast": {

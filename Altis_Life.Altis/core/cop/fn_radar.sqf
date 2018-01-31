@@ -5,7 +5,7 @@
     Description:
     Looks like weird but radar?
 */
-if !(playerSide isEqualTo west) exitWith {};
+if !((side player) isEqualTo west) exitWith {};
 private ["_speed","_vehicle"];
 _vehicle = cursorObject;
 _speed = round speed _vehicle;

@@ -2,6 +2,7 @@
 /*
     File: init.sqf
     Author: Bryan "Tonic" Boardwine
+	Edit: "MasTo" Hirschi - Die Liga 
 
     Description:
     Master client initialization file
@@ -15,10 +16,11 @@ life_session_completed = false;
 _timeStamp = diag_tickTime;
 _extDB_notLoaded = "";
 diag_log "----------------------------------------------------------------------------------------------------";
-diag_log "--------------------------------- Starting Altis Life Client Init ----------------------------------";
-diag_log "------------------------------------------ Version 5.0.0 -------------------------------------------";
+diag_log "---------------------------------- Starting PDL Client Init ----------------------------------------";
+diag_log "---------------------------------- Altis Life RPG Vers 5.0.0 ----------------------------------------";
+diag_log format["-------------------------------------- PDL Version %1 -------------------------------------------",(LIFE_SETTINGS(getText, "Vers"))];
 diag_log "----------------------------------------------------------------------------------------------------";
-waitUntil {!isNull player && player == player}; //Wait till the player is ready
+waitUntil {!isNull player && player isEqualTo player}; //Wait till the player is ready
 [] call compile preprocessFileLineNumbers "core\clientValidator.sqf";
 enableSentences false;
 
@@ -61,7 +63,10 @@ waitUntil {life_session_completed};
 [] spawn life_fnc_escInterupt;
 
 //Set bank amount for new players
-switch (playerSide) do {
+
+// Why the f*** different fractions ?? 
+/*
+switch ((side player)) do {
     case west: {
         life_paycheck = LIFE_SETTINGS(getNumber,"paycheck_cop");
     };
@@ -73,7 +78,7 @@ switch (playerSide) do {
     };
 };
 
-switch (playerSide) do {
+switch ((side player)) do {
     case west: {
         _handle = [] spawn life_fnc_initCop;
         waitUntil {scriptDone _handle};
@@ -89,6 +94,11 @@ switch (playerSide) do {
         waitUntil {scriptDone _handle};
     };
 };
+*/
+
+life_paycheck = LIFE_SETTINGS(getNumber,"paycheck_civ");
+_handle = [] spawn life_fnc_initCiv;
+waitUntil {scriptDone _handle};
 
 player setVariable ["restrained",false,true];
 player setVariable ["Escorting",false,true];
@@ -104,7 +114,7 @@ waitUntil {!(isNull (findDisplay 46))};
 diag_log "Display 46 Found";
 (findDisplay 46) displayAddEventHandler ["KeyDown", "_this call life_fnc_keyHandler"];
 
-[player,life_settings_enableSidechannel,playerSide] remoteExecCall ["TON_fnc_manageSC",RSERV];
+[player,life_settings_enableSidechannel,(side player)] remoteExecCall ["TON_fnc_manageSC",RSERV];
 0 cutText ["","BLACK IN"];
 [] call life_fnc_hudSetup;
 

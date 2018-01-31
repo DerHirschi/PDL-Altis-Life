@@ -22,7 +22,7 @@ private _initalPrice = M_CONFIG(getNumber,"LifeCfgVehicles",_className,"price");
 private "_buyMultiplier";
 private "_rentMultiplier";
 
-switch (playerSide) do {
+switch ((side player)) do {
     case civilian: {
         _buyMultiplier = LIFE_SETTINGS(getNumber,"vehicle_purchase_multiplier_CIVILIAN");
         _rentMultiplier = LIFE_SETTINGS(getNumber,"vehicle_rental_multiplier_CIVILIAN");
@@ -112,7 +112,7 @@ _vehicle lock 2;
 _vehicle disableTIEquipment true; //No Thermals.. They're cheap but addictive.
 
 //Side Specific actions.
-switch (playerSide) do {
+switch ((side player)) do {
     case west: {
         [_vehicle,"cop_offroad",true] spawn life_fnc_vehicleAnimate;
     };
@@ -131,14 +131,14 @@ _vehicle allowDamage true;
 life_vehicles pushBack _vehicle;
 
 //Always handle key management by the server
-[getPlayerUID player,playerSide,_vehicle,1] remoteExecCall ["TON_fnc_keyManagement",RSERV];
+[getPlayerUID player,(side player),_vehicle,1] remoteExecCall ["TON_fnc_keyManagement",RSERV];
 
 if (_mode) then {
     if !(_className in LIFE_SETTINGS(getArray,"vehicleShop_rentalOnly")) then {
         if (life_HC_isActive) then {
-            [(getPlayerUID player),playerSide,_vehicle,_colorIndex] remoteExecCall ["HC_fnc_vehicleCreate",HC_Life];
+            [(getPlayerUID player),(side player),_vehicle,_colorIndex] remoteExecCall ["HC_fnc_vehicleCreate",HC_Life];
         } else {
-            [(getPlayerUID player),playerSide,_vehicle,_colorIndex] remoteExecCall ["TON_fnc_vehicleCreate",RSERV];
+            [(getPlayerUID player),(side player),_vehicle,_colorIndex] remoteExecCall ["TON_fnc_vehicleCreate",RSERV];
         };
     };
 };
