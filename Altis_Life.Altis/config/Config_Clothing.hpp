@@ -112,12 +112,12 @@ class Clothing {
 			{"G_Lowprofile",			"",								230,	{"","",-1} 	},
 			{"G_Combat",				"",								255,	{"","",-1} 	}
 		};
-		vest[] = {			
+		vests[] = {			
 			{"V_Rangemaster_belt",		"",								7500,	{"","",-1} 	},
 			{"V_BandollierB_ghex_F",	"",							 	25500,	{"","",-1} 	}
 
 		};
-		backpack[] = {
+		backpacks[] = {
 			{"B_AssaultPack_cbr",		"",								3500,	{"","",-1} 	},
 			{"B_Kitbag_mcamo",			"",								5500,	{"","",-1} 	},
 			{"B_TacticalPack_oli",		"",								4000,	{"","",-1} 	},
@@ -176,11 +176,11 @@ class Clothing {
 			{"G_Lowprofile",			"",								30,		{"","",-1} 	},
 			{"G_Combat",				"",								55,		{"","",-1} 	}
 		};
-		vest[] = {
+		vests[] = {
 			{"V_TacVest_blk_POLICE",	"Polizeiweste Standart",		3000,	{"life_coplevel","SCALAR",1} 	},
 			{"V_RebreatherB",			"Tauchgerät SWAT",				3000,	{"life_coplevel","SCALAR",2} 	}
 		};
-		backpack[] = {
+		backpacks[] = {
 			{"B_TacticalPack_blk",		"Polizeirucksack Standard",		1500,	{"life_coplevel","SCALAR",1} 	},
 			{"B_Carryall_oli",			"Großer Rucksack",				5000,	{"life_coplevel","SCALAR",5} 	},
 			{"B_UAV_01_backpack_F",		"Drohne SWAT",					50000,	{"life_coplevel","SCALAR",7} 	}
@@ -215,10 +215,10 @@ class Clothing {
 			{"G_Lowprofile",			"",								30,		{"","",-1} 	},
 			{"G_Combat",				"",								55,		{"","",-1} 	}
 		};
-		vest[] = {
+		vests[] = {
 			{"V_Rangemaster_belt",		"",								300,	{"","",-1} 	}
 		};
-		backpack[] = {
+		backpacks[] = {
 			{"B_Bergen_mcamo",			"ALAC Rucksack",				400,	{"","",-1} 	}
 		};
 	};
@@ -242,10 +242,10 @@ class Clothing {
 			{"G_I_Diving",				"",								225,	{"","",-1} 	}
 
 		};
-		vest[] = {
+		vests[] = {
 			{"V_RebreatherB",			"",								5000,	{"","",-1} 	}
 		};
-		backpack[] = { 
+		backpacks[] = { 
 			{"B_ViperLightHarness_khk_F",	"",								4500,	{"","",-1} 	},
 			{"B_ViperLightHarness_oli_F",	"",								4500,	{"","",-1} 	},
 			{"B_ViperHarness_oli_F",		"",								7500,	{"","",-1} 	},
@@ -294,10 +294,10 @@ class Clothing {
 		goggles[] = {
 			{ "NONE", $STR_C_Remove_goggles, 0, "" }
 			};
-		vest[] = {
+		vests[] = {
 			{ "NONE", $STR_C_Remove_vests, 0, "" }
 			};
-		backpack[] = {
+		backpacks[] = {
 			{ "NONE", $STR_C_Remove_backpacks, 0, "" }
 		};
 	};
@@ -331,8 +331,8 @@ class Clothing {
 			{"G_Lowprofile",				"",								30,		{"","",-1} 	},
 			{"G_Combat",					"",								55,		{"","",-1} 	}
 		};
-		vest[] = {	};
-		backpack[] = {
+		vests[] = {	};
+		backpacks[] = {
 			{"B_TacticalPack_blk",			"Sanitäter Rucksack",			700,	{"life_mediclevel","SCALAR",1} 	},
 			{"B_Bergen_mcamo",				"Notarzt Rucksack",				1200,	{"life_mediclevel","SCALAR",4} 	}
 		};
@@ -516,7 +516,7 @@ class Clothing {
 			{"G_Bandanna_shades",			"",								9500,		{"","",-1} 	},
 			{"G_Combat",					"",								9600,		{"","",-1} 	}
 		};
-		vest[] = {
+		vests[] = {
 			{"V_Rangemaster_belt",			"",								10000,		{"","",-1} 	},
 			{"V_BandollierB_khk",			"",								20000,		{"","",-1} 	},
 			{"V_BandollierB_cbr",			"",								20000,		{"","",-1} 	},
@@ -558,7 +558,7 @@ class Clothing {
 		
 
 		};
-		backpack[] = {
+		backpacks[] = {
 			{"B_AssaultPack_cbr",			"",								5500,		{"","",-1} 	},
 			{"B_AssaultPack_khk",			"",								5500,		{"","",-1} 	},
 			{"B_AssaultPack_dgtl",			"",								5500,		{"","",-1} 	},
@@ -658,10 +658,10 @@ class Clothing {
 			{"G_Bandanna_shades",			"",								1500,		{"","",-1} 	},
 			{"G_Combat",					"",								1600,		{"","",-1} 	}
 		};
-		vest[] = {
+		vests[] = {
 			{"V_Rangemaster_belt",			"",								10000,		{"","",-1} 	}
 		};
-		backpack[] = {
+		backpacks[] = {
 			{"B_Carryall_oli",				"",								8000,		{"","",-1} 	},
 			{"B_Carryall_cbr",				"",								8000,		{"","",-1} 	},
 			{"B_Carryall_khk",				"",								8000,		{"","",-1} 	}
@@ -698,11 +698,11 @@ class Clothing {
 			{"G_Lowprofile",			"",								230,	{"","",-1} 	},
 			{"G_Combat",				"",								255,	{"","",-1} 	}
 		};
-		vest[] = {
+		vests[] = {
 			{"V_Press_F",					"",							25000,	{"","",-1} 	}
 			
 		};
-		backpack[] = {
+		backpacks[] = {
 			{"B_AssaultPack_cbr",		"",								3500,	{"","",-1} 	}			
 		};
 	};	
@@ -948,7 +948,7 @@ class Clothing {
 			{"G_Bandanna_shades",			"",								5,		{"","",-1} 	},
 			{"G_Combat",					"",								5,		{"","",-1} 	}
 		};
-		vest[] = {			
+		vests[] = {			
 			{"V_Rangemaster_belt",		"",								5,	{"","",-1} 	},
 			{"V_BandollierB_ghex_F",	"",							 	5,	{"","",-1} 	},
 			{"V_Rangemaster_belt",			"",								5,		{"","",-1} 	},
@@ -991,7 +991,7 @@ class Clothing {
 			{"V_PlateCarrierIAGL_dgtl",		"",								5,		{"","",-1} 	}
 
 		};
-		backpack[] = {
+		backpacks[] = {
 			{"B_AssaultPack_cbr",		"",								5,	{"","",-1} 	},
 			{"B_Kitbag_mcamo",			"",								5,	{"","",-1} 	},
 			{"B_TacticalPack_oli",		"",								5,	{"","",-1} 	},
@@ -1276,7 +1276,7 @@ class Clothing {
 			{"G_Bandanna_shades",			"",								5,		{"","",-1} 	},
 			{"G_Combat",					"",								5,		{"","",-1} 	}
 		};
-		vest[] = {			
+		vests[] = {			
 			{"V_Rangemaster_belt",		"",								5,	{"","",-1} 	},
 			{"V_BandollierB_ghex_F",	"",							 	5,	{"","",-1} 	},
 			{"V_Rangemaster_belt",			"",								5,		{"","",-1} 	},
@@ -1319,7 +1319,7 @@ class Clothing {
 			{"V_PlateCarrierIAGL_dgtl",		"",								5,		{"","",-1} 	}
 
 		};
-		backpack[] = {
+		backpacks[] = {
 			{"B_AssaultPack_cbr",		"",								5,	{"","",-1} 	},
 			{"B_Kitbag_mcamo",			"",								5,	{"","",-1} 	},
 			{"B_TacticalPack_oli",		"",								5,	{"","",-1} 	},
