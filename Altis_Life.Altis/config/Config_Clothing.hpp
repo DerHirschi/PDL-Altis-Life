@@ -10,9 +10,7 @@ class Clothing {
 	║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░║
 	╠══════════════════════════════════════════════════╝	
 	║	File: Liga_Cfg_Clothing.hpp	
-	║		
-	║	Author:  Oliver  - Die Liga	
-	║	Edited:  Hirschi - Die Liga	
+	║	Author:  Hirschi - Die Liga	
 	║			 Zoran - Die Liga	
 	║	
 	║	Vorlage: Tonic´s Altis Life R.P.G. Ver.:4.4	
