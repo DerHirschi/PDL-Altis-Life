@@ -42,7 +42,7 @@ _query = switch (_side) do {
 									alaclevel, \
 									alac_licenses, \
 									flusilevel, \
-									flusi_licenses, \
+									flusi_licenses \
 									FROM players WHERE pid='%1'",_uid];
 					};
 
@@ -70,7 +70,11 @@ if (_queryResult isEqualType "") exitWith {
 if (count _queryResult isEqualTo 0) exitWith {
     [] remoteExecCall ["SOCK_fnc_insertPlayerInfo",_ownerID];
 };
-
+/* DEBUG
+for "_i" from 0 to ((count _queryResult) - 1) do {
+	diag_log format ["%1 : %2",_i, (_queryResult select _i)];
+};
+*/
 //Blah conversion thing from a2net->extdb
 _tmp = _queryResult select 2;
 _queryResult set[2,[_tmp] call DB_fnc_numberSafe];
@@ -78,19 +82,22 @@ _tmp = _queryResult select 3;
 _queryResult set[3,[_tmp] call DB_fnc_numberSafe];
 
 //Parse licenses (Always index 6)
-_new = [(_queryResult select 6)] call DB_fnc_mresToArray;
-if (_new isEqualType "") then {_new = call compile format ["%1", _new];};
-_queryResult set[6,_new];
+_temp = [6,14,16,18,20];
+for "_i" from 0 to ((count _temp) - 1) do {
+	_ind = (_temp select _i);
+	_new = [(_queryResult select _ind)] call DB_fnc_mresToArray;
+	if (_new isEqualType "") then {_new = call compile format ["%1", _new];};
+	_queryResult set[_ind,_new];
 
-//Convert tinyint to boolean
-_old = _queryResult select 6;
-for "_i" from 0 to (count _old)-1 do {
-    _data = _old select _i;
-    _old set[_i,[_data select 0, ([_data select 1,1] call DB_fnc_bool)]];
+	//Convert tinyint to boolean
+	_old = _queryResult select _ind;
+	for "_i" from 0 to (count _old)-1 do {
+		_data = _old select _i;
+		_old set[_i,[_data select 0, ([_data select 1,1] call DB_fnc_bool)]];
+	};
+
+	_queryResult set[_ind,_old];
 };
-
-_queryResult set[6,_old];
-
 _new = [(_queryResult select 8)] call DB_fnc_mresToArray;
 if (_new isEqualType "") then {_new = call compile format ["%1", _new];};
 _queryResult set[8,_new];
@@ -144,6 +151,7 @@ switch (_side) do {
             TON_fnc_playtime_values_request pushBack [_uid, _new];
         };
         [_uid,_new select 2] call TON_fnc_setPlayTime;
+		// Job Level
 
         /* Make sure nothing else is added under here */
         _houseData = _uid spawn TON_fnc_fetchPlayerHouses;
@@ -180,5 +188,9 @@ publicVariable "TON_fnc_playtime_values_request";
 
 _keyArr = missionNamespace getVariable [format ["%1_KEYS_%2",_uid,_side],[]];
 _queryResult pushBack _keyArr;
-
+/* DEBUG
+for "_i" from 0 to ((count _queryResult) - 1) do {
+	diag_log format ["%1 : %2",_i, (_queryResult select _i)];
+};
+*/
 _queryResult remoteExec ["SOCK_fnc_requestReceived",_ownerID];
