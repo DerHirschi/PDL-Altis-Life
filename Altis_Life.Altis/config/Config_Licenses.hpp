@@ -192,7 +192,7 @@ class Licenses {
     class jobCop {
         variable = "jobCop";
         displayName = "STR_License_CopJob";
-        price = -1;
+        price = 99999999;
         illegal = false;
         side = "civ";
     };

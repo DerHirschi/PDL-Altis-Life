@@ -38,9 +38,10 @@ if!(_onvar) then {
 	}else{
 		[player] join (call compileFinal _groupvar);
 	};	
-	life_paycheck  = getNumber(missionConfigFile >> "JobsCFG" >> _job >> (_levelvar + "_" + (str _level)) );
+	life_paycheck  = getNumber(missionConfigFile >> "JobsCFG" >> _job >> (_levelvar + "_" + (str _level) >> "paycheck") );
+	_rank  = getText(missionConfigFile >> "JobsCFG" >> _job >> (_levelvar + "_" + (str _level) >> "rang") );
 	
-	player setVariable["rank",_level,true];
+	player setVariable["rank",_rank,true];
 	hint parseText format["<t align='center'><t color='#15C30C'><t size='3'>Angemeldet</t></t></t><br/><br/><t size='1.3'><t align='left'>Du hast dich angemeldet. <br/><br/>Ruhige Schicht ...<br/>"];
 	[player,false,civilian] remoteExecCall ["TON_fnc_managesc",RSERV];
 	[player,true,_side] remoteExecCall ["TON_fnc_managesc",RSERV];

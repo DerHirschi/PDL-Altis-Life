@@ -26,14 +26,15 @@ class Life_Client_Core {
 
     class Master_Directory {
         file = "core";
-        class jobLogin 		{};
-        class initCiv 		{};
-        class initCop 		{};
-        class initMedic 	{};
-        class setupActions 	{};
-        class setupEVH 		{};
-        class survival 		{};
-        class welcomeNotification {};
+        class initMapActions 		{};
+        class jobLogin 				{};
+        class initCiv 				{};
+        class initCop 				{};
+        class initMedic 			{};
+        class setupActions 			{};
+        class setupEVH 				{};
+        class survival 				{};
+        class welcomeNotification	{};
     };
 
     class Actions {
