@@ -1836,4 +1836,56 @@ class VirtualItems {
 		sound 		= "";
 
     };
+	/*
+	Arbeitsvertraege usw
+	*/
+	// Cop Arbeitsvertrag
+	class copcontract {
+        variable = "copcontract";
+        displayName = "STR_Item_CopCont";
+        weight = 1;
+        buyPrice = 1;
+        sellPrice = 1;
+        illegal = false;
+        essbar = -1;
+		trinkbar 	= -1;
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= 1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","WEST"};
+        useablefnc	= "missionNamespace setVariable ['jobCop',true]; [2] call SOCK_fnc_updatePartial;";       
+		/*TODO: Text*/
+		hinttext	= "STR_Item_CopCont_Hint";
+		titletext	= "";
+		/*TODO: ICON*/
+        icon 		= "icons\ico_muttonLeg.paa";
+		sound 		= "";
+    };
+	// Cop Befoerderung
+	class copbef1 {
+        variable = "copbef1";
+        displayName = "STR_Item_CopBef1";
+        weight = 1;
+        buyPrice = 1;
+        sellPrice = 1;
+        illegal = false;
+        essbar = -1;
+		trinkbar 	= -1;
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= 1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","WEST"};
+        useablefnc	= "missionNamespace setVariable ['life_coplevel',1]; [8] call SOCK_fnc_updatePartial;";       
+		/*TODO: Text*/
+		hinttext	= "STR_Item_CopBef_Hint1";
+		titletext	= "";
+		/*TODO: ICON*/
+        icon 		= "icons\ico_muttonLeg.paa";
+		sound 		= "";
+    };	
+	
 };

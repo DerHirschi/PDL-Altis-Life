@@ -27,6 +27,17 @@ class JobsCFG {
 		licforbidden[] = {"rebel"};
 		forbiddentext  = "Mit Tattoo kannst du nicht bei der Polizei arbeiten.";
 		
+		class CopLevel_0 {
+			rang 	 	= "Praktikant"; // Dummy
+			paycheck 	= 500;
+			einsperren  = false;
+			vehimpoun	= false;
+			wanteddel	= false;
+			wantedadd	= false;
+			housesearch = false;
+			vehsearch  	= false;
+		};
+		
 		class CopLevel_1 {
 			rang 	 	= "Azubi"; // Dummy
 			paycheck 	= 500;
