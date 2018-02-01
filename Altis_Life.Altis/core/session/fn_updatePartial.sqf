@@ -12,7 +12,7 @@ private ["_mode","_packet","_array","_flag"];
 _mode = param [0,0,[0]];
 _packet = [getPlayerUID player,(side player),nil,_mode];
 _array = [];
-_flag = switch ((side player)) do {case west: {"cop"}; case civilian: {"civ"}; case independent: {"med"};};
+_flag = switch ((side player)) do {case west: {"cop"}; case civilian: {"civ"}; case independent: {"med"}; case east: {"alac"};};
 
 switch (_mode) do {
     case 0: {
@@ -53,6 +53,11 @@ switch (_mode) do {
 
     case 7: {
         // Tonic is using for keychain..?
+    };
+	
+	case 8: {
+        // Job Level Update
+		_packet set[2,[life_coplevel,life_medicLevel,life_alaclevel,life_flusilevel]];
     };
 };
 

@@ -22,6 +22,9 @@ switch ((side player)) do {
     case independent: {
         _bank = LIFE_SETTINGS(getNumber,"bank_med");
     };
+	case east: {
+        _bank = LIFE_SETTINGS(getNumber,"bank_alac");
+    };
 };
 
 if (life_HC_isActive) then {

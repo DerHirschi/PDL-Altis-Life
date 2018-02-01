@@ -1,6 +1,7 @@
 /*
     File: fn_updatePartial.sqf
     Author: Bryan "Tonic" Boardwine
+	Edited: MasTo - Die Liga
 
     Description:
     Takes partial data of a player and updates it, this is meant to be
@@ -39,17 +40,21 @@ switch (_mode) do {
             case west: {_query = format ["UPDATE players SET cop_licenses='%1' WHERE pid='%2'",_value,_uid];};
             case civilian: {_query = format ["UPDATE players SET civ_licenses='%1' WHERE pid='%2'",_value,_uid];};
             case independent: {_query = format ["UPDATE players SET med_licenses='%1' WHERE pid='%2'",_value,_uid];};
+            case east: {_query = format ["UPDATE players SET alac_licenses='%1' WHERE pid='%2'",_value,_uid];};
         };
     };
 
     case 3: {
         _value = [_this,2,[],[[]]] call BIS_fnc_param;
         _value = [_value] call DB_fnc_mresArray;
+		/*
         switch (_side) do {
             case west: {_query = format ["UPDATE players SET cop_gear='%1' WHERE pid='%2'",_value,_uid];};
             case civilian: {_query = format ["UPDATE players SET civ_gear='%1' WHERE pid='%2'",_value,_uid];};
             case independent: {_query = format ["UPDATE players SET med_gear='%1' WHERE pid='%2'",_value,_uid];};
         };
+		*/
+		_query = format ["UPDATE players SET civ_gear='%1' WHERE pid='%2'",_value,_uid];
     };
 
     case 4: {
@@ -78,6 +83,11 @@ switch (_mode) do {
     case 7: {
         _array = [_this,2,[],[[]]] call BIS_fnc_param;
         [_uid,_side,_array,0] call TON_fnc_keyManagement;
+    };
+	
+	case 8: {
+        _array = [_this,2,[],[[]]] call BIS_fnc_param;
+        _query = format ["UPDATE players SET coplevel='%1', mediclevel='%2', alaclevel='%3', flusilevel='%4' WHERE pid='%5'",(_array select 0),(_array select 1),(_array select 2),(_array select 3),_uid];
     };
 };
 

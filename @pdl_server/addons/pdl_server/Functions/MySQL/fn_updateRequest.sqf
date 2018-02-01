@@ -1,12 +1,13 @@
 /*
     File: fn_updateRequest.sqf
     Author: Bryan "Tonic" Boardwine
+	Edited: MasTo - DieLiga
 
     Description:
     Updates ALL player information in the database.
     Information gets passed here from the client side file: core\session\fn_updateRequest.sqf
 */
-private ["_uid","_side","_cash","_bank","_licenses","_gear","_stats","_name","_alive","_position","_query","_thread"];
+private ["_uid","_side","_cash","_bank","_licenses","_gear","_stats","_name","_alive","_position","_query","_thread","_level"];
 _uid = [_this,0,"",[""]] call BIS_fnc_param;
 _name = [_this,1,"",[""]] call BIS_fnc_param;
 _side = [_this,2,sideUnknown,[civilian]] call BIS_fnc_param;
@@ -17,6 +18,7 @@ _gear = [_this,6,[],[[]]] call BIS_fnc_param;
 _stats = [_this,7,[100,100],[[]]] call BIS_fnc_param;
 _alive = [_this,9,false,[true]] call BIS_fnc_param;
 _position = [_this,10,[],[[]]] call BIS_fnc_param;
+_level = [_this,11,[0,0,0,0],[[]]] call BIS_fnc_param;
 
 //Get to those error checks.
 if ((_uid isEqualTo "") || (_name isEqualTo "")) exitWith {};
@@ -51,13 +53,15 @@ switch (_side) do {
     case west: {_playtime_update set[0,_playtime];};
     case civilian: {_playtime_update set[2,_playtime];};
     case independent: {_playtime_update set[1,_playtime];};
+    case east: {_playtime_update set[3,_playtime];};
 };
 _playtime_update = [_playtime_update] call DB_fnc_mresArray;
 
 switch (_side) do {
-    case west: {_query = format ["UPDATE players SET name='%1', cash='%2', bankacc='%3', cop_gear='%4', cop_licenses='%5', cop_stats='%6', playtime='%7' WHERE pid='%8'",_name,_cash,_bank,_gear,_licenses,_stats,_playtime_update,_uid];};
-    case civilian: {_query = format ["UPDATE players SET name='%1', cash='%2', bankacc='%3', civ_licenses='%4', civ_gear='%5', arrested='%6', civ_stats='%7', civ_alive='%8', civ_position='%9', playtime='%10' WHERE pid='%11'",_name,_cash,_bank,_licenses,_gear,[_this select 8] call DB_fnc_bool,_stats,[_alive] call DB_fnc_bool,_position,_playtime_update,_uid];};
-    case independent: {_query = format ["UPDATE players SET name='%1', cash='%2', bankacc='%3', med_licenses='%4', med_gear='%5', med_stats='%6', playtime='%7' WHERE pid='%8'",_name,_cash,_bank,_licenses,_gear,_stats,_playtime_update,_uid];};
+    case west: {_query = format ["UPDATE players SET name='%1', cash='%2', bankacc='%3', civ_gear='%4', cop_licenses='%5', civ_stats='%6', playtime='%7', civ_alive='%8', civ_position='%9', coplevel='%10', mediclevel='%11', alaclevel='%12', flusilevel='%13' WHERE pid='%14'",_name,_cash,_bank,_gear,_licenses,_stats,_playtime_update,[_alive] call DB_fnc_bool,_position,((_level select 0) + 1),((_level select 1) + 1),((_level select 2) + 1),((_level select 3) + 1), _uid];};
+    case civilian: {_query = format ["UPDATE players SET name='%1', cash='%2', bankacc='%3', civ_licenses='%4', civ_gear='%5', arrested='%6', civ_stats='%7', civ_alive='%8', civ_position='%9', playtime='%10', coplevel='%11', mediclevel='%12', alaclevel='%13', flusilevel='%14' WHERE pid='%15'",_name,_cash,_bank,_licenses,_gear,[_this select 8] call DB_fnc_bool,_stats,[_alive] call DB_fnc_bool,_position,_playtime_update,((_level select 0) + 1),((_level select 1) + 1),((_level select 2) + 1),((_level select 3) + 1),_uid];};
+    case independent: {_query = format ["UPDATE players SET name='%1', cash='%2', bankacc='%3', med_licenses='%4', civ_gear='%5', civ_stats='%6', playtime='%7', civ_alive='%8', civ_position='%9', coplevel='%10', mediclevel='%11', alaclevel='%12', flusilevel='%13' WHERE pid='%14'",_name,_cash,_bank,_licenses,_gear,_stats,_playtime_update,[_alive] call DB_fnc_bool,_position,((_level select 0) + 1),((_level select 1) + 1),((_level select 2) + 1),((_level select 3) + 1),_uid];};
+    case east: {_query = format ["UPDATE players SET name='%1', cash='%2', bankacc='%3', alac_licenses='%4', civ_gear='%5', civ_stats='%6', playtime='%7', civ_alive='%8', civ_position='%9', coplevel='%10', mediclevel='%11', alaclevel='%12', flusilevel='%13' WHERE pid='%14'",_name,_cash,_bank,_licenses,_gear,_stats,_playtime_update,[_alive] call DB_fnc_bool,_position,((_level select 0) + 1),((_level select 1) + 1),((_level select 2) + 1),((_level select 3) + 1),_uid];};
 };
 
 
