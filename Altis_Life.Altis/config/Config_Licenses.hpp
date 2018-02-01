@@ -196,4 +196,31 @@ class Licenses {
         illegal = false;
         side = "civ";
     };
+
+	//Medic Arbeitsvertrag
+    class jobMedic {
+        variable = "jobMedic";
+        displayName = "STR_License_MedicJob";
+        price = 99999999;
+        illegal = false;
+        side = "civ";
+    };
+
+	//Alac Arbeitsvertrag
+    class jobAlac {
+        variable = "jobAlac";
+        displayName = "STR_License_AlacJob";
+        price = 99999999;
+        illegal = false;
+        side = "civ";
+    };
+	
+	//Flusi Arbeitsvertrag
+    class jobFlusi {
+        variable = "jobFlusi";
+        displayName = "STR_License_FlusiJob";
+        price = 99999999;
+        illegal = false;
+        side = "civ";
+    };
 };

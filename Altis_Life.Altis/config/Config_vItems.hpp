@@ -1855,7 +1855,7 @@ class VirtualItems {
         dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
 
 		allowside[]	= {"CIV","WEST"};
-        useablefnc	= "missionNamespace setVariable ['jobCop',true]; [2] call SOCK_fnc_updatePartial;";       
+        useablefnc	= "missionNamespace setVariable ['license_civ_jobCop',true]; [2] call SOCK_fnc_updatePartial;";       
 		/*TODO: Text*/
 		hinttext	= "STR_Item_CopCont_Hint";
 		titletext	= "";
@@ -1886,6 +1886,55 @@ class VirtualItems {
 		/*TODO: ICON*/
         icon 		= "icons\ico_muttonLeg.paa";
 		sound 		= "";
+    };
+
+	class mediccontract {
+        variable = "mediccontract";
+        displayName = "STR_Item_MedicCont";
+        weight = 1;
+        buyPrice = 1;
+        sellPrice = 1;
+        illegal = false;
+        essbar = -1;
+		trinkbar 	= -1;
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= 1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","independent"};
+        useablefnc	= "missionNamespace setVariable ['license_civ_jobMedic',true]; [2] call SOCK_fnc_updatePartial;";       
+		/*TODO: Text*/
+		hinttext	= "STR_Item_MedicCont_Hint";
+		titletext	= "";
+		/*TODO: ICON*/
+        icon 		= "icons\ico_muttonLeg.paa";
+		sound 		= "";
+    };
+	// Cop Befoerderung
+	class medicbef1 {
+        variable = "copbef1";
+        displayName = "STR_Item_MedicBef1";
+        weight = 1;
+        buyPrice = 1;
+        sellPrice = 1;
+        illegal = false;
+        essbar = -1;
+		trinkbar 	= -1;
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= 1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV","WEST"};
+        useablefnc	= "missionNamespace setVariable ['life_medicLevel',1]; [8] call SOCK_fnc_updatePartial;";       
+		/*TODO: Text*/
+		hinttext	= "STR_Item_MedicBef_Hint1";
+		titletext	= "";
+		/*TODO: ICON*/
+        icon 		= "icons\ico_muttonLeg.paa";
+		sound 		= "";
     };	
+	
 	
 };

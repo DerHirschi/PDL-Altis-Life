@@ -7080,12 +7080,56 @@
             <Portuguese></Portuguese>
             <Polish></Polish>
         </Key>
+        <Key ID="STR_License_MedicJob">
+            <Original></Original>
+            <Czech></Czech>
+            <Spanish></Spanish>
+            <Russian></Russian>
+            <German>LRK Dienstausweis</German>
+            <French></French>
+            <Italian></Italian>
+            <Portuguese></Portuguese>
+            <Polish></Polish>
+        </Key>
+		<Key ID="STR_License_AlacJob">
+            <Original></Original>
+            <Czech></Czech>
+            <Spanish></Spanish>
+            <Russian></Russian>
+            <German>ALAC Dienstausweis</German>
+            <French></French>
+            <Italian></Italian>
+            <Portuguese></Portuguese>
+            <Polish></Polish>
+        </Key>
+		<Key ID="STR_License_FlusiJob">
+            <Original></Original>
+            <Czech></Czech>
+            <Spanish></Spanish>
+            <Russian></Russian>
+            <German>Flusi Dienstausweis</German>
+            <French></French>
+            <Italian></Italian>
+            <Portuguese></Portuguese>
+            <Polish></Polish>
+        </Key>
 		<Key ID="STR_Item_CopCont">
             <Original></Original>
             <Czech></Czech>
             <Spanish></Spanish>
             <Russian></Russian>
             <German>Arbeitsvertrag Polizei</German>
+            <French></French>
+            <Italian></Italian>
+            <Portuguese></Portuguese>
+            <Polish></Polish>
+        </Key>
+		<Key ID="STR_Item_MedicCont">
+            <Original></Original>
+            <Czech></Czech>
+            <Spanish></Spanish>
+            <Russian></Russian>
+            <German>Arbeitsvertrag LRK</German>
             <French></French>
             <Italian></Italian>
             <Portuguese></Portuguese>
@@ -7102,7 +7146,29 @@
             <Portuguese></Portuguese>
             <Polish></Polish>
         </Key>
-			<Key ID="STR_Item_CopBef1">
+		<Key ID="STR_Item_MedicCont_Hint">
+            <Original></Original>
+            <Czech></Czech>
+            <Spanish></Spanish>
+            <Russian></Russian>
+            <German>Gratulation zum neuen Job.</German>
+            <French></French>
+            <Italian></Italian>
+            <Portuguese></Portuguese>
+            <Polish></Polish>
+        </Key>
+		<Key ID="STR_Item_CopBef1">
+            <Original></Original>
+            <Czech></Czech>
+            <Spanish></Spanish>
+            <Russian></Russian>
+            <German>Rang Abzeichen Rang 1</German>
+            <French></French>
+            <Italian></Italian>
+            <Portuguese></Portuguese>
+            <Polish></Polish>
+        </Key>
+		<Key ID="STR_Item_MedicBef1">
             <Original></Original>
             <Czech></Czech>
             <Spanish></Spanish>
@@ -7114,6 +7180,17 @@
             <Polish></Polish>
         </Key>
 		<Key ID="STR_Item_CopBef_Hint1">
+            <Original></Original>
+            <Czech></Czech>
+            <Spanish></Spanish>
+            <Russian></Russian>
+            <German>Gratulation zur Beförderung.</German>
+            <French></French>
+            <Italian></Italian>
+            <Portuguese></Portuguese>
+            <Polish></Polish>
+        </Key>
+		<Key ID="STR_Item_MedicBef_Hint1">
             <Original></Original>
             <Czech></Czech>
             <Spanish></Spanish>

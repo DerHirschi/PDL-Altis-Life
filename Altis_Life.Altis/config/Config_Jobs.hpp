@@ -71,5 +71,166 @@ class JobsCFG {
 			vehsearch  	= false;
 		};
 	};
-
+	
+	class Medics {
+		side 		   	= "independent";
+		groupvar 	   	= "medic_group";
+		onvar		   	= "liga_medic_on";
+		levelvar	   	= "life_medicLevel";
+		
+		licensneed	   	= "license_civ_jobMedic";
+		licforbidden[] 	= {"rebel"};
+		forbiddentext  	= "Mit Tattoo kannst du nicht bei der Polizei arbeiten.";
+		
+		stechuhren[]	= {"medic_uhr_1","medic_uhr_2"};
+		stechaction[]	= {
+			{
+				"<t color='#FF0000'>Stechuhr</t>",//Action
+				"['Medics'] call life_fnc_jobLogin",//Code
+				"license_civ_jobMedic",			  //Bedingung
+				20								  //Reichweite
+			}
+		};
+		
+		class life_medicLevel_0 {
+			rang 	 	= "Praktikant"; // Dummy
+			paycheck 	= 200;
+			einsperren  = false;
+			vehimpoun	= false;
+			wanteddel	= false;
+			wantedadd	= false;
+			housesearch = false;
+			vehsearch  	= false;
+		};
+		
+		class life_medicLevel_1 {
+			rang 	 	= "Azubi"; // Dummy
+			paycheck 	= 500;
+			einsperren  = false;
+			vehimpoun	= false;
+			wanteddel	= false;
+			wantedadd	= false;
+			housesearch = false;
+			vehsearch  	= false;
+		};
+		
+		class life_medicLevel_2 {
+			rang 	 	= "Azubi"; // Dummy
+			paycheck 	= 1000;
+			einsperren  = false;
+			vehimpoun	= false;
+			wanteddel	= false;
+			wantedadd	= false;
+			housesearch = false;
+			vehsearch  	= false;
+		};
+	};
+	
+	class Alac {
+		side 		   	= "east";
+		groupvar 	   	= "alac_group";
+		onvar		   	= "liga_alac_on";
+		levelvar	   	= "life_alaclevel";
+		
+		licensneed	   	= "license_civ_jobAlac";
+		licforbidden[] 	= {"rebel"};
+		forbiddentext  	= "Mit Tattoo kannst du nicht bei der Polizei arbeiten.";
+		
+		stechuhren[]	= {"alac_uhr_1","alac_uhr_2"};
+		stechaction[]	= {
+			{
+				"<t color='#FF0000'>Stechuhr</t>",//Action
+				"['Alac'] call life_fnc_jobLogin",//Code
+				"license_civ_jobAlac",			  //Bedingung
+				20								  //Reichweite
+			}
+		};
+		
+		class life_alaclevel_0 {
+			rang 	 	= "Praktikant"; // Dummy
+			paycheck 	= 200;
+			einsperren  = false;
+			vehimpoun	= false;
+			wanteddel	= false;
+			wantedadd	= false;
+			housesearch = false;
+			vehsearch  	= false;
+		};
+		
+		class life_alaclevel_1 {
+			rang 	 	= "Azubi"; // Dummy
+			paycheck 	= 500;
+			einsperren  = false;
+			vehimpoun	= false;
+			wanteddel	= false;
+			wantedadd	= false;
+			housesearch = false;
+			vehsearch  	= false;
+		};
+		
+		class life_alaclevel_2 {
+			rang 	 	= "Azubi"; // Dummy
+			paycheck 	= 1000;
+			einsperren  = false;
+			vehimpoun	= false;
+			wanteddel	= false;
+			wantedadd	= false;
+			housesearch = false;
+			vehsearch  	= false;
+		};
+	};
+	
+	class Flusi {
+		side 		   	= "civilian";
+		groupvar 	   	= "flusi_group";
+		onvar		   	= "liga_flusi_on";
+		levelvar	   	= "life_flusilevel";
+		
+		licensneed	   	= "license_civ_jobFlusi";
+		licforbidden[] 	= {"rebel"};
+		forbiddentext  	= "Mit Tattoo kannst du nicht bei der Polizei arbeiten.";
+		
+		stechuhren[]	= {"flusi_uhr_1","flusi_uhr_2"};
+		stechaction[]	= {
+			{
+				"<t color='#FF0000'>Stechuhr</t>",//Action
+				"['Flusi'] call life_fnc_jobLogin",//Code
+				"license_civ_jobFlusi",			  //Bedingung
+				20								  //Reichweite
+			}
+		};
+		
+		class life_flusilevel_0 {
+			rang 	 	= "Praktikant"; // Dummy
+			paycheck 	= 200;
+			einsperren  = false;
+			vehimpoun	= false;
+			wanteddel	= false;
+			wantedadd	= false;
+			housesearch = false;
+			vehsearch  	= false;
+		};
+		
+		class life_flusilevel_1 {
+			rang 	 	= "Azubi"; // Dummy
+			paycheck 	= 500;
+			einsperren  = false;
+			vehimpoun	= false;
+			wanteddel	= false;
+			wantedadd	= false;
+			housesearch = false;
+			vehsearch  	= false;
+		};
+		
+		class life_flusilevel_2 {
+			rang 	 	= "Azubi"; // Dummy
+			paycheck 	= 1000;
+			einsperren  = false;
+			vehimpoun	= false;
+			wanteddel	= false;
+			wantedadd	= false;
+			housesearch = false;
+			vehsearch  	= false;
+		};
+	};
 };
