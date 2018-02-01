@@ -31,11 +31,12 @@ if (!isServer && (!isNil "life_adminlevel" || !isNil "life_coplevel" || !isNil "
     sleep 0.9;
     failMission "SpyGlass";
 };
+/*  DEBUG
 diag_log str _this;
 for "_i" from 0 to (_count - 1) do {
 	diag_log format ["%1 : %2",_i, _this select _i];
 };
-
+*/
 //Parse basic player information.
 CASH = parseNumber (_this select 2);
 BANK = parseNumber (_this select 3);
@@ -47,17 +48,11 @@ if (LIFE_SETTINGS(getNumber,"donor_level") isEqualTo 1) then {
 };
 
 //Loop through licenses
-diag_log str (_this select 6);
-diag_log str (_this select 14);
-diag_log str (_this select 16);
-diag_log str (_this select 18);
-diag_log str (_this select 20);
 _temp = [6,14,16,18,20];
 for "_i" from 0 to ((count _temp) - 1) do {
 	if (count (_this select (_temp select _i)) > 0) then {
-		{missionNamespace setVariable [(_x select 0),(_x select 1)];} forEach (_this select _i);
+		{missionNamespace setVariable [(_x select 0),(_x select 1)];} forEach (_this select (_temp select _i));
 	};
-
 };
 
 //Parse side specific information.
