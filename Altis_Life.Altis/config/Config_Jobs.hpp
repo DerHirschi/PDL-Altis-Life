@@ -19,17 +19,20 @@ class JobsCFG {
 	╚═════════════════════════════════════════════════════════════════╝
 */
 	class Cops {
-		side 		   = "west";
-		groupvar 	   = "cop_group";
-		onvar		   = "liga_cop_on";
+		side 		   	= "west";
+		groupvar 	   	= "cop_group";
+		onvar		   	= "liga_cop_on";
+		levelvar	   	= "life_coplevel";
 		
-		licensneed	   = "jobCop";
-		licforbidden[] = {"rebel"};
-		forbiddentext  = "Mit Tattoo kannst du nicht bei der Polizei arbeiten.";
+		licensneed	   	= "jobCop";
+		licforbidden[] 	= {"rebel"};
+		forbiddentext  	= "Mit Tattoo kannst du nicht bei der Polizei arbeiten.";
 		
-		class CopLevel_0 {
+		stechuhren[]	= {"cop_uhr_1","cop_uhr_2"};
+		
+		class life_coplevel_0 {
 			rang 	 	= "Praktikant"; // Dummy
-			paycheck 	= 500;
+			paycheck 	= 200;
 			einsperren  = false;
 			vehimpoun	= false;
 			wanteddel	= false;
@@ -38,7 +41,7 @@ class JobsCFG {
 			vehsearch  	= false;
 		};
 		
-		class CopLevel_1 {
+		class life_coplevel_1 {
 			rang 	 	= "Azubi"; // Dummy
 			paycheck 	= 500;
 			einsperren  = false;
@@ -49,7 +52,7 @@ class JobsCFG {
 			vehsearch  	= false;
 		};
 		
-		class CopLevel_2 {
+		class life_coplevel_2 {
 			rang 	 	= "Azubi"; // Dummy
 			paycheck 	= 1000;
 			einsperren  = false;

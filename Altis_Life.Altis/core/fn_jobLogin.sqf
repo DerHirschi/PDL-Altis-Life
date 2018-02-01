@@ -4,59 +4,76 @@
 	
 	Cop Login
 	LIFE_fnc_jobLogin
-	TODO
+	Vers: 2.0
 */
-liga_cop_on = false; //Dummy
-if(rebel)exitWith{hint "Du bist Rebell ... ";};
+private _e = false;
+_job = param [0, ""];
+if(_job isEqualTo "")exitWith {};
+{
+	if(missionNamespace getVariable [_x, false])exitWith{hint localize (M_CONFIG(getText,"JobsCFG",_job,"forbiddentext"));_e = true;};
+}forEach (M_CONFIG(getArray,"JobsCFG",_job,"licforbidden"));
+if(_e)exitWith{};
+if!(missionNamespace getVariable [(M_CONFIG(getText,"JobsCFG",_job,"licensneed")), false])exitWith{hint localize "STR_Item_Cop_noCont";};
+
+_side			= call compileFinal (M_CONFIG(getText,"JobsCFG",_job,"side"));
+_groupvar 		= M_CONFIG(getText,"JobsCFG",_job,"groupvar");
+_levelvar 		= M_CONFIG(getText,"JobsCFG",_job,"levelvar");
+_level	 		= missionNamespace getVariable[(M_CONFIG(getText,"JobsCFG",_job,"levelvar")),0];
+_onvar 			= missionNamespace getVariable [M_CONFIG(getText,"JobsCFG",_job,"onvar"),false];
 		
-if!(liga_cop_on) then {
-	liga_cop_on = true;
-	if(isNil "liga_cop_group")then {
-		liga_cop_group = createGroup west;		
-		publicVariable "liga_cop_group";		
-		[player] join liga_cop_group;
+if!(_onvar) then {
+	missionNamespace setVariable [M_CONFIG(getText,"JobsCFG",_job,"onvar"),true];
+	if!(isNil _groupvar) then {
+		if(isNull (call compileFinal _groupvar)) then {
+			missionNamespace setVariable [_groupvar, nil];
+			publicVariable _groupvar;
+		};
 	};
-	if(isNull liga_cop_group) then {
-		liga_cop_group = createGroup west;		
-		publicVariable "liga_cop_group";		
-		[player] join liga_cop_group;
+	if(isNil _groupvar)then {
+		_group = (createGroup _side);		
+		_group deleteGroupWhenEmpty true;
+		missionNamespace setVariable [_groupvar, _group];
+		publicVariable _groupvar;		
+		[player] join (call compileFinal _groupvar);
 	}else{
-		[player] join liga_cop_group;
+	/*	
+	if(isNull liga_cop_group) then {
+		_group = (createGroup _side);		
+		_group deleteGroupWhenEmpty true;
+		missionNamespace setVariable [_groupvar, _group];
+		publicVariable _groupvar;		
+		[player] join (call compileFinal _groupvar
+	}else{
+	*/
+		[player] join (call compileFinal _groupvar);
 	};	
-	switch(life_coplevel) do
-	{
-		case 1: {life_paycheck = life_paycheck + 1000;};
-		case 2: {life_paycheck = life_paycheck + 2000;};
-		case 3: {life_paycheck = life_paycheck + 3000;};
-		case 4: {life_paycheck = life_paycheck + 4000;};
-		case 5: {life_paycheck = life_paycheck + 5000;};
-		case 6: {life_paycheck = life_paycheck + 6000;};
-		case 7: {life_paycheck = life_paycheck + 7000;};
-		case 8: {life_paycheck = life_paycheck + 8000;};
-		case 9: {life_paycheck = life_paycheck + 9000;};
-		case 10: {life_paycheck = life_paycheck + 10000;};
-		case 11: {life_paycheck = life_paycheck + 11000;};
-	};	
-	player setVariable["rank",life_coplevel,true];
+	life_paycheck  = getNumber(missionConfigFile >> "JobsCFG" >> _job >> (_levelvar + "_" + (str _level)) );
+	
+	player setVariable["rank",_level,true];
 	hint parseText format["<t align='center'><t color='#15C30C'><t size='3'>Angemeldet</t></t></t><br/><br/><t size='1.3'><t align='left'>Du hast dich angemeldet. <br/><br/>Ruhige Schicht ...<br/>"];
 	[player,false,civilian] remoteExecCall ["TON_fnc_managesc",RSERV];
-	[player,true,west] remoteExecCall ["TON_fnc_managesc",RSERV];
+	[player,true,_side] remoteExecCall ["TON_fnc_managesc",RSERV];
+	
 }else{
-	liga_cop_on = false;
+	missionNamespace setVariable [M_CONFIG(getText,"JobsCFG",_job,"onvar"),false];
 	hint parseText format["<t align='center'><t color='#E0163B'><t size='3'>Abgemeldet</t></t></t><br/><br/><t size='1.3'><t align='left'>Du hast dich abgemeldet. <br/> <br/>  Schönen Feierabend ...<br/>"];
 	if(!(count life_gangData isEqualTo 0)) then {
-		[player] join (createGroup civilian);
+		_group = createGroup civilian;
+		_group deleteGroupWhenEmpty true;
+		[player] join _group;
 		[] spawn life_fnc_initGang;
 	}else{
 		[player] join (createGroup civilian);
 	};
-	life_paycheck = 500;
+	life_paycheck = LIFE_SETTINGS(getNumber,"paycheck_civ");
 	[player,true,civilian] remoteExecCall ["TON_fnc_managesc",RSERV];
-	[player,false,west] remoteExecCall ["TON_fnc_managesc",RSERV];
+	[player,false,_side] remoteExecCall ["TON_fnc_managesc",RSERV];
+	/*TODO: Bos
 	{
 		[player,false,(_x + 1)] remoteExecCall ["TON_fnc_radio",RSERV];
 		liga_bos set [_x,false];
 	}forEach [0,1,2,3,4,5,6,7,8];
+	*/
 };
 
 

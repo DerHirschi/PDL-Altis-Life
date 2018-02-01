@@ -58,7 +58,7 @@ switch (side player) do {
 	};
 };
 
-if!(playerSide isEqualTo west) then {
+if!((side player) isEqualTo west) then {
 	_backConf = M_CONFIG(getText,"CfgKlamotten",_bak,_ent);
 	_uniConfi = M_CONFIG(getText,"CfgKlamotten",_uni,_ent);	
 	if!(_textBp isEqualTo "") then {
