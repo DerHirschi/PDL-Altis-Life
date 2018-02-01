@@ -389,15 +389,15 @@ publicVariable "LIGACL_fnc_suchFreiStelle";
 LIGACL_fnc_lookNoTask = compileFinal "
 	private['_testHeli','_ret','_dist'];
 	_helivar = [_this,0,'',['']] call BIS_fnc_param;
-	if(_helivar isEqualTo '') exitWith {};
+	if(_helivar isEqualTo '') exitWith {[]};
 	_ret = [];
 	_testHeli = '';
 	_dist = 15000;	
 	{			
 		_testHeli = (getText(missionConfigFile >> 'LigaTaxen' >> _helivar >> (configName _x) >> 'Heli_var' ));
-		_testHeli = missionNamespace getVariable [_helivar,objNull];
+		_testHeli = missionNamespace getVariable [_testHeli,objNull];
 				
-		if(!isNull _testHeli)then {
+		if!(isNull _testHeli)then {
 			if(alive _testHeli && !isEngineOn _testHeli && !(_testHeli getVariable ['hasTask',false])) then {
 				if( (_testHeli distance2D player) < _dist ) then {
 					_dist = _testHeli distance2D player;
