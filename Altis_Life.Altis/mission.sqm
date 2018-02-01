@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=1183;
+		nextID=1208;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={3286.614,11.50753,12951.983};
-		dir[]={0.52242488,-0.60280573,0.60312206};
-		up[]={0.39468271,0.79787463,0.45564684};
-		aside[]={0.75588262,1.2037344e-007,-0.65474558};
+		pos[]={15133.465,32.86203,17224.969};
+		dir[]={0.55456978,-0.35043007,-0.75479966};
+		up[]={0.20752001,0.93656647,-0.28244567};
+		aside[]={-0.80589831,-1.8150604e-007,-0.59211332};
 	};
 };
 binarizationWanted=0;
@@ -64,13 +64,15 @@ addons[]=
 	"A3_Characters_F",
 	"A3_Characters_F_Exp_Civil",
 	"A3_Air_F_Beta_Heli_Transport_02",
-	"A3_Structures_F_Exp_Commercial_Advertisements"
+	"A3_Structures_F_Exp_Commercial_Advertisements",
+	"A3_Air_F_Heli_Light_01",
+	"A3_Characters_F_Kart"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=15;
+		items=17;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -176,6 +178,20 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item15
+		{
+			className="A3_Air_F";
+			name="Arma 3 Alpha - Aircraft";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item16
+		{
+			className="A3_Characters_F_Kart";
+			name="Arma 3 Karts - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 randomSeed=2639488;
@@ -209,24 +225,6 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
-			property="RespawnTemplates";
-			expression="true";
-			class Value
-			{
-				class data
-				{
-					class type
-					{
-						type[]=
-						{
-							"ARRAY"
-						};
-					};
-				};
-			};
-		};
-		class Attribute1
-		{
 			property="RespawnButton";
 			expression="true";
 			class Value
@@ -241,6 +239,24 @@ class CustomAttributes
 						};
 					};
 					value=1;
+				};
+			};
+		};
+		class Attribute1
+		{
+			property="RespawnTemplates";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"ARRAY"
+						};
+					};
 				};
 			};
 		};
@@ -298,7 +314,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=869;
+		items=881;
 		class Item0
 		{
 			dataType="Marker";
@@ -36390,6 +36406,435 @@ class Mission
 			id=1182;
 			type="Land_SignMonolith_01_F";
 			atlOffset=0.12598705;
+		};
+		class Item869
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15064.786,17.91,16914.574};
+				angles[]={-0,0.75479227,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=1183;
+			type="Land_HelipadCivil_F";
+		};
+		class Item870
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15064.9,19.689144,16914.801};
+				angles[]={0,4.3160248,0};
+			};
+			side="Civilian";
+			flags=6;
+			class Attributes
+			{
+				name="Liga4";
+			};
+			id=1185;
+			type="B_Heli_Light_01_F";
+		};
+		class Item871
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15064.9,17.911438,16914.85};
+						angles[]={0,4.3160248,0};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+						name="Liga4D";
+						isPlayer=1;
+					};
+					id=1189;
+					type="C_Marshal_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=1;
+				};
+				class Links
+				{
+					items=1;
+					class Item0
+					{
+						linkID=0;
+						item0=1189;
+						item1=1185;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+				};
+			};
+			id=1188;
+		};
+		class Item872
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15064.9,17.911438,16914.85};
+						angles[]={0,4.3160248,0};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+					};
+					id=1191;
+					type="C_Marshal_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=1;
+				};
+				class Links
+				{
+					items=1;
+					class Item0
+					{
+						linkID=0;
+						item0=1191;
+						item1=1185;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+				};
+			};
+			id=1190;
+		};
+		class Item873
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15069.057,17.91,16999.469};
+				angles[]={-0,0.75479227,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=1192;
+			type="Land_HelipadCivil_F";
+		};
+		class Item874
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15069.17,17.911438,16999.744};
+						angles[]={-0,4.3160248,0};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+						name="Liga4D_1";
+					};
+					id=1194;
+					type="C_Marshal_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=1;
+				};
+				class Links
+				{
+					items=1;
+					class Item0
+					{
+						linkID=0;
+						item0=1194;
+						item1=1197;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+				};
+			};
+			id=1193;
+		};
+		class Item875
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15069.17,17.911438,16999.744};
+						angles[]={-0,4.3160248,0};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+					};
+					id=1196;
+					type="C_Marshal_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=1;
+				};
+				class Links
+				{
+					items=1;
+					class Item0
+					{
+						linkID=0;
+						item0=1196;
+						item1=1197;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+				};
+			};
+			id=1195;
+		};
+		class Item876
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15069.17,19.689144,16999.695};
+				angles[]={-0,4.3160248,0};
+			};
+			side="Civilian";
+			flags=6;
+			class Attributes
+			{
+				name="ALAC_AIR_1";
+			};
+			id=1197;
+			type="B_Heli_Light_01_F";
+		};
+		class Item877
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15145.428,17.91,17205.26};
+				angles[]={-0,0.75479227,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=1198;
+			type="Land_HelipadCivil_F";
+		};
+		class Item878
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15149.248,17.911438,17206.121};
+						angles[]={-0,4.3160248,0};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+						name="Liga4D_2";
+					};
+					id=1200;
+					type="C_Marshal_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=1;
+				};
+				class Links
+				{
+					items=1;
+					class Item0
+					{
+						linkID=0;
+						item0=1200;
+						item1=1205;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+				};
+			};
+			id=1199;
+		};
+		class Item879
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15149.248,17.911438,17206.121};
+						angles[]={-0,4.3160248,0};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+						name="con_airD";
+					};
+					id=1202;
+					type="C_Marshal_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=1;
+				};
+				class Links
+				{
+					items=1;
+					class Item0
+					{
+						linkID=0;
+						item0=1202;
+						item1=1205;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+				};
+			};
+			id=1201;
+		};
+		class Item880
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15149.248,21.516823,17206.064};
+			};
+			side="Civilian";
+			flags=6;
+			class Attributes
+			{
+				name="con_air";
+			};
+			id=1205;
+			type="I_Heli_Transport_02_F";
 		};
 	};
 };

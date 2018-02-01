@@ -373,5 +373,18 @@ class Life_Client_Core {
         class vehStoreItem {};
         class vehTakeItem {};
         class vInteractionMenu {};
-    };
+    };	
+};
+
+class LigaClient{
+	tag = "LIGACL";
+	class Taxen	{
+		file = "scripts\Liga\Taxen";		
+
+		class initTaxen				{};	// LIGACL_fnc_initTaxen		
+		class removeHeliAc			{};
+		class woIstFrei				{};	// LIGACL_fnc_woIstFrei
+		class rufHeli				{};	// LIGACL_fnc_rufHeli
+		
+	};
 };

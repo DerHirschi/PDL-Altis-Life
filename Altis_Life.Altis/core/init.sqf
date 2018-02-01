@@ -182,6 +182,7 @@ life_hideoutBuildings = [];
 
 
 []call life_fnc_initMapActions;
+//[]spawn LIGACL_fnc_initTaxen;
 
 diag_log "----------------------------------------------------------------------------------------------------";
 diag_log format ["               End of PDL Init :: Total Execution Time %1 seconds ",(diag_tickTime) - _timeStamp];

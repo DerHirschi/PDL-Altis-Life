@@ -13,3 +13,4 @@ if (hasInterface) then {
 [] execVM "KRON_Strings.sqf";
 
 StartProgress = true;
+[]spawn LIGACL_fnc_initTaxen;

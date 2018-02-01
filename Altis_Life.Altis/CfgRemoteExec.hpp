@@ -165,6 +165,11 @@ class CfgRemoteExec {
         F(life_fnc_setFuel,ANYONE)
         F(life_fnc_simDisable,ANYONE)
         F(SPY_fnc_notifyAdmins,ANYONE)
+		
+		F(LIGACL_fnc_ConAirFlyTOpad,ANYONE)		
+		F(LIGACL_fnc_ConAirAction,ANYONE)		
+		F(LIGACL_fnc_ConAirTOknast,ANYONE)		
+		F(LIGACL_fnc_forceLand,ANYONE)	
     };
 
     class Commands {
