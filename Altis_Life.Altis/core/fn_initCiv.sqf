@@ -32,6 +32,7 @@ if (life_is_alive && !life_is_arrested) then {
         [] call life_fnc_spawnMenu;
         waitUntil{!isNull (findDisplay 38500)}; //Wait for the spawn selection to be open.
         waitUntil{isNull (findDisplay 38500)}; //Wait for the spawn selection to be done.
+		
     } else {
         if (life_is_arrested) then {
             life_is_arrested = false;
@@ -40,3 +41,17 @@ if (life_is_alive && !life_is_arrested) then {
     };
 };
 life_is_alive = true;
+
+camUseNVG false; 
+false setCamUseTi 0;  
+_effect_screen = ppEffectCreate ["ColorCorrections", 5000];      
+_effect_screen ppEffectEnable true;  
+_effect_screen ppEffectAdjust [1, 1.2, 0, [1, 1, 1, 0], [1, 1, 1, 1.1], [1, 1, 1, 1.0]];  
+_effect_screen ppEffectCommit 0;
+
+	
+"dynamicBlur" ppEffectEnable true;   
+"dynamicBlur" ppEffectAdjust [100];   
+"dynamicBlur" ppEffectCommit 0;     
+"dynamicBlur" ppEffectAdjust [0.0];  
+"dynamicBlur" ppEffectCommit 1; 
