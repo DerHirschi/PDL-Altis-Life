@@ -2,6 +2,7 @@
 /*
     File: fn_queryRequest.sqf
     Author: Bryan "Tonic" Boardwine
+	Edit: MasTo - Die Liga
 
     This file is for Nanou's HeadlessClient.
 
@@ -21,12 +22,58 @@ _ownerID = [_this,2,objNull,[objNull]] call BIS_fnc_param;
 if (isNull _ownerID) exitWith {};
 
 _query = switch (_side) do {
-    // West - 11 entries returned
-    case west: {format ["SELECT pid, name, cash, bankacc, adminlevel, donorlevel, cop_licenses, coplevel, cop_gear, blacklist, cop_stats, playtime FROM players WHERE pid='%1'",_uid];};
     // Civilian - 12 entries returned
-    case civilian: {format ["SELECT pid, name, cash, bankacc, adminlevel, donorlevel, civ_licenses, arrested, civ_gear, civ_stats, civ_alive, civ_position, playtime FROM players WHERE pid='%1'",_uid];};
+    case civilian: {format ["SELECT pid, \
+									name,\
+									cash,\
+									bankacc,\
+									adminlevel,\
+									donorlevel,\
+									civ_licenses,\
+									arrested,\
+									civ_gear,\
+									civ_stats,\
+									civ_alive,\
+									civ_position,\
+									playtime, \
+									coplevel, \
+									cop_licenses, \
+									mediclevel, \
+									med_licenses, \
+									alaclevel, \
+									alac_licenses, \
+									flusilevel, \
+									flusi_licenses \
+									FROM players WHERE pid='%1'",_uid];
+					};
+
+	// West - 11 entries returned
+    case west: {format ["SELECT pid, name, cash, bankacc, adminlevel, donorlevel, cop_licenses, coplevel, cop_gear, blacklist, cop_stats, playtime FROM players WHERE pid='%1'",_uid];};
     // Independent - 10 entries returned
     case independent: {format ["SELECT pid, name, cash, bankacc, adminlevel, donorlevel, med_licenses, mediclevel, med_gear, med_stats, playtime FROM players WHERE pid='%1'",_uid];};
+    case east: {format ["SELECT pid, \
+									name,\
+									cash,\
+									bankacc,\
+									adminlevel,\
+									donorlevel,\
+									civ_licenses,\
+									arrested,\
+									civ_gear,\
+									civ_stats,\
+									civ_alive,\
+									civ_position,\
+									playtime, \
+									coplevel, \
+									cop_licenses, \
+									mediclevel, \
+									med_licenses, \
+									alaclevel, \
+									alac_licenses, \
+									flusilevel, \
+									flusi_licenses \
+									FROM players WHERE pid='%1'",_uid];
+					};
 };
 
 

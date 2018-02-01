@@ -1,6 +1,7 @@
 /*
     File: fn_updatePartial.sqf
     Author: Bryan "Tonic" Boardwine
+	Edited: MasTo - Die Liga
 
     This file is for Nanou's HeadlessClient.
 
@@ -33,25 +34,29 @@ switch (_mode) do {
         _value = [_this,2,[],[[]]] call BIS_fnc_param;
         //Does something license related but I can't remember I only know it's important?
         for "_i" from 0 to count(_value)-1 do {
-            _bool = [(_value select _i) select 1] call HC_fnc_bool;
+            _bool = [(_value select _i) select 1] call DB_fnc_bool;
             _value set[_i,[(_value select _i) select 0,_bool]];
         };
-        _value = [_value] call HC_fnc_mresArray;
+        _value = [_value] call DB_fnc_mresArray;
         switch (_side) do {
             case west: {_query = format ["UPDATE players SET cop_licenses='%1' WHERE pid='%2'",_value,_uid];};
             case civilian: {_query = format ["UPDATE players SET civ_licenses='%1' WHERE pid='%2'",_value,_uid];};
             case independent: {_query = format ["UPDATE players SET med_licenses='%1' WHERE pid='%2'",_value,_uid];};
+            case east: {_query = format ["UPDATE players SET alac_licenses='%1' WHERE pid='%2'",_value,_uid];};
         };
     };
 
     case 3: {
         _value = [_this,2,[],[[]]] call BIS_fnc_param;
-        _value = [_value] call HC_fnc_mresArray;
+        _value = [_value] call DB_fnc_mresArray;
+		/*
         switch (_side) do {
             case west: {_query = format ["UPDATE players SET cop_gear='%1' WHERE pid='%2'",_value,_uid];};
             case civilian: {_query = format ["UPDATE players SET civ_gear='%1' WHERE pid='%2'",_value,_uid];};
             case independent: {_query = format ["UPDATE players SET med_gear='%1' WHERE pid='%2'",_value,_uid];};
         };
+		*/
+		_query = format ["UPDATE players SET civ_gear='%1' WHERE pid='%2'",_value,_uid];
     };
 
     case 4: {
@@ -80,6 +85,11 @@ switch (_mode) do {
     case 7: {
         _array = [_this,2,[],[[]]] call BIS_fnc_param;
         [_uid,_side,_array,0] remoteExecCall ["TON_fnc_keyManagement",RSERV];
+    };
+		
+	case 8: {
+        _array = [_this,2,[],[[]]] call BIS_fnc_param;
+        _query = format ["UPDATE players SET coplevel='%1', mediclevel='%2', alaclevel='%3', flusilevel='%4' WHERE pid='%5'",(_array select 0),(_array select 1),(_array select 2),(_array select 3),_uid];
     };
 };
 

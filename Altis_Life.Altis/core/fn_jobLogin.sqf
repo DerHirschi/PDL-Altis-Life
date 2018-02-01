@@ -36,15 +36,6 @@ if!(_onvar) then {
 		publicVariable _groupvar;		
 		[player] join (call compileFinal _groupvar);
 	}else{
-	/*	
-	if(isNull liga_cop_group) then {
-		_group = (createGroup _side);		
-		_group deleteGroupWhenEmpty true;
-		missionNamespace setVariable [_groupvar, _group];
-		publicVariable _groupvar;		
-		[player] join (call compileFinal _groupvar
-	}else{
-	*/
 		[player] join (call compileFinal _groupvar);
 	};	
 	life_paycheck  = getNumber(missionConfigFile >> "JobsCFG" >> _job >> (_levelvar + "_" + (str _level)) );

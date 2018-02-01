@@ -2,7 +2,8 @@
 /*
     File: fn_insertRequest.sqf
     Author: Bryan "Tonic" Boardwine
-
+	Edit: MasTo - Die Liga
+	
     Description:
     Adds a player to the database upon first joining of the server.
     Recieves information from core\sesison\fn_insertPlayerInfo.sqf

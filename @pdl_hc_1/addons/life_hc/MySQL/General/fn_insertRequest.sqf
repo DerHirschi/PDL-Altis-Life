@@ -2,6 +2,7 @@
 /*
     File: fn_insertRequest.sqf
     Author: Bryan "Tonic" Boardwine
+	Edit: MasTo - Die Liga
 
     This file is for Nanou's HeadlessClient.
 
@@ -38,7 +39,7 @@ _money = [_money] call HC_fnc_numberSafe;
 _bank = [_bank] call HC_fnc_numberSafe;
 
 //Prepare the query statement..
-_query = format ["INSERT INTO players (pid, name, cash, bankacc, aliases, cop_licenses, med_licenses, civ_licenses, civ_gear, cop_gear, med_gear) VALUES('%1', '%2', '%3', '%4', '%5','""[]""','""[]""','""[]""','""[]""','""[]""','""[]""')",
+_query = format ["INSERT INTO players (pid, name, cash, bankacc, aliases, cop_licenses, med_licenses, civ_licenses, alac_licenses, flusi_licenses, civ_gear, cop_gear, med_gear, alac_gear, flusi_gear) VALUES('%1', '%2', '%3', '%4', '%5','""[]""','""[]""','""[]""','""[]""','""[]""','""[]""','""[]""','""[]""','""[]""','""[]""')",
     _uid,
     _name,
     _money,

@@ -50,6 +50,29 @@ _query = switch (_side) do {
     case west: {format ["SELECT pid, name, cash, bankacc, adminlevel, donorlevel, cop_licenses, coplevel, cop_gear, blacklist, cop_stats, playtime FROM players WHERE pid='%1'",_uid];};
     // Independent - 10 entries returned
     case independent: {format ["SELECT pid, name, cash, bankacc, adminlevel, donorlevel, med_licenses, mediclevel, med_gear, med_stats, playtime FROM players WHERE pid='%1'",_uid];};
+    case east: {format ["SELECT pid, \
+									name,\
+									cash,\
+									bankacc,\
+									adminlevel,\
+									donorlevel,\
+									civ_licenses,\
+									arrested,\
+									civ_gear,\
+									civ_stats,\
+									civ_alive,\
+									civ_position,\
+									playtime, \
+									coplevel, \
+									cop_licenses, \
+									mediclevel, \
+									med_licenses, \
+									alaclevel, \
+									alac_licenses, \
+									flusilevel, \
+									flusi_licenses \
+									FROM players WHERE pid='%1'",_uid];
+					};
 };
 
 _tickTime = diag_tickTime;
