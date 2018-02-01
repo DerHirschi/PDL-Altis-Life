@@ -18,6 +18,7 @@ class CfgPatches {
 	};
 };
 
+
 class CfgFunctions {
 	
 	class extDB3

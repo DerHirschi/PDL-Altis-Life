@@ -23,8 +23,8 @@ if!(liga_cop_on) then {
 	}else{
 		[player] join liga_cop_group;
 	};	
-	switch([]call life_coplevel) do
-	 {
+	switch(life_coplevel) do
+	{
 		case 1: {life_paycheck = life_paycheck + 1000;};
 		case 2: {life_paycheck = life_paycheck + 2000;};
 		case 3: {life_paycheck = life_paycheck + 3000;};
@@ -37,7 +37,7 @@ if!(liga_cop_on) then {
 		case 10: {life_paycheck = life_paycheck + 10000;};
 		case 11: {life_paycheck = life_paycheck + 11000;};
 	};	
-	player setVariable["rank",([]call life_coplevel),true];
+	player setVariable["rank",life_coplevel,true];
 	hint parseText format["<t align='center'><t color='#15C30C'><t size='3'>Angemeldet</t></t></t><br/><br/><t size='1.3'><t align='left'>Du hast dich angemeldet. <br/><br/>Ruhige Schicht ...<br/>"];
 	[player,false,civilian] remoteExecCall ["TON_fnc_managesc",RSERV];
 	[player,true,west] remoteExecCall ["TON_fnc_managesc",RSERV];

@@ -39,8 +39,8 @@ switch ((side player)) do {
         if (uniform player isEqualTo "U_Rangemaster") then {
             _skinName = "textures\cop_uniform.jpg";
             if (LIFE_SETTINGS(getNumber,"cop_extendedSkins") isEqualTo 1) then {
-                if (FETCH_CONST(life_coplevel) >= 1) then {
-                    _skinName = ["textures\cop_uniform_",(FETCH_CONST(life_coplevel)),".jpg"] joinString "";
+                if (life_coplevel >= 1) then {
+                    _skinName = ["textures\cop_uniform_",(life_coplevel),".jpg"] joinString "";
                 };
             };
             player setObjectTextureGlobal [0, _skinName];

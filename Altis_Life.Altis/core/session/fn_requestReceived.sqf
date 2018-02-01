@@ -2,6 +2,7 @@
 /*
     File: fn_requestReceived.sqf
     Author: Bryan "Tonic" Boardwine
+	Edit: MasTo - Die Liga
 
     Description:
     Called by the server saying that we have a response so let's
@@ -42,8 +43,9 @@ if (LIFE_SETTINGS(getNumber,"donor_level") isEqualTo 1) then {
 };
 
 //Loop through licenses
-if (count (_this select 6) > 0) then {
-    {missionNamespace setVariable [(_x select 0),(_x select 1)];} forEach (_this select 6);
+_temp = (_this select 6) + (_this select 14) + (_this select 16) + (_this select 18) + (_this select 20);
+if (count _temp > 0) then {
+    {missionNamespace setVariable [(_x select 0),(_x select 1)];} forEach _temp;
 };
 
 //Parse side specific information.
@@ -60,9 +62,12 @@ switch ((side player)) do {
     };
 
     case civilian: {
-        life_is_arrested = _this select 7;
-        CONST(life_coplevel, 0);
-        CONST(life_medicLevel, 0);
+        life_is_arrested 	= _this select 7;
+        life_coplevel 		= _this select 13;
+        life_medicLevel 	= _this select 15;
+        life_alaclevel 		= _this select 17;
+        life_flusilevel 	= _this select 19;
+        
         life_houses = _this select (_count - 3);
         if (LIFE_SETTINGS(getNumber,"save_playerStats") isEqualTo 1) then {
             life_hunger = ((_this select 9) select 0);

@@ -4,7 +4,7 @@
 *            String can contain any amount of conditions, aslong as the entire
 *            string returns a boolean. This allows you to check any levels, licenses etc,
 *            in any combination. For example:
-*                "call life_coplevel && license_civ_someLicense"
+*                "life_coplevel && license_civ_someLicense"
 *            This will also let you call any other function.
 *
 */
@@ -88,14 +88,14 @@ class CfgSpawnPoints {
                 displayName = $STR_MAR_Police_Air_HQ;
                 spawnMarker = "cop_spawn_4";
                 icon = "\a3\ui_f\data\map\Markers\NATO\b_air.paa";
-                conditions = "call life_coplevel >= 2 && {license_cop_cAir}";
+                conditions = "life_coplevel >= 2 && {license_cop_cAir}";
             };
 
             class HW {
                 displayName = $STR_MAR_Highway_Patrol;
                 spawnMarker = "cop_spawn_5";
                 icon = "\a3\ui_f\data\map\GroupIcons\badge_rotate_0_gs.paa";
-                conditions = "call life_coplevel >= 3";
+                conditions = "life_coplevel >= 3";
             };
         };
 
@@ -202,14 +202,14 @@ class CfgSpawnPoints {
                 displayName = $STR_MAR_Police_Air_HQ;
                 spawnMarker = "cop_spawn_4";
                 icon = "\a3\ui_f\data\map\Markers\NATO\b_air.paa";
-                conditions = "call life_coplevel >= 2 && {license_cop_cAir}";
+                conditions = "life_coplevel >= 2 && {license_cop_cAir}";
             };
 
             class HW {
                 displayName = $STR_MAR_Highway_Patrol;
                 spawnMarker = "cop_spawn_5";
                 icon = "\a3\ui_f\data\map\GroupIcons\badge_rotate_0_gs.paa";
-                conditions = "call life_coplevel >= 3";
+                conditions = "life_coplevel >= 3";
             };
         };
 
