@@ -404,5 +404,9 @@ class LigaClient{
 
 		class ligaNews 			{};
 		class IgiVehInit		{};
+		class fuel 				{};	// LIGACL_fnc_fuel
+		class fuelCheck 		{};	// LIGACL_fnc_fuelCheck
+		class radartrap 		{};	// LIGACL_fnc_radartrap
+		class play3DSound 		{};	// LIGACL_fnc_play3DSound
 	};
 };

@@ -39,6 +39,14 @@ class Licenses {
         illegal = false;
         side = "civ";
     };
+	//Schwerlast
+	class bigtrucking {
+        variable = "bigtrucking";
+        displayName = "STR_License_BigTruck";
+        price = 200000;
+        illegal = false;
+        side = "civ";
+    };
 
     class gun {
         variable = "gun";

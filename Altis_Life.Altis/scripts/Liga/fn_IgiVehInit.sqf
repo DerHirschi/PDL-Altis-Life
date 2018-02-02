@@ -17,8 +17,9 @@
 //																											//
 //	Ways from points 1 and 2 can not be used simultaneously!!!												//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+if!(license_civ_bigtrucking)exitWith{};
  private ["_null"];
- { 
+{ 
 	if !(_x in vehicles) then 	
 	{							
 		IL_Veh_Array = IL_Veh_Array - [_x]; 

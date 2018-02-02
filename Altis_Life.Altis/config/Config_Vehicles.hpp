@@ -155,16 +155,16 @@ class CarShops {
 // >>>>>>>>> L1GA - Cargo <<<<<<<<<<<<	
     class civ_cargo {
         side = "civ";
-		conditions = "";
+		conditions = "license_civ_bigtrucking";
         vehicles[] = {
-            { "O_supplyCrate_F", 						450000,  { "" }, { "", "", -1 } },
-            { "Land_WaterTank_F", 						590000,  { "" }, { "", "", -1 } },
-            { "Land_CargoBox_V1_F", 					594000,  { "" }, { "", "", -1 } },
-            { "Land_Pod_Heli_Transport_04_bench_F", 	500000,  { "" }, { "", "", -1 } },
-            { "Land_Pod_Heli_Transport_04_covered_F", 	478800,  { "" }, { "", "", -1 } },
-            { "Land_Pod_Heli_Transport_04_box_F", 		940500,  { "" }, { "", "", -1 } },
-            { "Land_Pod_Heli_Transport_04_ammo_F", 		1575000, { "" }, { "", "", -1 } },
-            { "Land_Pod_Heli_Transport_04_fuel_F", 		1111500, { "" }, { "", "", -1 } }
+            { "O_supplyCrate_F", 						450000,  { "license_civ_bigtrucking" }, { "", "", -1 } },
+            { "Land_WaterTank_F", 						590000,  { "license_civ_bigtrucking" }, { "", "", -1 } },
+            { "Land_CargoBox_V1_F", 					594000,  { "license_civ_bigtrucking" }, { "", "", -1 } },
+            { "Land_Pod_Heli_Transport_04_bench_F", 	500000,  { "license_civ_bigtrucking" }, { "", "", -1 } },
+            { "Land_Pod_Heli_Transport_04_covered_F", 	478800,  { "license_civ_bigtrucking" }, { "", "", -1 } },
+            { "Land_Pod_Heli_Transport_04_box_F", 		940500,  { "license_civ_bigtrucking" }, { "", "", -1 } },
+            { "Land_Pod_Heli_Transport_04_ammo_F", 		1575000, { "license_civ_bigtrucking" }, { "", "", -1 } },
+            { "Land_Pod_Heli_Transport_04_fuel_F", 		1111500, { "license_civ_bigtrucking" }, { "", "", -1 } }
         };
 		allVeh[] = {
 			"O_supplyCrate_F",
@@ -180,7 +180,7 @@ class CarShops {
 // >>>>>>>>> L1GA - Bohrturm <<<<<<<<<<<<	
     class civ_bohrt {
         side = "civ";
-		conditions = "";
+		conditions = "license_civ_oil";
         vehicles[] = {
             { "O_Truck_02_transport_F", 					450000,   { "" }, { "", "", -1 } },
             { "Land_Device_assembled_F", 					6990000,  { "" }, { "", "", -1 } }

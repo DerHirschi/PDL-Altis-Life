@@ -15,6 +15,7 @@ sleep (random 30);
 _null = [Player] execVM "scripts\IgiLoad\IgiLoad.sqf";
 waitUntil {scriptDone _null};
 
+if!(license_civ_bigtrucking)exitWith{};
 
 sleep 40;
 

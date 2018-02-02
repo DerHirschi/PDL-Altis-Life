@@ -7311,6 +7311,17 @@
             <Portuguese>Licença de Caminhão</Portuguese>
             <Polish>Prawo jazdy - ciężarówki</Polish>
         </Key>
+        <Key ID="STR_License_BigTruck">
+            <Original></Original>
+            <Czech></Czech>
+            <Spanish></Spanish>
+            <Russian></Russian>
+            <German>Schwertransport Lizenz</German>
+            <French></French>
+            <Italian></Italian>
+            <Portuguese></Portuguese>
+            <Polish></Polish>
+        </Key>
         <Key ID="STR_License_Diamond">
             <Original>Diamond Processing</Original>
             <Czech>Diamond Processing</Czech>

@@ -116,6 +116,7 @@ for "_i" from 0 to 1 step 0 do {
         [] call life_fnc_updateViewDistance;
 		//[] call life_fnc_fuelCheck;
 		[]call LIGACL_fnc_IgiVehInit;
+		[]call LIGACL_fnc_fuelCheck;		
         _lastState = vehicle player;
     };
 

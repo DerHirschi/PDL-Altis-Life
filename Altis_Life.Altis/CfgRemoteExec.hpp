@@ -79,6 +79,7 @@ class CfgRemoteExec {
         F(LIGACL_fnc_WrackSinkt,CLIENT)
 		
 		F(LIGACL_fnc_ligaNews,CLIENT)  
+		F(LIGACL_fnc_play3DSound,CLIENT)  
 
 
         /* Server only functions */
