@@ -378,7 +378,8 @@ class Life_Client_Core {
 };
 
 class LigaClient{
-	tag = "LIGACL";
+	tag = "LIGACL";	
+	
 	class Taxen	{
 		file = "scripts\Liga\Taxen";		
 
@@ -387,5 +388,21 @@ class LigaClient{
 		class woIstFrei				{};	// LIGACL_fnc_woIstFrei
 		class rufHeli				{};	// LIGACL_fnc_rufHeli
 		
+	};
+	
+	class SchWrack
+	{
+		file = "scripts\Liga\Schiffswrack";		
+
+		class spawnWrack			{};	// LIGACL_fnc_spawnWrack	
+		class TimerDisp				{}; // LIGACL_fnc_TimerDisp
+	};
+	
+	class Fncs
+	{
+		file = "scripts\Liga";		
+
+		class ligaNews 			{};
+		class IgiVehInit		{};
 	};
 };

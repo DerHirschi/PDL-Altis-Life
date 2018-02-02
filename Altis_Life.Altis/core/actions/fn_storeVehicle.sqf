@@ -39,3 +39,4 @@ if (life_HC_isActive) then {
 
 hint localize "STR_Garage_Store_Server";
 life_garage_store = true;
+[]call LIGACL_fnc_IgiVehInit;

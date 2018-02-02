@@ -78,3 +78,4 @@ if (count crew _vehicle isEqualTo 0) then {
 };
 
 life_action_inUse = false;
+[]call LIGACL_fnc_IgiVehInit;

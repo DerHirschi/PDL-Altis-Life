@@ -223,6 +223,7 @@ life_attachment_point setVectorDirAndUp [[0,1,0], [0,0,1]];
 // Sharing the point of attachment with all players.
 publicVariable "life_attachment_point";
 
+[]spawn TON_fnc_WrackMain;
 diag_log "----------------------------------------------------------------------------------------------------";
 diag_log format ["               End of PDL Server Init :: Total Execution Time %1 seconds ",(diag_tickTime) - _timeStamp];
 diag_log "----------------------------------------------------------------------------------------------------";

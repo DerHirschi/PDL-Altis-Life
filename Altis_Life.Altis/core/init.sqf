@@ -182,6 +182,7 @@ life_hideoutBuildings = [];
 
 
 []call life_fnc_initMapActions;
+[]execVM "scripts\IgiLoad\IgiLoadInit.sqf"; 
 //[]spawn LIGACL_fnc_initTaxen;
 
 diag_log "----------------------------------------------------------------------------------------------------";

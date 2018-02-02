@@ -621,3 +621,97 @@ LIGACL_fnc_forceLand = compileFinal "
 	_heli setVariable ['hasTask',nil,true];
 ";	
 publicVariable 'LIGACL_fnc_forceLand';
+
+/*Schiffswrack*/
+
+LIGACL_fnc_WrackSinkt = compileFinal "	
+	private['_wrackSwitch','_t','_tick'];	
+	_startTime = param [0, 0];
+	if(isNil 'wrack1' || isNil 'wrack2' || isNil 'Feuer' || _startTime isEqualTo 0 )exitWith {}; 
+	if(isNull wrack1 || isNull wrack2 || isNull Feuer)exitWith {};
+		
+	_posi = getPos wrack1;
+	_to = ((getPosATL wrack1) select 2) ;
+	_to2 = ((getPosATL wrack2) select 2) ;
+	if(_to > _to2)then {_wrackSwitch = wrack1; }else{_wrackSwitch = wrack2; };
+		
+	waitUntil{serverTime >= _startTime};
+	_tick 		= diag_tickTime;
+	
+	for '_i' from 0 to 5  step 0.002 do {				
+		
+		wrack2 attachTo [wrack1, [0.67, -21.6, 0] ]; 					
+		_tick = _tick + 0.02;
+		waitUntil{diag_tickTime >= _tick};
+		wrack1 setpos (_posi vectorDiff [0,0,_i]);
+	};
+		
+	{
+		deleteVehicle _x;
+	} forEach (Feuer getVariable ['effects', []]);
+	deleteVehicle Feuer;
+
+	
+	_to = ((getPosATL wrack1) select 2) + 2 ;
+	_pos2 = getPos wrack2;
+	_posi = getPos wrack1;
+	
+	_tick = _tick + 1;
+	waitUntil{	diag_tickTime >= _tick};
+	for '_i' from 0 to _to  step 0.02 do {		
+		
+		if(_i > _to / 2) then {
+			if(isNil '_t')then {
+				_t = _i;				
+				detach wrack2 ;	
+				if(isNil 'wrack_boom') then {
+					wrack_boom = true;
+					publicVariable 'wrack_boom';
+					_boom = [(getPos wrack1 select 0) + 0.67, (getPos wrack1 select 1) + -21.6, (getPos wrack1 select 2) + 0];
+					'Bo_GBU12_LGB' createVehicle _boom;					
+					'M_NLAW_AT_F' createVehicle _boom;					
+				};
+			};
+			wrack2 setpos (_pos2 vectorDiff [(_i - _t) / 2,(_i - _t) / 3,_i]); ;			
+		}else{
+			wrack2 attachTo [wrack1, [0.67, -21.6, 0] ]; 
+		};		
+		
+		_tick = _tick + 0.02;
+		waitUntil{	diag_tickTime >= _tick};
+		wrack1 setpos (_posi vectorDiff [0,0,_i]);
+	};
+	
+	_to2 = ((getPosATL _wrackSwitch) select 2) ;
+	_pos2 = getPos _wrackSwitch;	
+	for '_i' from 0 to _to2  step 0.02 do {	
+		_wrackSwitch setpos (_pos2 vectorDiff [_i / 2,_i / 3,_i]);		
+		_tick = _tick + 0.02;
+		waitUntil{	diag_tickTime >= _tick};
+	};
+	
+	_to2 = ((getPosATL _wrackSwitch) select 2) + 2 ;
+	_pos2 = getPos _wrackSwitch;	
+	for '_i' from 0 to _to2  step 0.02 do {		
+		_wrackSwitch setpos (_pos2 vectorDiff [0,0,_i]);		
+		_tick = _tick + 0.02;
+		waitUntil{	diag_tickTime >= _tick};
+	};
+	
+	sleep 1;		
+	sleep (random 4);
+	sleep (random 4);
+	[[[getPos wrack1,vectorUp wrack1],[getPos wrack2,vectorUp wrack2]]] remoteExec ['TON_fnc_WrackMakeSafe', 2];
+	
+	waitUntil{!isNil 'wrack_objs'};
+	
+	{player reveal _x;} foreach wrack_objs;
+	sleep 1;
+	deleteVehicle wrack1;
+	deleteVehicle wrack2;
+	wrack1 = nil;
+	wrack2 = nil;
+
+";
+publicVariable 'LIGACL_fnc_WrackSinkt';
+

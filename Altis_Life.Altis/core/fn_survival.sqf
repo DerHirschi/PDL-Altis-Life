@@ -115,6 +115,7 @@ for "_i" from 0 to 1 step 0 do {
     if (!(vehicle player isEqualTo _lastState) || {!alive player}) then {
         [] call life_fnc_updateViewDistance;
 		//[] call life_fnc_fuelCheck;
+		[]call LIGACL_fnc_IgiVehInit;
         _lastState = vehicle player;
     };
 

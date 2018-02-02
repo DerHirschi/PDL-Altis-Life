@@ -1,3 +1,55 @@
+#define true 1
+#define false 0
+class Schiffswrack {
+	
+	Positionen[]			= {
+		{4462.89,6515.78,-2.19486},
+		{5391.75,25136.2,-1.98308},
+		{25323.2,27886.6,-2.15125},
+		{27923.2,08086.6,-2.15125},
+		{02623.2,02686.6,-2.15125},
+		{03423.2,28486.6,-2.15125},
+		{18423.2,28686.6,-2.15125},
+		{29423.2,30086.6,-2.15125},
+		{13523.2,10886.6,-2.15125}
+	};
+	Loot[]					={
+		{{"goldbar",18}	},
+		{{"goldbar",40}	},
+		{{"goldbar",47}	},
+		{{"goldbar",58}	},
+		{{"goldbar",58}	},
+		{{"goldbar",77}	},
+		{{"goldbar",78}	},
+		{{"goldbar",100}	},
+		{{"goldbar",125}	},
+		{{"goldbar",125}	},
+		{{"goldbar",142}	},
+		{{"goldbar",182}	}
+	};
+	
+	TriggerRadius			= 900;
+	MarkerRadius			= 600;
+	ZeugMenge				= 7;
+	ZeugRadius				= 80;
+	ZeugClassNames[]		={		
+		"Land_Pallets_F",
+		"Land_Cages_F",
+		"Land_CratesPlastic_F",
+		"Land_CratesWooden_F"
+	};
+	startTimer				= 5;//Minute(n)
+	ranstartTimer			= 5;//Minute(n)
+	/*SafeDespawn*/
+	coolDownTimer			= 90;//Minute(n) + startTimer + ranstartTimer
+	
+	bombNoWrackText 		= "Du musst erst das Schiffswrack suchen und die Bombe an dem Safe anbringen.";
+	bombWrackOffenText 		= "Das Schiff wurde bereits geoeffnet!";
+	bombBoom 				= "Die Sprengladung wurde gezuendet!! Der Laderaum ist jetzt offen !";
+	
+};
+
+class LigaTaxen {
 /*
 	╔══════════════════════════════════════════════════╗
 	║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░║
@@ -16,7 +68,6 @@
 	║	!!!!!!!!!!! CON_Air !!!!!!!!!!! && Taxen
 	╚══════════════════════════════════════════════════╝
 */
-class LigaTaxen {
 	
 	/*Grundconfig*/
 	

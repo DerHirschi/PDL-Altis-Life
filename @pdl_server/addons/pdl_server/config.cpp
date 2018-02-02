@@ -133,6 +133,14 @@ class CfgFunctions {
             class setPlayTime {};
             class getPlayTime {};
         };
+
+		class Schiffswrack20{
+			file = "\pdl_server\Scripte\Schiffswrack20";
+			
+			class WrackMain 			{};	//TON_fnc_WrackMain
+			class WrackMakeSafe 		{};	//TON_fnc_WrackMakeSafe
+
+		};
     };
 };
 

@@ -73,7 +73,13 @@ class CfgRemoteExec {
         F(TON_fnc_clientMessage,CLIENT)
         F(TON_fnc_player_query,CLIENT)
 		
-		F(life_fnc_switchMove,CLIENT)	
+		F(life_fnc_switchMove,CLIENT)
+			
+		F(LIGACL_fnc_spawnWrack,CLIENT)
+        F(LIGACL_fnc_WrackSinkt,CLIENT)
+		
+		F(LIGACL_fnc_ligaNews,CLIENT)  
+
 
         /* Server only functions */
         F(BIS_fnc_execVM,SERVER)
