@@ -6297,6 +6297,17 @@
             <Portuguese>Maçã</Portuguese>
             <Polish>Jabłko</Polish>
         </Key>
+		<Key ID="STR_Item_WassBomb">
+            <Original></Original>
+            <Czech></Czech>
+            <Spanish></Spanish>
+            <Russian></Russian>
+            <German>Wasserbombe</German>
+            <French></French>
+            <Italian></Italian>
+            <Portuguese></Portuguese>
+            <Polish></Polish>
+        </Key>		
         <Key ID="STR_Item_Apples">
             <Original>Apples</Original>
             <Czech>jablka</Czech>

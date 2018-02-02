@@ -1146,6 +1146,34 @@ class VirtualItems {
         sound 		= "";
     };		
 
+	class uwsl {
+        variable 	= "uwsl";
+        displayName = "STR_Item_WassBomb";        
+        buyPrice 	= 10000;
+        sellPrice 	= -1;
+        illegal 	= 10000;
+        		
+		saveable	= false;
+		closeDiag	= true;
+		
+		weight 		= 5;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+
+        verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"a10",1},{"",-1}}	ITEM,stk		
+        
+		allowside[]	= {"CIV"};
+        // useablefnc	= "if (!(life_is_processing)) exitWith {  [ObjNull,'','','moon'] spawn life_fnc_processAction; playSound 'FlBef';};";       
+		useablefnc	= "_this spawn { if(([false,_this,1] call life_fnc_handleInv)) then	{	if(isNil 'wrack_objs') exitWith {hint(getText (missionConfigFile >> 'Schiffswrack' >> 'bombNoWrackText'));};	if(wrack_objs isEqualTo [])exitWith {hint(getText (missionConfigFile >> 'Schiffswrack' >> 'bombNoWrackText'));};	if(isNull (wrack_objs select 2) )exitWith {hint(getText (missionConfigFile >> 'Schiffswrack' >> 'bombNoWrackText'));};	_safe = wrack_objs select 2;	if(_safe getVariable ['opened',false] && (!isNil 'schiffwoffen'))then {		if(schiffwoffen) exitWith {_e = true;hint(getText (missionConfigFile >> 'Schiffswrack' >> 'bombWrackOffenText'));};	}; 	if(!isNil '_e') exitWith{}; if(player distance _safe > 3.5)exitWith{hint 'Du bist nicht nah genug drann.';};	hint 'Der Timer lauft.. hau ab..';	private _handle = [0.5] spawn LIGACL_fnc_TimerDisp;		waitUntil {scriptDone _handle};	hint(getText (missionConfigFile >> 'Schiffswrack' >> 'bombBoom'));	_pos = getPos _safe;	'Bo_GBU12_LGB' createVehicle _pos;	'M_NLAW_AT_F' createVehicle _pos;	schiffwoffen = true;		publicVariable 'schiffwoffen';};	};";			
+		hinttext	= "";
+		titletext	= "";
+
+		icon 		= "icons\wbe.paa";
+        sound 		= "";
+    };		
 
     //Food
     class apple {

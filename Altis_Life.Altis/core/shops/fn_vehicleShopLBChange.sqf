@@ -12,27 +12,29 @@ disableSerialization;
 private ["_className","_classNameLife","_initalPrice","_buyMultiplier","_rentMultiplier","_vehicleInfo","_colorArray","_ctrl","_trunkSpace","_maxspeed","_horsepower","_passengerseats","_fuel","_armor"];
 
 //Fetch some information.
-_className = (_this select 0) lbData (_this select 1);
+_className	 = (_this select 0) lbData (_this select 1);
+_className	 = call compile _className;
+_initalPrice = (_className select 1);
+_className	 = (_className select 0);
+
 _classNameLife = _className;
-_vIndex = (_this select 0) lbValue (_this select 1);
+// _vIndex = (_this select 0) lbValue (_this select 1);
 
-_initalPrice = M_CONFIG(getNumber,"LifeCfgVehicles",_classNameLife,"price");
-
-switch ((side player)) do {
+switch (side player) do {
     case civilian: {
-        _buyMultiplier = LIFE_SETTINGS(getNumber,"vehicle_purchase_multiplier_CIVILIAN");
+  //      _buyMultiplier = LIFE_SETTINGS(getNumber,"vehicle_purchase_multiplier_CIVILIAN");
         _rentMultiplier = LIFE_SETTINGS(getNumber,"vehicle_rental_multiplier_CIVILIAN");
     };
     case west: {
-        _buyMultiplier = LIFE_SETTINGS(getNumber,"vehicle_purchase_multiplier_COP");
+ //       _buyMultiplier = LIFE_SETTINGS(getNumber,"vehicle_purchase_multiplier_COP");
         _rentMultiplier = LIFE_SETTINGS(getNumber,"vehicle_rental_multiplier_COP");
     };
     case independent: {
-        _buyMultiplier = LIFE_SETTINGS(getNumber,"vehicle_purchase_multiplier_MEDIC");
+  //      _buyMultiplier = LIFE_SETTINGS(getNumber,"vehicle_purchase_multiplier_MEDIC");
         _rentMultiplier = LIFE_SETTINGS(getNumber,"vehicle_rental_multiplier_MEDIC");
     };
     case east: {
-        _buyMultiplier = LIFE_SETTINGS(getNumber,"vehicle_purchase_multiplier_OPFOR");
+  //      _buyMultiplier = LIFE_SETTINGS(getNumber,"vehicle_purchase_multiplier_OPFOR");
         _rentMultiplier = LIFE_SETTINGS(getNumber,"vehicle_rental_multiplier_OPFOR");
     };
 };
@@ -57,7 +59,7 @@ ctrlShow [2330,true];
     (localize "STR_Shop_Veh_UI_Fuel")+ " %7<br/>" +
     (localize "STR_Shop_Veh_UI_Armor")+ " %8",
     [round(_initalPrice * _rentMultiplier)] call life_fnc_numberText,
-    [round(_initalPrice * _buyMultiplier)] call life_fnc_numberText,
+    [round _initalPrice] call life_fnc_numberText,
     _maxspeed,
     _horsepower,
     _passengerseats,

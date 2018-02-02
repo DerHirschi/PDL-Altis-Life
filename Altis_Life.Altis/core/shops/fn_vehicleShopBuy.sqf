@@ -10,33 +10,33 @@
 params [["_mode",true,[true]]];
 
 if ((lbCurSel 2302) isEqualTo -1) exitWith {hint localize "STR_Shop_Veh_DidntPick";closeDialog 0;};
-
 private _className = lbData[2302,(lbCurSel 2302)];
-private _vIndex = lbValue[2302,(lbCurSel 2302)];
+_className	= call compile _className;
+private _initalPrice = (_className select 1);
+private _conditions = (_className select 2);
+_className	= (_className select 0);
+//private _vIndex = lbValue[2302,(lbCurSel 2302)];
 private _vehicleList = M_CONFIG(getArray,"CarShops",(life_veh_shop select 0),"vehicles");
 private _shopSide = M_CONFIG(getText,"CarShops",(life_veh_shop select 0),"side");
 
-
-private _initalPrice = M_CONFIG(getNumber,"LifeCfgVehicles",_className,"price");
-
-private "_buyMultiplier";
+//private "_buyMultiplier";
 private "_rentMultiplier";
 
-switch ((side player)) do {
+switch (side player) do {
     case civilian: {
-        _buyMultiplier = LIFE_SETTINGS(getNumber,"vehicle_purchase_multiplier_CIVILIAN");
+    //    _buyMultiplier = LIFE_SETTINGS(getNumber,"vehicle_purchase_multiplier_CIVILIAN");
         _rentMultiplier = LIFE_SETTINGS(getNumber,"vehicle_rental_multiplier_CIVILIAN");
     };
     case west: {
-        _buyMultiplier = LIFE_SETTINGS(getNumber,"vehicle_purchase_multiplier_COP");
+   //     _buyMultiplier = LIFE_SETTINGS(getNumber,"vehicle_purchase_multiplier_COP");
         _rentMultiplier = LIFE_SETTINGS(getNumber,"vehicle_rental_multiplier_COP");
     };
     case independent: {
-        _buyMultiplier = LIFE_SETTINGS(getNumber,"vehicle_purchase_multiplier_MEDIC");
+    //    _buyMultiplier = LIFE_SETTINGS(getNumber,"vehicle_purchase_multiplier_MEDIC");
         _rentMultiplier = LIFE_SETTINGS(getNumber,"vehicle_rental_multiplier_MEDIC");
     };
     case east: {
-        _buyMultiplier = LIFE_SETTINGS(getNumber,"vehicle_purchase_multiplier_OPFOR");
+    //    _buyMultiplier = LIFE_SETTINGS(getNumber,"vehicle_purchase_multiplier_OPFOR");
         _rentMultiplier = LIFE_SETTINGS(getNumber,"vehicle_rental_multiplier_OPFOR");
     };
 };
@@ -44,12 +44,10 @@ switch ((side player)) do {
 private "_purchasePrice";
 
 if (_mode) then {
-    _purchasePrice = round(_initalPrice * _buyMultiplier);
+    _purchasePrice = round _initalPrice;
 } else {
-    _purchasePrice = round(_initalPrice * _rentMultiplier);
+    _purchasePrice = round (_initalPrice * _rentMultiplier);
 };
-
-private _conditions = M_CONFIG(getText,"LifeCfgVehicles",_className,"conditions");
 
 if !([_conditions] call life_fnc_levelCheck) exitWith {hint localize "STR_Shop_Veh_NoLicense";};
 
@@ -112,7 +110,7 @@ _vehicle lock 2;
 _vehicle disableTIEquipment true; //No Thermals.. They're cheap but addictive.
 
 //Side Specific actions.
-switch ((side player)) do {
+switch (side player) do {
     case west: {
         [_vehicle,"cop_offroad",true] spawn life_fnc_vehicleAnimate;
     };
