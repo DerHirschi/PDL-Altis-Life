@@ -13,7 +13,7 @@
 private ["_dome","_rsb","_timeStamp","_extDBNotLoaded"];
 life_server_isReady = false;
 publicVariable "life_server_isReady";
-
+enableEnvironment [false, false];
 if(isNil "extDB3_var_loaded") exitWith{};
 if!([]call extDB3_var_loaded) exitWith{};
 
