@@ -31,3 +31,13 @@ Altis Life RPG by AsYetUntitled is licensed under a [Creative Commons Attributio
         <img src="https://img.shields.io/badge/Discord-Join%20chat%20→-738bd7.svg" alt="Join the chat at https://discord.gg/EaB7Jgw">
     </a>
 </p>
+
+
+# Die Liga - Script pack
+
+ - Ein Fraktionen System mit mehreren Jobs. ( Cops, Medic, ALAC, Flusi )
+ - Polizeiuniformen können auch von Zivilisten getragen werden
+ - Liga Schiffswrack Script
+ - Igiload ( kleinere Fahrzeuge auf LKWs laden )
+ - Liga Helitaxen Script ( Helitaxen, ALAC Notdienst und ConAir )
+ 
