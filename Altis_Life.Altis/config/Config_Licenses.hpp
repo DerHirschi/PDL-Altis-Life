@@ -195,6 +195,14 @@ class Licenses {
         illegal = false;
         side = "med";
     };
+    //Alac Licenses
+    class aAir {
+        variable = "aAir";
+        displayName = "STR_License_Pilot";
+        price = 15000;
+        illegal = false;
+        side = "alac";
+    };
 
 	//Cop Arbeitsvertrag
     class jobCop {

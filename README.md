@@ -40,4 +40,7 @@ Altis Life RPG by AsYetUntitled is licensed under a [Creative Commons Attributio
  - Liga Schiffswrack Script
  - Igiload ( kleinere Fahrzeuge auf LKWs laden )
  - Liga Helitaxen Script ( Helitaxen, ALAC Notdienst und ConAir )
+ - Warnton beim rückwärtsfahren von Trucks
+ - Rauch an Fahrzeugen wenn sie beschädigt wurden
+ - Performance optimierungen
  

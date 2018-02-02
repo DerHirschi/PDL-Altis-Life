@@ -129,6 +129,35 @@ class VirtualShops {
         conditions = "";
         items[] = { "donuts", "coffee", "spikeStrip", "waterBottle", "rabbit", "apple", "redgull", "toolkit", "fuelFull", "defusekit", "defibrillator" };
     };
+	// Buero 
+	class cop_office {
+        name = "STR_Office";
+        side = "cop";
+        conditions = "life_coplevel >= 8";
+        items[] = { "copcontract", "copbef1", "copair" };
+    };
+	
+	class medic_office {
+        name = "STR_Office";
+        side = "med";
+        conditions = "life_medicLevel >= 5";
+        items[] = { "mediccontract", "medicbef1", "medair" };
+    };
+
+	class alac_office {
+        name = "STR_Office";
+        side = "alac";
+        conditions = "life_alaclevel >= 5";
+        items[] = { "alaccontract", "alacbef1", "alacair" };
+    };
+
+	class flusi_office {
+        name = "STR_Office";
+        side = "civ";
+        conditions = "life_flusilevel >= 5";
+        items[] = { "flusicontract", "flusibef1" };
+    };
+	
 };
 
 /*
@@ -1882,7 +1911,7 @@ class VirtualItems {
 	    verbrauch 	= 1;
         dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
 
-		allowside[]	= {"CIV","WEST"};
+		allowside[]	= {"CIV"};
         useablefnc	= "missionNamespace setVariable ['license_civ_jobCop',true]; [2] call SOCK_fnc_updatePartial;";       
 		/*TODO: Text*/
 		hinttext	= "STR_Item_CopCont_Hint";
@@ -1906,8 +1935,8 @@ class VirtualItems {
 	    verbrauch 	= 1;
         dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
 
-		allowside[]	= {"CIV","WEST"};
-        useablefnc	= "missionNamespace setVariable ['life_coplevel',1]; [8] call SOCK_fnc_updatePartial;";       
+		allowside[]	= {"CIV"};
+        useablefnc	= "missionNamespace setVariable ['life_coplevel',(10 min (life_coplevel + 1))]; [8] call SOCK_fnc_updatePartial;";       
 		/*TODO: Text*/
 		hinttext	= "STR_Item_CopBef_Hint1";
 		titletext	= "";
@@ -1915,10 +1944,11 @@ class VirtualItems {
         icon 		= "icons\ico_muttonLeg.paa";
 		sound 		= "";
     };
+	
 
 	class mediccontract {
         variable = "mediccontract";
-        displayName = "STR_Item_MedicCont";
+        displayName = "STR_Item_CopCont";
         weight = 1;
         buyPrice = 1;
         sellPrice = 1;
@@ -1930,10 +1960,10 @@ class VirtualItems {
 	    verbrauch 	= 1;
         dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
 
-		allowside[]	= {"CIV","independent"};
+		allowside[]	= {"CIV"};
         useablefnc	= "missionNamespace setVariable ['license_civ_jobMedic',true]; [2] call SOCK_fnc_updatePartial;";       
 		/*TODO: Text*/
-		hinttext	= "STR_Item_MedicCont_Hint";
+		hinttext	= "STR_Item_CopCont_Hint";
 		titletext	= "";
 		/*TODO: ICON*/
         icon 		= "icons\ico_muttonLeg.paa";
@@ -1941,8 +1971,8 @@ class VirtualItems {
     };
 	// Cop Befoerderung
 	class medicbef1 {
-        variable = "copbef1";
-        displayName = "STR_Item_MedicBef1";
+        variable = "medicbef1";
+        displayName = "STR_Item_CopBef1";
         weight = 1;
         buyPrice = 1;
         sellPrice = 1;
@@ -1954,15 +1984,184 @@ class VirtualItems {
 	    verbrauch 	= 1;
         dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
 
-		allowside[]	= {"CIV","WEST"};
-        useablefnc	= "missionNamespace setVariable ['life_medicLevel',1]; [8] call SOCK_fnc_updatePartial;";       
+		allowside[]	= {"CIV"};
+        useablefnc	= "missionNamespace setVariable ['life_medicLevel',(10 min (life_medicLevel + 1))]; [8] call SOCK_fnc_updatePartial;";       
 		/*TODO: Text*/
-		hinttext	= "STR_Item_MedicBef_Hint1";
+		hinttext	= "STR_Item_CopBef_Hint1";
 		titletext	= "";
 		/*TODO: ICON*/
         icon 		= "icons\ico_muttonLeg.paa";
 		sound 		= "";
     };	
 	
+	class alaccontract {
+        variable = "alaccontract";
+        displayName = "STR_Item_CopCont";
+        weight = 1;
+        buyPrice = 1;
+        sellPrice = 1;
+        illegal = false;
+        essbar = -1;
+		trinkbar 	= -1;
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= 1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV"};
+        useablefnc	= "missionNamespace setVariable ['license_civ_jobAlac',true]; [2] call SOCK_fnc_updatePartial;";       
+		/*TODO: Text*/
+		hinttext	= "STR_Item_CopCont_Hint";
+		titletext	= "";
+		/*TODO: ICON*/
+        icon 		= "icons\ico_muttonLeg.paa";
+		sound 		= "";
+    };
+	// Cop Befoerderung
+	class alacbef1 {
+        variable = "alacbef1";
+        displayName = "STR_Item_CopBef1";
+        weight = 1;
+        buyPrice = 1;
+        sellPrice = 1;
+        illegal = false;
+        essbar = -1;
+		trinkbar 	= -1;
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= 1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV"};
+        useablefnc	= "missionNamespace setVariable ['life_alaclevel',(10 min (life_medicLevel + 1))]; [8] call SOCK_fnc_updatePartial;";       
+		/*TODO: Text*/
+		hinttext	= "STR_Item_CopBef_Hint1";
+		titletext	= "";
+		/*TODO: ICON*/
+        icon 		= "icons\ico_muttonLeg.paa";
+		sound 		= "";
+    };	
+	
+	class flusicontract {
+        variable = "flusicontract";
+        displayName = "STR_Item_CopCont";
+        weight = 1;
+        buyPrice = 1;
+        sellPrice = 1;
+        illegal = false;
+        essbar = -1;
+		trinkbar 	= -1;
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= 1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV"};
+        useablefnc	= "missionNamespace setVariable ['license_civ_jobFlusi',true]; [2] call SOCK_fnc_updatePartial;";       
+		/*TODO: Text*/
+		hinttext	= "STR_Item_CopCont_Hint";
+		titletext	= "";
+		/*TODO: ICON*/
+        icon 		= "icons\ico_muttonLeg.paa";
+		sound 		= "";
+    };
+	// Cop Befoerderung
+	class flusibef1 {
+        variable = "flusibef1";
+        displayName = "STR_Item_CopBef1";
+        weight = 1;
+        buyPrice = 1;
+        sellPrice = 1;
+        illegal = false;
+        essbar = -1;
+		trinkbar 	= -1;
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= 1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV"};
+        useablefnc	= "missionNamespace setVariable ['life_flusilevel',(10 min (life_medicLevel + 1))]; [8] call SOCK_fnc_updatePartial;";       
+		/*TODO: Text*/
+		hinttext	= "STR_Item_CopBef_Hint1";
+		titletext	= "";
+		/*TODO: ICON*/
+        icon 		= "icons\ico_muttonLeg.paa";
+		sound 		= "";
+    };	
+	
+// Lizenzen Fop Air usw
+
+	class copair {
+        variable = "copair";
+        displayName = "STR_Item_CopAir";
+        weight = 1;
+        buyPrice = 1;
+        sellPrice = 1;
+        illegal = false;
+        essbar = -1;
+		trinkbar 	= -1;
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= 1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV"};
+        useablefnc	= "missionNamespace setVariable ['license_cop_cAir',true]; [2] call SOCK_fnc_updatePartial;";       
+		/*TODO: Text*/
+		hinttext	= "STR_Item_CopCont_Hint";
+		titletext	= "";
+		/*TODO: ICON*/
+        icon 		= "icons\ico_muttonLeg.paa";
+		sound 		= "";
+    };
+	
+	class medair {
+        variable = "medair";
+        displayName = "STR_Item_CopAir";
+        weight = 1;
+        buyPrice = 1;
+        sellPrice = 1;
+        illegal = false;
+        essbar = -1;
+		trinkbar 	= -1;
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= 1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV"};
+        useablefnc	= "missionNamespace setVariable ['license_med_mAir',true]; [2] call SOCK_fnc_updatePartial;";       
+		/*TODO: Text*/
+		hinttext	= "STR_Item_CopCont_Hint";
+		titletext	= "";
+		/*TODO: ICON*/
+        icon 		= "icons\ico_muttonLeg.paa";
+		sound 		= "";
+    };
+
+	class alacair {
+        variable = "alacair";
+        displayName = "STR_Item_CopAir";
+        weight = 1;
+        buyPrice = 1;
+        sellPrice = 1;
+        illegal = false;
+        essbar = -1;
+		trinkbar 	= -1;
+		saveable	= false;
+		closeDiag	= true;
+	    verbrauch 	= 1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+
+		allowside[]	= {"CIV"};
+        useablefnc	= "missionNamespace setVariable ['license_alac_aAir',true]; [2] call SOCK_fnc_updatePartial;";       
+		/*TODO: Text*/
+		hinttext	= "STR_Item_CopCont_Hint";
+		titletext	= "";
+		/*TODO: ICON*/
+        icon 		= "icons\ico_muttonLeg.paa";
+		sound 		= "";
+    };
 	
 };

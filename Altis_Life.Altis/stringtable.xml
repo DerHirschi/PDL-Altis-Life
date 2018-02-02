@@ -256,6 +256,17 @@
             <Portuguese>Equipamentos da Polícia</Portuguese>
             <Polish>Zbrojownia Policji</Polish>
         </Key>
+        <Key ID="STR_Office">
+            <Original></Original>
+            <Czech></Czech>
+            <Spanish></Spanish>
+            <Russian></Russian>
+            <German>Büro</German>
+            <Italian></Italian>
+            <French></French>
+            <Portuguese></Portuguese>
+            <Polish></Polish>
+        </Key>
         <Key ID="STR_Shops_Cement">
             <Original>Juan's Cement Laying</Original>
             <Czech>Juanovo Cement Pokládka</Czech>
@@ -7129,23 +7140,24 @@
             <Czech></Czech>
             <Spanish></Spanish>
             <Russian></Russian>
-            <German>Arbeitsvertrag Polizei</German>
+            <German>Arbeitsvertrag</German>
             <French></French>
             <Italian></Italian>
             <Portuguese></Portuguese>
             <Polish></Polish>
         </Key>
-		<Key ID="STR_Item_MedicCont">
+		<Key ID="STR_Item_CopAir">
             <Original></Original>
             <Czech></Czech>
             <Spanish></Spanish>
             <Russian></Russian>
-            <German>Arbeitsvertrag LRK</German>
+            <German>Flugausbildung</German>
             <French></French>
             <Italian></Italian>
             <Portuguese></Portuguese>
             <Polish></Polish>
         </Key>
+
 		<Key ID="STR_Item_CopCont_Hint">
             <Original></Original>
             <Czech></Czech>
@@ -7157,39 +7169,19 @@
             <Portuguese></Portuguese>
             <Polish></Polish>
         </Key>
-		<Key ID="STR_Item_MedicCont_Hint">
-            <Original></Original>
-            <Czech></Czech>
-            <Spanish></Spanish>
-            <Russian></Russian>
-            <German>Gratulation zum neuen Job.</German>
-            <French></French>
-            <Italian></Italian>
-            <Portuguese></Portuguese>
-            <Polish></Polish>
-        </Key>
+
 		<Key ID="STR_Item_CopBef1">
             <Original></Original>
             <Czech></Czech>
             <Spanish></Spanish>
             <Russian></Russian>
-            <German>Rang Abzeichen Rang 1</German>
+            <German>Beförderung</German>
             <French></French>
             <Italian></Italian>
             <Portuguese></Portuguese>
             <Polish></Polish>
         </Key>
-		<Key ID="STR_Item_MedicBef1">
-            <Original></Original>
-            <Czech></Czech>
-            <Spanish></Spanish>
-            <Russian></Russian>
-            <German>Rang Abzeichen Rang 1</German>
-            <French></French>
-            <Italian></Italian>
-            <Portuguese></Portuguese>
-            <Polish></Polish>
-        </Key>
+
 		<Key ID="STR_Item_CopBef_Hint1">
             <Original></Original>
             <Czech></Czech>
@@ -7201,17 +7193,7 @@
             <Portuguese></Portuguese>
             <Polish></Polish>
         </Key>
-		<Key ID="STR_Item_MedicBef_Hint1">
-            <Original></Original>
-            <Czech></Czech>
-            <Spanish></Spanish>
-            <Russian></Russian>
-            <German>Gratulation zur Beförderung.</German>
-            <French></French>
-            <Italian></Italian>
-            <Portuguese></Portuguese>
-            <Polish></Polish>
-        </Key>
+
 		<Key ID="STR_Item_Cop_noCont">
             <Original></Original>
             <Czech></Czech>

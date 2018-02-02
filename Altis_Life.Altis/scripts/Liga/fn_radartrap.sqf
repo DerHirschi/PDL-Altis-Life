@@ -63,7 +63,7 @@ _fnc_99blitz = {
 */
 while {!(isNull objectParent player)} do 
 {
-	_t 		= true;	
+	//_t 		= true;	
 	_speed 	= speed _vehicle;
 	//if(_speed  >= 55 ) then { 
 		//{if(_vehicle distance _x < 22) exitWith { _speed call _fnc_50blitz; _t = false;}; }foreach _blitzer;	
