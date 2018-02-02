@@ -1935,7 +1935,7 @@ class VirtualItems {
 	    verbrauch 	= 1;
         dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
 
-		allowside[]	= {"CIV"};
+		allowside[]	= {"CIV","WEST"};
         useablefnc	= "missionNamespace setVariable ['life_coplevel',(10 min (life_coplevel + 1))]; [8] call SOCK_fnc_updatePartial;";       
 		/*TODO: Text*/
 		hinttext	= "STR_Item_CopBef_Hint1";
@@ -1984,7 +1984,7 @@ class VirtualItems {
 	    verbrauch 	= 1;
         dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
 
-		allowside[]	= {"CIV"};
+		allowside[]	= {"CIV","GUER"};
         useablefnc	= "missionNamespace setVariable ['life_medicLevel',(10 min (life_medicLevel + 1))]; [8] call SOCK_fnc_updatePartial;";       
 		/*TODO: Text*/
 		hinttext	= "STR_Item_CopBef_Hint1";
@@ -2032,7 +2032,7 @@ class VirtualItems {
 	    verbrauch 	= 1;
         dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
 
-		allowside[]	= {"CIV"};
+		allowside[]	= {"CIV","EAST"};
         useablefnc	= "missionNamespace setVariable ['life_alaclevel',(10 min (life_medicLevel + 1))]; [8] call SOCK_fnc_updatePartial;";       
 		/*TODO: Text*/
 		hinttext	= "STR_Item_CopBef_Hint1";
@@ -2106,7 +2106,7 @@ class VirtualItems {
 	    verbrauch 	= 1;
         dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
 
-		allowside[]	= {"CIV"};
+		allowside[]	= {"WEST"};
         useablefnc	= "missionNamespace setVariable ['license_cop_cAir',true]; [2] call SOCK_fnc_updatePartial;";       
 		/*TODO: Text*/
 		hinttext	= "STR_Item_CopCont_Hint";
@@ -2130,7 +2130,7 @@ class VirtualItems {
 	    verbrauch 	= 1;
         dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
 
-		allowside[]	= {"CIV"};
+		allowside[]	= {"GUER"};
         useablefnc	= "missionNamespace setVariable ['license_med_mAir',true]; [2] call SOCK_fnc_updatePartial;";       
 		/*TODO: Text*/
 		hinttext	= "STR_Item_CopCont_Hint";

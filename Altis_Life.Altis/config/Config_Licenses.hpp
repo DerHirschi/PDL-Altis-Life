@@ -199,7 +199,7 @@ class Licenses {
     class aAir {
         variable = "aAir";
         displayName = "STR_License_Pilot";
-        price = 15000;
+        price = 1;
         illegal = false;
         side = "alac";
     };
@@ -208,7 +208,7 @@ class Licenses {
     class jobCop {
         variable = "jobCop";
         displayName = "STR_License_CopJob";
-        price = 99999999;
+        price = 1;
         illegal = false;
         side = "civ";
     };
@@ -217,7 +217,7 @@ class Licenses {
     class jobMedic {
         variable = "jobMedic";
         displayName = "STR_License_MedicJob";
-        price = 99999999;
+        price = 1;
         illegal = false;
         side = "civ";
     };
@@ -226,7 +226,7 @@ class Licenses {
     class jobAlac {
         variable = "jobAlac";
         displayName = "STR_License_AlacJob";
-        price = 99999999;
+        price = 1;
         illegal = false;
         side = "civ";
     };
@@ -235,7 +235,7 @@ class Licenses {
     class jobFlusi {
         variable = "jobFlusi";
         displayName = "STR_License_FlusiJob";
-        price = 99999999;
+        price = 1;
         illegal = false;
         side = "civ";
     };
