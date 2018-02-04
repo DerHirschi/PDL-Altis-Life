@@ -28,7 +28,7 @@ class Schiffswrack {
 		{{"goldbar",182}	}
 	};
 	
-	TriggerRadius			= 900;
+	TriggerRadius			= 1300;
 	MarkerRadius			= 600;
 	ZeugMenge				= 7;
 	ZeugRadius				= 80;
@@ -38,10 +38,10 @@ class Schiffswrack {
 		"Land_CratesPlastic_F",
 		"Land_CratesWooden_F"
 	};
-	startTimer				= 5;//Minute(n)
-	ranstartTimer			= 5;//Minute(n)
+	sleep[]		= {30, 120}; // Von Bis in Minuten
+
 	/*SafeDespawn*/
-	coolDownTimer			= 90;//Minute(n) + startTimer + ranstartTimer
+	coolDownTimer			= 90;//Minute(n) + sleep
 	
 	bombNoWrackText 		= "Du musst erst das Schiffswrack suchen und die Bombe an dem Safe anbringen.";
 	bombWrackOffenText 		= "Das Schiff wurde bereits geoeffnet!";

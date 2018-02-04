@@ -4,8 +4,8 @@
 	Vorlage: Rayen´s Schiffswrack
 */
 
-sleep ((getNumber (missionConfigFile >> "Schiffswrack" >> "startTimer" )) * 60);
-sleep ((floor random (getNumber (missionConfigFile >> "Schiffswrack" >> "ranstartTimer" ))) * 60);
+_sleep = getArray(missionConfigFile >> "Schiffswrack" >> "sleep");
+uiSleep ((floor random (_sleep select 1) max (_sleep select 0)) * 60);
 
 _schiffsw_positions = getArray (missionConfigFile >> "Schiffswrack" >> "Positionen" );
 _schiffsw_loot_array = getArray (missionConfigFile >> "Schiffswrack" >> "Loot" );

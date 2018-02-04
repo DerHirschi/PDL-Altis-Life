@@ -8,7 +8,6 @@
 */
 
 
-//_posPlayer = [_this,0,[],[[]]] call BIS_fnc_param;
 _pos = getArray(missionConfigFile >> "Airdrop" >> "posi");
 _dest = _pos select ((random (count _pos)) - 1);
 
@@ -20,11 +19,9 @@ diag_log "║ AIRDROP wurde gestartet !!";
 diag_log "╚═════════════════════════════╝";
 
 _sleep = getArray(missionConfigFile >> "Airdrop" >> "sleep");
-_sleep = floor random (_sleep select 1) max (_sleep select 0);
-diag_log str _sleep;
-sleep 120;
+uiSleep ((floor random (_sleep select 1) max (_sleep select 0)) * 60);
 
-// AIRDROP STARTEN
+
 [1,""] remoteExec ["LIGACL_fnc_ligaNews",-2];
 sleep 120;
 
@@ -39,26 +36,23 @@ _markerText = createMarker ["Airdropmarkertext", _dest];
 "Airdropmarkertext" setMarkerType "mil_warning";
 sleep 10;
 
-//sleep 300;
-
-//[[3,""],"life_fnc_ligaNews",true,false] spawn life_fnc_MP;
 [3,""] remoteExec ["LIGACL_fnc_ligaNews",-2];
-//sleep 300;
+uiSleep 300;
 
 _airdrop_helicopter_main = getText(missionConfigFile >> "Airdrop" >> "main_heli");
 _airdrop_helicopter_scnd = getText(missionConfigFile >> "Airdrop" >> "sec_heli");
 
-private _heli1 = CreateVehicle [_airdrop_helicopter_main, [10, 40, 12000], [], 0, "FLY"];
-private _heli2 = CreateVehicle [_airdrop_helicopter_scnd, [40, 10, 11000], [], 0, "FLY"];
-private _heli3 = CreateVehicle [_airdrop_helicopter_scnd, [10, 10, 11500], [], 0, "FLY"];
+private _heli1 = CreateVehicle [_airdrop_helicopter_main, [10, 40, 5000], [], 0, "FLY"];
+private _heli2 = CreateVehicle [_airdrop_helicopter_scnd, [40, 10, 3500], [], 0, "FLY"];
+private _heli3 = CreateVehicle [_airdrop_helicopter_scnd, [10, 10, 2000], [], 0, "FLY"];
 
 _heli1 allowDamage false;
 _heli2 allowDamage false;
 _heli3 allowDamage false;
 
-_mygroup1 = [[15, 10, 12000], CIVILIAN, ["O_G_Soldier_SL_F"],[],[],[],[],[],180] call BIS_fnc_spawnGroup;
-_mygroup2 = [[12, 10, 12000], CIVILIAN, ["O_G_Soldier_SL_F"],[],[],[],[],[],180] call BIS_fnc_spawnGroup;
-_mygroup3 = [[10, 12, 12000], CIVILIAN, ["O_G_Soldier_SL_F"],[],[],[],[],[],180] call BIS_fnc_spawnGroup;
+_mygroup1 = [[15, 10, 0], CIVILIAN, ["O_G_Soldier_SL_F"],[],[],[],[],[],180] call BIS_fnc_spawnGroup;
+_mygroup2 = [[12, 10, 0], CIVILIAN, ["O_G_Soldier_SL_F"],[],[],[],[],[],180] call BIS_fnc_spawnGroup;
+_mygroup3 = [[10, 12, 0], CIVILIAN, ["O_G_Soldier_SL_F"],[],[],[],[],[],180] call BIS_fnc_spawnGroup;
 
 {_x allowDamage false; _x moveInDriver _heli1} forEach units _mygroup1;
 {_x allowDamage false; _x moveInDriver _heli2; [_x] join _mygroup1; } forEach units _mygroup2;
@@ -69,21 +63,22 @@ sleep 1;
 deleteGroup _mygroup2;
 deleteGroup _mygroup3;	
 
-_heli1 setPos [10, 40, 12000];
-_heli2 setPos [40, 10, 11000];
-_heli3 setPos [10, 10, 11500];
+
 _alt = getNumber(missionConfigFile >> "Airdrop" >> "fly_alt");
 
-_heli1 flyInHeight _alt;
-_heli2 flyInHeight _alt;
-_heli3 flyInHeight _alt;
+_heli1 setPos [10, 40, 100];
+_heli2 setPos [40, 10, 60];
+_heli3 setPos [10, 10, 50];
 
 
 _mygroup1 addWaypoint [_dest, 0];
 _mygroup1 addWaypoint [[20,10,10], 0];
 [_mygroup1, 0] setWaypointFormation "WEDGE";
-//[_mygroup1, 0] setWaypointBehaviour "STEALTH";
 
+
+_heli1 flyInHeight _alt;
+_heli2 flyInHeight _alt;
+_heli3 flyInHeight _alt;
 
 _markerText = createMarker ["airbox_marker", [10,10,0.0014267]];
 "airbox_marker" setMarkerColor "ColorBlue";
@@ -95,11 +90,9 @@ _containerdummy attachTo [_heli1,[0,0,-3.5]];
 _containerdummy setDir 90;
 
 
-while { _dest distance _heli1 > 250 } do { "airbox_marker" setMarkerPos getPos _heli1; sleep 1; };
-//[[4,""],"life_fnc_ligaNews",true,false] spawn life_fnc_MP;
+while { _dest distance2D _heli1 > 450 } do { "airbox_marker" setMarkerPos getPos _heli1; sleep 1; };
 [4,""] remoteExec ["LIGACL_fnc_ligaNews",-2];
 
-// Drop the container
 
 deleteVehicle _containerdummy;
 sleep 0.1;
@@ -110,7 +103,6 @@ _para attachTo [_heli1,[0,0,-10]];
 detach _para;
 _container attachTo [_para,[0,0,-2]];
 _container setDir 90;
-//playSound3D ["a3\sounds_f\weapons\Flare_Gun\flaregun_1_shoot.wss", _container];
 _smoke="SmokeShellGreen" createVehicle [getpos _container select 0, getpos _container select 1,0];
 _smoke attachTo [_container,[0,0,0]];
 _light = "Chemlight_green" createVehicle getPos _container;
@@ -121,20 +113,18 @@ sleep 0.1;
 while { (getPos _container select 2) > 2 } do { "airbox_marker" setMarkerPos getPos _container;sleep 1; };
 detach _container;
 _container setPos [getPos _container select 0, getPos _container select 1, (getPos _container select 2)+0.5];
-//playSound3D ["A3\Sounds_F\sfx\alarm_independent.wss", _container];
 sleep 6;
 "M_NLAW_AT_F" createVehicle [getPos _container select 0, getPos _container select 1, 0];
 _pos_container = getPos _container;
 deleteVehicle _container;
 sleep 0.5;
-private _box = createVehicle ["CargoNet_01_box_F", _pos_container, [], 0, "CAN_COLLIDE"];
+_box = createVehicle ["CargoNet_01_box_F", _pos_container, [], 0, "CAN_COLLIDE"];
 _box allowDamage false;
 _smoke="SmokeShellGreen" createVehicle [getpos _box select 0,getpos _box select 1,0];
 _flare = "F_40mm_Green" createVehicle getPos _container;
 _light attachTo [_box,[0,0,0]];
 _flare attachTo [_box,[0,0,0]];
 
-// Fill box
 
 clearWeaponCargoGlobal _box;
 clearMagazineCargoGlobal _box;
@@ -152,18 +142,15 @@ _ran  = floor random _chan;
 	};
 }forEach _loot;
 
-// Fill box end
-sleep 300;
 deleteVehicle _heli1;
 deleteVehicle _heli2;
 deleteVehicle _heli3;
-//sleep 600;
-//[[5,"<t size='1.2'><t color='#FF0000'>Airdrop-Mission</t></t><br/><br/><t size='1'>5 Minuten bis zur Selbstzerstoerung !!!</t>"],"life_fnc_broadcast",true,false] spawn life_fnc_MP;
-//sleep 240;
-sleep 50;
-//[[5,"<t size='1.2'><t color='#FF0000'>Airdrop-Mission</t></t><br/><br/><t size='1'>10 Sekunden bis zur Selbstzerstoerung !!!</t>"],"life_fnc_broadcast",true,false] spawn life_fnc_MP;
-sleep 10;
-//[[5,"<t size='1.2'><t color='#FF0000'>Airdrop-Mission beendet!</t></t><br/><br/><t size='1'>Die Airdrop Mission wurde soebend beendet .</t>"],"life_fnc_broadcast",true,false] spawn life_fnc_MP;
+
+[3,"<t size='2.6'><t color='#FF0000'>Airdrop-Mission</t></t><br/><br/><img size='5'  image='icons\Lnews\heli.paa'/><br/><br/><t size='1.1'>5 Minuten bis zur Selbstzerstoerung !!!</t>"] remoteExec ["life_fnc_broadcast",-2];
+uiSleep 290;
+[3,"<t size='2.6'><t color='#FF0000'>Airdrop-Mission</t></t><br/><br/><img size='5' color='#ff0000' image='icons\Lnews\heli.paa'/><br/><br/><t size='1.1'>10 Sekunden bis zur Selbstzerstoerung !!!</t>"] remoteExec ["life_fnc_broadcast",-2];
+uiSleep 10;
+[3,"<t size='2.6'><t color='#FF0000'>Airdrop-Mission beendet!</t></t><br/><br/><img size='5'  image='icons\Lnews\heli.paa'/><br/><br/><t size='1.1'>Die Airdrop Mission wurde soebend beendet .</t>"] remoteExec ["life_fnc_broadcast",-2];
 deleteVehicle _box; 
 _bmb = "BO_GBU12_LGB" createVehicle [(getPos _box select 0)-21,(getPos _box select 1)+21,0];
 sleep 1;
