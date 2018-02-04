@@ -273,6 +273,7 @@ class Life_Client_Core {
         class placestorage {};
         class spikeStrip {};
         class storageBox {};
+        class mauer {};
     };
 
     class Medical_System {
@@ -409,5 +410,33 @@ class LigaClient{
 		class fuelCheck 		{};	// LIGACL_fnc_fuelCheck
 		class radartrap 		{};	// LIGACL_fnc_radartrap
 		class play3DSound 		{};	// LIGACL_fnc_play3DSound
+	};
+	
+	class FireWork_Client	{
+		file = "scripts\GRAD_fireworks";
+		
+
+		class Fireworks				{};		//LIGACL_fnc_Fireworks
+		class addFWaction			{};		//LIGACL_fnc_addFWaction
+	
+	};	
+	
+	class Laden
+	{
+		file = "scripts\Liga\Laden";
+		
+		class LigaLadenCfg		{};		//LIGACL_fnc_LigaLadenCfg
+		class buyLigaLaden		{};		//LIGACL_fnc_buyLigaLaden
+		class getLadenPositions	{};		//LIGACL_fnc_getLadenPositions
+		class initLaden			{};		//LIGACL_fnc_initLaden
+		class LigaAddKass		{};		//LIGACL_fnc_LigaAddKass
+		class LigaLadenMenu		{};		//LIGACL_fnc_LigaLadenMenu
+		class getListData		{};		//LIGACL_fnc_getListData
+		class addLadenAction	{};		//LIGACL_fnc_addLadenAction
+		class sellLaden			{};		//LIGACL_fnc_sellLaden
+		class LadenSellMenu		{};		//LIGACL_fnc_LadenSellMenu
+		class LadenVirtBuy		{};		//LIGACL_fnc_LadenVirtBuy
+		class buyCheck			{};		//LIGACL_fnc_buyCheck
+		
 	};
 };

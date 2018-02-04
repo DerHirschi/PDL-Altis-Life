@@ -1893,6 +1893,36 @@ class VirtualItems {
 		sound 		= "";
 
     };
+	/*Aufstellbares*/
+	
+	   class fireWo {
+        variable 	= "fireWo";
+        displayName = "Feuerwerk";        
+        buyPrice 	= -1;
+        sellPrice 	= -1;
+        illegal 	= -1;
+        		
+		saveable	= true;
+		closeDiag	= true;
+		
+		weight 		= 6;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = + 0.5
+
+        verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+        
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "if(!isNull life_mauer) exitWith {hint 'Du stellst schon ein Feuerwerk auf !'};	if(([false,_this,1] call life_fnc_handleInv)) then	{	[7] spawn life_fnc_mauer;	};";       
+		hinttext	= "";
+		titletext	= "";
+
+		icon 		= "";
+        sound 		= "";
+    };	
+
 	/*
 	Arbeitsvertraege usw
 	*/

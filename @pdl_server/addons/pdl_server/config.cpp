@@ -134,11 +134,35 @@ class CfgFunctions {
             class getPlayTime {};
         };
 
-		class Schiffswrack20{
+		class Schiffswrack20 {
 			file = "\pdl_server\Scripte\Schiffswrack20";
 			
 			class WrackMain 			{};	//TON_fnc_WrackMain
 			class WrackMakeSafe 		{};	//TON_fnc_WrackMakeSafe
+
+		};
+		
+		class Firework_server		{			
+			file = "\pdl_server\Scripte\Feuerwerk";
+			
+
+			class FireWork				{};	//TON_fnc_FireWork
+			class LadenFeuerwerk		{};	//TON_fnc_LadenFeuerwerk
+		
+		};	
+		
+		class LadenServ	{
+			file = "\pdl_server\Scripte\Laden";
+			
+			class addLaden 			{};	//TON_fnc_addLaden
+			class initLaden			{};	//TON_fnc_initLaden
+			class fetchPlayerLaden	{};	//TON_fnc_fetchPlayerLaden
+			class updateKass		{};	//TON_fnc_updateKass
+			class updateZusa		{};	//TON_fnc_updateZusa
+			class cleanupLaden		{};	//TON_fnc_cleanupLaden
+			class KassAction		{};	//TON_fnc_KassAction
+			class sellLaden			{};	//TON_fnc_sellLaden
+			class LadenFeuerwerk	{};	//TON_fnc_LadenFeuerwerk
 
 		};
     };

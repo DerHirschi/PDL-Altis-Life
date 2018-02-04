@@ -45,4 +45,7 @@ Altis Life RPG by AsYetUntitled is licensed under a [Creative Commons Attributio
  - Performance optimierungen
  - Benzinverbrauch angepasst
  - Atombombe
- - Airdrop Mission  
+ - Airdrop Mission 
+ - Verschiedene Objekte zum hinstellen wie Stühle, Absperrungen, Pylonen
+ - Feuerwerk Script
+ - Läden kaufbar ( Liga Laden Script )

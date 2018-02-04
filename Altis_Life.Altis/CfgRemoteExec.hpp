@@ -80,7 +80,9 @@ class CfgRemoteExec {
 		
 		F(LIGACL_fnc_ligaNews,CLIENT)  
 		F(LIGACL_fnc_play3DSound,CLIENT)  
-
+		
+		F(LIGACL_fnc_Fireworks,CLIENT)
+        F(LIGACL_fnc_addFWaction,CLIENT)
 
         /* Server only functions */
         F(BIS_fnc_execVM,SERVER)
