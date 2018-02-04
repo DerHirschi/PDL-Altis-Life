@@ -188,3 +188,7 @@ life_hideoutBuildings = [];
 diag_log "----------------------------------------------------------------------------------------------------";
 diag_log format ["               End of PDL Init :: Total Execution Time %1 seconds ",(diag_tickTime) - _timeStamp];
 diag_log "----------------------------------------------------------------------------------------------------";
+
+if(isNil "schiffwoffen" || !isNil "wrack_objs" || isNil "wrack_pos") exitWith{};
+if(schiffwoffen)exitWith{};
+[wrack_pos]spawn LIGACL_fnc_spawnWrack;

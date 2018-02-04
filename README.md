@@ -43,4 +43,6 @@ Altis Life RPG by AsYetUntitled is licensed under a [Creative Commons Attributio
  - Warnton beim rückwärtsfahren von Trucks
  - Rauch an Fahrzeugen wenn sie beschädigt wurden
  - Performance optimierungen
- 
+ - Benzinverbrauch angepasst
+ - Atombombe
+ - Airdrop Mission 

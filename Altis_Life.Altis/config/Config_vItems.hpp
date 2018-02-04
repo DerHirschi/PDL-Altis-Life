@@ -336,13 +336,13 @@ class VirtualItems {
 		gulltime 	= -1;
 		fat			= -1;	// 0.5 = - 0.5
 		
-		saveable	= true;
+		saveable	= false;
 		closeDiag	= true;
-	    verbrauch 	= -1;
+	    verbrauch 	= 1;
         dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
 
 		allowside[]	= {"CIV","EAST","WEST","GUER"};
-        useablefnc	= "";       
+        useablefnc	= "		if(!isNull life_spikestrip) exitWith {hint localize 'STR_ISTR_SpikesDeployment'};		if(([false,_item,1] call life_fnc_handleInv)) then		{			[] spawn life_fnc_spikeStrip;		}; ";       
 		
 		hinttext	= "";
 		titletext	= "";
@@ -494,11 +494,11 @@ class VirtualItems {
 		fat			= -1;	// 0.5 = - 0.5
 		saveable	= false;
 		closeDiag	= true;
-	    verbrauch 	= -1;
+	    verbrauch 	= 1;
         dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
 
-		allowside[]	= {"CIV","EAST","WEST","GUER"};
-        useablefnc	= "";       
+		allowside[]	= {"CIV"};
+        useablefnc	= "[false] call life_fnc_storageBox;";       
 		
 		hinttext	= "";
 		titletext	= "";
@@ -520,11 +520,11 @@ class VirtualItems {
 		fat			= -1;	// 0.5 = - 0.5
 		saveable	= false;
 		closeDiag	= true;
-	    verbrauch 	= -1;
+	    verbrauch 	= 1;
         dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
 
-		allowside[]	= {"CIV","EAST","WEST","GUER"};
-        useablefnc	= "";       
+		allowside[]	= {"CIV"};
+        useablefnc	= "[true] call life_fnc_storageBox;";       
 		
 		hinttext	= "";
 		titletext	= "";

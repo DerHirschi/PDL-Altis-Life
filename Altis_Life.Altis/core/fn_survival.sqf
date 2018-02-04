@@ -7,7 +7,7 @@
     Description:
     All survival? things merged into one thread.
 */
-private ["_fnc_bp","_fnc_food","_fnc_water","_foodTime","_waterTime","_vp","_bp","_un","_walkDis","_lastPos","_curPos"];
+private ["_fnc_radioakt","_nuke","_fnc_bp","_fnc_food","_fnc_water","_foodTime","_waterTime","_vp","_bp","_un","_walkDis","_lastPos","_curPos"];
 _fnc_food =  {
     if (life_hunger < 2) then {player setDamage 1; hint localize "STR_NOTF_EatMSG_Death";}
     else
@@ -74,6 +74,17 @@ _fnc_bp = {
 	};
 };	
 
+_fnc_radioakt = {
+	if(player getVariable["Revive",false]) exitWith{};
+    if(uniform player isEqualTo "U_C_Scientist") then {
+        hint "!!! Du betrittst die Radioaktive Sperrzone !!! Aber dein Schutzanzug schuetzt dich";
+    }else{
+        hint "!!! ACHTUNG RADIOAKTIVE ZONE !!! DU KANNST STERBEN, WENN DU KEINEN SCHUTZANZUG AN HAST";
+        if(!life_god)then{ player setDamage (damage player + 0.1) };
+        [] call life_fnc_hudUpdate;
+    };	
+};
+
 //Setup the time-based variables.
 _foodTime 		= time;
 _waterTime 		= time;
@@ -84,6 +95,20 @@ _lastState 		= vehicle player;
 _vp 			= "";
 _bp 			= "";
 _un 			= "";
+
+_radioMark		= getMarkerPos "Warm_Marker";
+private _radioATime 	= time;
+if(isNil "nu_de") then {
+	_nuke = true;	 
+	nu_de = false;		
+}else {	
+	if(nu_de) then {
+		_nuke = false;	
+	}else {
+		_nuke = true; 
+	};
+};
+
 
 for "_i" from 0 to 1 step 0 do {
     /* Thirst / Hunger adjustment that is time based */
@@ -109,7 +134,31 @@ for "_i" from 0 to 1 step 0 do {
 		_bp = backpack player;
 		_un = uniform player;
 	};
-
+	uiSleep 0.5;
+	/* Nuke*/
+	if((time - _radioATime)  	> 15	) then 	{ 
+		if(player distance _radioMark < 550) then {
+			if!(nu_de)then{
+				nu_de = true; 
+				publicVariable "nu_de";
+			}; 
+			if(player distance _radioMark < 280) then {
+				[]call _fnc_radioakt;
+			};
+		}; 
+		if (surfaceIsWater position player) then {
+			enableEnvironment [true, true];
+		}else{
+			enableEnvironment [false, true];
+		}; 
+		_radioATime = time;
+	};
+	if(_nuke) then {
+		if(nu_de) then {
+			_nuke = false; 
+			[] execVM "scripts\nuke\nuke.sqf"; 
+		};
+	};
 
     /* Check if the player's state changed? */
     if (!(vehicle player isEqualTo _lastState) || {!alive player}) then {
@@ -147,5 +196,5 @@ for "_i" from 0 to 1 step 0 do {
         _lastPos = visiblePosition player;
         _lastPos = (_lastPos select 0) + (_lastPos select 1);
     };
-    uiSleep 1;
+    uiSleep 0.5;
 };

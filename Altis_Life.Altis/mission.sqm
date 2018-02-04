@@ -8,18 +8,18 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=1208;
+		nextID=1210;
 	};
 	class MarkerIDProvider
 	{
-		nextID=222;
+		nextID=223;
 	};
 	class Camera
 	{
-		pos[]={15133.465,32.86203,17224.969};
-		dir[]={0.55456978,-0.35043007,-0.75479966};
-		up[]={0.20752001,0.93656647,-0.28244567};
-		aside[]={-0.80589831,-1.8150604e-007,-0.59211332};
+		pos[]={14317.532,49.64114,15822.047};
+		dir[]={-0.4296712,-0.45550856,-0.77973723};
+		up[]={-0.21986213,0.89020216,-0.39899147};
+		aside[]={-0.87587124,-3.8801227e-007,0.48264465};
 	};
 };
 binarizationWanted=0;
@@ -225,6 +225,24 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
+			property="RespawnTemplates";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"ARRAY"
+						};
+					};
+				};
+			};
+		};
+		class Attribute1
+		{
 			property="RespawnButton";
 			expression="true";
 			class Value
@@ -239,24 +257,6 @@ class CustomAttributes
 						};
 					};
 					value=1;
-				};
-			};
-		};
-		class Attribute1
-		{
-			property="RespawnTemplates";
-			expression="true";
-			class Value
-			{
-				class data
-				{
-					class type
-					{
-						type[]=
-						{
-							"ARRAY"
-						};
-					};
 				};
 			};
 		};
@@ -314,7 +314,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=881;
+		items=883;
 		class Item0
 		{
 			dataType="Marker";
@@ -36413,7 +36413,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={15064.786,17.91,16914.574};
-				angles[]={-0,0.75479227,0};
+				angles[]={0,0.75479227,0};
 			};
 			side="Empty";
 			flags=4;
@@ -36549,7 +36549,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={15069.057,17.91,16999.469};
-				angles[]={-0,0.75479227,0};
+				angles[]={0,0.75479227,0};
 			};
 			side="Empty";
 			flags=4;
@@ -36572,7 +36572,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={15069.17,17.911438,16999.744};
-						angles[]={-0,4.3160248,0};
+						angles[]={0,4.3160248,0};
 					};
 					side="Civilian";
 					flags=7;
@@ -36623,7 +36623,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={15069.17,17.911438,16999.744};
-						angles[]={-0,4.3160248,0};
+						angles[]={0,4.3160248,0};
 					};
 					side="Civilian";
 					flags=7;
@@ -36667,7 +36667,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={15069.17,19.689144,16999.695};
-				angles[]={-0,4.3160248,0};
+				angles[]={0,4.3160248,0};
 			};
 			side="Civilian";
 			flags=6;
@@ -36684,7 +36684,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={15145.428,17.91,17205.26};
-				angles[]={-0,0.75479227,0};
+				angles[]={0,0.75479227,0};
 			};
 			side="Empty";
 			flags=4;
@@ -36707,7 +36707,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={15149.248,17.911438,17206.121};
-						angles[]={-0,4.3160248,0};
+						angles[]={0,4.3160248,0};
 					};
 					side="Civilian";
 					flags=7;
@@ -36782,7 +36782,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={15149.248,17.911438,17206.121};
-						angles[]={-0,4.3160248,0};
+						angles[]={0,4.3160248,0};
 					};
 					side="Civilian";
 					flags=7;
@@ -36835,6 +36835,30 @@ class Mission
 			};
 			id=1205;
 			type="I_Heli_Transport_02_F";
+		};
+		class Item881
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={14290.794,17.860001,15783.018};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="nupo";
+			};
+			id=1208;
+			type="Land_HelipadEmpty_F";
+		};
+		class Item882
+		{
+			dataType="Marker";
+			position[]={14300.353,17.865999,15780.692};
+			name="Warm_Marker";
+			type="Empty";
+			id=1209;
+			atlOffset=-0.00021362305;
 		};
 	};
 };

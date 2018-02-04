@@ -49,6 +49,57 @@ class Schiffswrack {
 	
 };
 
+class Airdrop {
+	posi[] = {
+		{8111.38,22579.8,0.00156784},
+		{7255.38,12048.8,0.00156784},
+		{11264.38,17903.8,0.00156784},
+		{10318.38,7196.8,0.00156784},
+		{20073.38,6738.8,0.00156784},
+		{24813.38,19270.8,0.00156784},
+		{20753.38,13215.8,0.00156784},
+		{11568.38,20800.8,0.00156784},
+		{4573.38,10907.8,0.00156784},
+		{10962.38,11935.8,0.00156784}
+	};
+	fly_alt 	= 10;
+	main_heli 	= "B_Heli_Transport_03_unarmed_F";
+	sec_heli 	= "B_Heli_Attack_01_F";
+	sleep[]		= {1, 5}; // Von Bis in Minuten
+	chacen = 10; // 1:11
+	/*{{chacen}, "Clasname", Stk*/
+	// Chachen = {} jedes mal mit bei
+	loot[] = {
+		{{1, 5, 9, 10}, "arifle_MX_SW_Black_F", 2},
+		{{1, 2, 10}, "arifle_MX_F", 2},
+		{{1, 4, 8}, "srifle_DMR_01_F", 2},
+		{{1, 5, 7}, "srifle_EBR_F", 2},
+		{{2, 6, 10}, "arifle_Katiba_GL_F", 2},
+		{{1, 7, 9}, "LMG_Mk200_F", 2},
+		{{1, 8, 9}, "LMG_Zafir_F", 2},
+		{{3, 4, 6}, "arifle_TRG21_F", 2},
+		{{1, 5, 7}, "srifle_DMR_03_F", 2},
+		{{1, 4, 10}, "200Rnd_65x39_cased_Box", 4},
+		{{1, 3, 6}, "100Rnd_65x39_caseless_mag", 4},
+		{{1, 3, 5}, "20Rnd_762x51_Mag", 8},
+		{{1, 5, 10}, "10Rnd_762x54_Mag", 8},
+		{{2, 3, 8}, "150Rnd_762x54_Box", 4},
+		{{1, 6, 10}, "30Rnd_556x45_Stanag", 10},
+		{{1, 3, 9}, "30Rnd_65x39_caseless_mag_Tracer", 10},
+		{{}, "SmokeShell", 10},
+		{{7,  10}, "optic_NVS", 1},
+		{{4, 6, 10}, "optic_SOS", 2},
+		{{1, 4, 10}, "optic_Hamr", 2},
+		{{1, 5, 10}, "optic_MRCO", 2},
+		{{1, 7, 8}, "Rangefinder", 2},
+		{{1, 3, 10}, "optic_DMS", 2},
+		{{2, 3, 10}, "muzzle_snds_M", 2},
+		{{2, 3, 8}, "bipod_01_F_blk", 2},
+		{{1, 7, 10}, "muzzle_snds_H", 2},
+		{{1, 3, 6}, "muzzle_snds_H_MG", 2},
+		{{1, 3, 4}, "HandGrenade_Stone", 5}
+	};
+};
 class LigaTaxen {
 /*
 	╔══════════════════════════════════════════════════╗
