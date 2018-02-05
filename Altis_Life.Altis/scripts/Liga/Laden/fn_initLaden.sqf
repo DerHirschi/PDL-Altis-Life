@@ -1,46 +1,48 @@
-#include "\life_server\Liga_Macros.hpp"
+#include "..\..\..\script_macros.hpp"
 /*
 	Author: Bryan "Tonic" Boardwine
+	Edited by H1rschi - D1e L1ga
 	
 	Description:
-	WHAT THE HELL DO YOU THINK IT DOES?!?!!??!?!!?!??!
-	
-	Make some Noise ?????? again ?? 
+	Initializes the players houses, mainly throwing down markers.
 */
-private["_queryResult","_house","_pos","_class"];
+private["_house","_class","_position"];
+if((count liga_ladenhouses) isEqualTo 0)  exitWith {}; //Nothing to do.
 
-	
-_queryResult = ["LadenInit",2,true] call DB_fnc_asyncCall;
-
-//diag_log format ["<<<LADEN INIT<<<<< _queryResult%1",_queryResult];
-
-if(EQUAL(count _queryResult,0)) exitWith {};
-/*
-for "_i" from 0 to 100 do {
-	
-	if(SKY_HC_aktiv_1) exitWith {};
-	uiSleep 1;
-};
-
-if(SKY_HC_aktiv_1) exitWith {[] remoteExec ["SKY_fnc_initLaden",HC_id];};
-*/
 {
-	_pos = call compile format["%1",SEL(_x,2)];
-	_class = SEL(_x,4);
-	//diag_log format ["<<<<laden<<<< pos %1",_pos];
-	//_house = nearestObject [_pos, "House_F"];
-	
-	//_house = nearestBuilding _pos;
+	_position = call compile format["%1",(_x select 0)];
+	_class = _x select 2;
 	if(_class isEqualTo "") then {
-		_house = nearestBuilding _pos;
+		_house = nearestBuilding _position;
 	}else{	
-		_house = nearestObject [_pos, _class];
+		_house = nearestObject [_position,_class];
+	};		
+
+	if!(_house in life_vehicles) then {
+		life_vehicles pushBack _house;
+	};
+	_id = _house getVariable "luid";
+	if!(isNil "_id")then{
+		deleteMarker format["laden_%1",_id];
+	};
+	_house setVariable["luid",((round(random 99999))),true];
+	_houseName = (_house getVariable ["ladextra",["Liga Laden",0,0]]) ;
+	if(isNil "_id")then{
+		if((_houseName select 1) isEqualTo 1) then {BANK = BANK - 10000;} ;
+		if((_houseName select 2) isEqualTo 1) then {BANK = BANK - 10000;} ;
+		
+	};
+	if((_houseName select 1) isEqualTo 0) then {
+		_houseName = _houseName select 0;
+		_marker = createMarkerLocal [format["laden_%1",(_house getVariable "luid")],_position];
+		_marker setMarkerTextLocal _houseName;
+		_marker setMarkerColorLocal "ColorPink";
+		_marker setMarkerTypeLocal "loc_Lighthouse";
+	}else{
+		_houseName = _houseName select 0;
+		_marker = createMarker [format["laden_%1",(_house getVariable "luid")],_position];
+		_marker setMarkerText _houseName;
+		_marker setMarkerColor "ColorPink";
+		_marker setMarkerType "loc_Lighthouse";
 	};	
-	_house SVAR["house_owner",[SEL(_x,1),SEL(_x,3)],true];
-	_house SVAR["laden_id",SEL(_x,0),true];
-	_house SVAR["locked",true,true]; //Lock up all the stuff.
-	
-
-
-} foreach _queryResult;
-
+} foreach liga_ladenhouses;

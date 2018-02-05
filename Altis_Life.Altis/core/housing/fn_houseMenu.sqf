@@ -21,7 +21,8 @@ disableSerialization;
 _curTarget = param [0,objNull,[objNull]];
 if (isNull _curTarget) exitWith {}; //Bad target
 _houseCfg = [(typeOf _curTarget)] call life_fnc_houseConfig;
-if (count _houseCfg isEqualTo 0 && (side player) isEqualTo civilian) exitWith {};
+_ladenCfg = [(typeOf _curTarget)] call LIGACL_fnc_LigaLadenCfg;
+if (((count _houseCfg) isEqualTo 0) && ((count _ladenCfg) isEqualTo 0) && (side player) isEqualTo civilian) exitWith {};
 
 if (!dialog) then {
     createDialog "pInteraction_Menu";
@@ -183,4 +184,38 @@ if (!(_curTarget in life_vehicles) || isNil {_curTarget getVariable "house_owner
         };
 
     };
+};
+
+
+
+if!(_ladenCfg isEqualTo []) exitWith {
+	
+	if(!(life_pInact_curTarget in life_vehicles) OR isNil {life_pInact_curTarget getVariable "house_owner"}) then {
+		if(life_pInact_curTarget in life_vehicles) then {life_vehicles = life_vehicles - [life_pInact_curTarget];};
+		if!([life_pInact_curTarget,(_ladenCfg select 3)]call LIGACL_fnc_buyCheck)exitWith {closeDialog 0;};
+			
+		
+		
+		_Btn1 ctrlSetText "Laden kaufen";
+		_Btn1 buttonSetAction "[life_pInact_curTarget] spawn LIGACL_fnc_buyLigaLaden;";
+		_Btn1 ctrlShow true;
+		
+		if(!isNil {life_pInact_curTarget getVariable "house_owner"}) then {
+			_Btn1 ctrlEnable false;
+		};
+	} else {
+
+			_Btn1 ctrlSetText "LADEN VERKAUFEN";
+			_Btn1 buttonSetAction "[life_pInact_curTarget] spawn LIGACL_fnc_sellLaden; closeDialog 0;";
+			
+			
+			if(((life_pInact_curTarget getVariable "house_owner") select 0) != (getPlayerUID player)) then {
+				_Btn1 ctrlEnable false;
+			}else{
+				_Btn1 ctrlShow true;
+			};
+			_Btn2 ctrlShow false;
+			_Btn3 ctrlShow false;
+		
+	};
 };

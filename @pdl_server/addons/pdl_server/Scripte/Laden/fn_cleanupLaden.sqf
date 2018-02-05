@@ -1,4 +1,3 @@
-#include "\life_server\Liga_Macros.hpp"
 /*
 	Author: Bryan "Tonic" Boardwine
 	Edit: Hirschi
@@ -9,22 +8,22 @@ private["_query","_houses"];
 _query 	= format["LadenCleanup:%1",_this];
 _houses = [_query,2,true] call DB_fnc_asyncCall;
 
-if(EQUAL((count _houses),0)) exitWith {};
+if((count _houses) isEqualTo 0) exitWith {};
 {
-	_pos 	= call compile format["%1",SEL(_x,0)];
+	_pos 	= call compile format["%1",(_x select 0)];
 	//_house = nearestObject [_pos, "House_F"];
 	_house 	= nearestBuilding _pos;
-	_id 	= _house GVAR "luid";
+	_id 	= _house getVariable "luid";
 	if!(isNil "_id")then{
 		deleteMarker format["laden_%1",_id];
-		//deleteMarkerLocal	(str(_house GVAR "luid"));	
+		//deleteMarkerLocal	(str(_house getVariable "luid"));	
 	};
-	if(!isNil {(_house GVAR "kassen")}) then {
+	if(!isNil {(_house getVariable "kassen")}) then {
 		
 		{
-			if(!isNull (SEL(_x,0))) then {				
+			if(!isNull (_x select 0)) then {				
 				//diag_log str _x;
-				deleteVehicle (SEL(_x,0));
+				deleteVehicle (_x select 0);
 
 			};
 			{
@@ -32,9 +31,9 @@ if(EQUAL((count _houses),0)) exitWith {};
 					deleteVehicle _x;
 
 				};
-			}foreach (SEL(_x,1));
-		} foreach (_house GVAR "kassen");
-		_house SVAR["kassen",nil,true];
+			}foreach (_x select 1);
+		} foreach (_house getVariable "kassen");
+		_house setVariable["kassen",nil,true];
 	};
 } foreach _houses;
 Liga_Laden = Liga_Laden - [ObjNull];

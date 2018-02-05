@@ -83,6 +83,12 @@ class CfgRemoteExec {
 		
 		F(LIGACL_fnc_Fireworks,CLIENT)
         F(LIGACL_fnc_addFWaction,CLIENT)
+		
+		F(LIGACL_fnc_addLadenAction,CLIENT)
+		
+		F(LIGACL_fnc_removeHeliAc,CLIENT)
+        F(LIGACL_fnc_HeliTaxen,CLIENT)
+		
 
         /* Server only functions */
         F(BIS_fnc_execVM,SERVER)
@@ -125,6 +131,18 @@ class CfgRemoteExec {
         F(TON_fnc_vehicleUpdate,SERVER)
         F(TON_fnc_handleBlastingCharge,SERVER)
         F(TON_fnc_houseGarage,SERVER)
+		F(TON_fnc_preCheckHouse,SERVER)		
+		
+		F(TON_fnc_FireWork,SERVER)		
+		F(TON_fnc_LadenFeuerwerk,SERVER)
+		
+		F(TON_fnc_WrackMakeSafe,SERVER)	
+		
+		F(TON_fnc_addLaden,SERVER)
+        F(TON_fnc_updateKass,SERVER)
+        F(TON_fnc_updateZusa,SERVER)
+        F(TON_fnc_KassAction,SERVER)
+        F(TON_fnc_sellLaden,SERVER)	
 
         /* HeadlessClient only functions */
         F(HC_fnc_addContainer,HC)

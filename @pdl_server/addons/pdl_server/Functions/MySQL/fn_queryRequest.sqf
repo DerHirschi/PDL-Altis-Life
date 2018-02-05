@@ -183,6 +183,12 @@ switch (_side) do {
         _gangData = _uid spawn TON_fnc_queryPlayerGang;
         waitUntil{scriptDone _gangData};
         _queryResult pushBack (missionNamespace getVariable [format ["gang_%1",_uid],[]]);
+		
+		/*Laeden*/
+		_ladenData = [_uid,_side] spawn TON_fnc_fetchPlayerLaden;
+		waitUntil {scriptDone _ladenData};
+		_queryResult pushBack (missionNamespace getVariable[format["laden_%1",_uid],[]]);			
+		
 
     };
 

@@ -1,4 +1,3 @@
-#include "\life_server\Liga_Macros.hpp"
 /*
 
 FIREWORKS SCRIPT by nomisum for Gruppe Adler|

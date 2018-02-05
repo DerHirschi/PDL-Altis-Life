@@ -8,7 +8,6 @@
 */
 if (!hasInterface && !isServer) exitWith {
     []call compile preprocessFileLineNumbers "\life_hc\initHC.sqf";
-	[]spawn LIGACL_fnc_initTaxen;  
 }; //This is a headless client.
 
 #define CONST(var1,var2) var1 = compileFinal (if (var2 isEqualType "") then {var2} else {str(var2)})
@@ -17,4 +16,5 @@ if (!hasInterface && !isServer) exitWith {
 CONST(BIS_fnc_endMission,BIS_fnc_endMission);
 if (LIFE_SETTINGS(getNumber,"spyGlass_toggle") isEqualTo 1) then {[] execVM "SpyGlass\fn_initSpy.sqf";};
 enableEnvironment [false, true];
-[] spawn life_fnc_coreInit;
+
+[] execVM "core\coreInit.sqf";

@@ -26,7 +26,6 @@ class Life_Client_Core {
 
     class Master_Directory {
         file = "core";
-        class coreInit 				{};
         class initMapActions 		{};
         class jobLogin 				{};
         class initCiv 				{};

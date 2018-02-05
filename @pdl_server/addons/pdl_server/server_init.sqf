@@ -183,6 +183,8 @@ cleanupFSM = [] execFSM "\pdl_server\FSM\cleanup.fsm";
 
 [] spawn TON_fnc_initHouses;
 cleanup = [] spawn TON_fnc_cleanup;
+[] spawn TON_fnc_initLaden; 
+[] spawn LIGACL_fnc_initTaxen;  
 
 TON_fnc_playtime_values = [];
 TON_fnc_playtime_values_request = [];

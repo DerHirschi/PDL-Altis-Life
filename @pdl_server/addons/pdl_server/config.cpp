@@ -102,6 +102,7 @@ class CfgFunctions {
 
         class Housing {
             file = "\pdl_server\Functions\Housing";
+            class preCheckHouse {};
             class addHouse {};
             class addContainer {};
             class deleteDBContainer {};

@@ -15,7 +15,7 @@ class VirtualShops {
         name = "STR_Shops_Market";
         side = "civ";
         conditions = "";
-        items[] = { "waterBottle", "rabbit", "apple", "redgull", "tbacon", "pickaxe", "toolkit", "fuelFull", "peach", "storagesmall", "storagebig", "rabbit_raw", "hen_raw", "rooster_raw", "sheep_raw", "goat_raw" };
+        items[] = { "waterBottle", "rabbit", "apple", "redgull", "tbacon", "pickaxe", "toolkit", "fuelFull", "peach", "storagesmall", "storagebig", "rabbit_raw", "hen_raw", "rooster_raw", "sheep_raw", "goat_raw", "fireWo" };
     };
 
     class med_market {
@@ -1897,8 +1897,8 @@ class VirtualItems {
 	
 	   class fireWo {
         variable 	= "fireWo";
-        displayName = "Feuerwerk";        
-        buyPrice 	= -1;
+        displayName = "STR_Item_Firework";        
+        buyPrice 	= 12000;
         sellPrice 	= -1;
         illegal 	= -1;
         		

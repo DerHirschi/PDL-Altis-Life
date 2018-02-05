@@ -52,11 +52,11 @@
 	_light2 lightAttachObject  [_nul1,[0,0,0]];
 	
 
-	_nul1 say3D _launchsound;
+	_nul1 say3D [_launchsound, 600, 1];
 	sleep 1;
 
-	if (_type1 == "fizzer") then {
-		_nul1 say3D _whistlingSound;
+	if (_type1 isEqualTo "fizzer") then {
+		_nul1 say3D [_whistlingSound, 600, 1];
 	};
 
 	sleep (2 + _randomSleepShort);
@@ -67,7 +67,7 @@
 	_nul2 ="FxExploArmor3" createVehicleLocal (getPos _nul1);
 	//hideObject _nul2;
 	sleep 0.10;
-	_nul2 say3D _bangSound;
+	_nul2 say3D [_bangSound, 600, 1];
 
 
 
@@ -96,7 +96,7 @@
 
 				_light2 = "#lightpoint" createVehicleLocal [0,0,0];
 				_light2 setLightBrightness 1.0;
-				if (_type2 == "normal" || _type2 == "fizzer") then {
+				if (_type2 isEqualTo "normal" || _type2 isEqualTo "fizzer") then {
 					_light2 setLightAmbient [1,0.9,0.6];
 				} else {
 					_light2 setLightAmbient _color2;
@@ -111,16 +111,16 @@
 				
 				//_light2 attachTo  [_nul2,[0,0,0]];
 
-				if (_type2 == "normal") then {
+				if (_type2 isEqualTo "normal") then {
 					sleep (3 + (random 1));
 					deleteVehicle _light2;
 				};
 				
-				if (_type2 == "fizzer")  then {
+				if (_type2 isEqualTo "fizzer")  then {
 					sleep 1.0;
 					deleteVehicle _light2;
 					
-					_nul2 say3D _bangSound1;
+					_nul2 say3D [_bangSound1, 600, 1];
 				
 					for [{_j=0},{_j < (count _subfragments)},{_j=_j+1}] do 
 					{
@@ -157,7 +157,7 @@
 
 							_light3 = "#lightpoint" createVehicleLocal [0,0,0];
 							_light3 setLightBrightness 2;
-								if (_type3 == "normal" || _type3 == "fizzer") then {
+								if (_type3 isEqualTo "normal" || _type3 isEqualTo "fizzer") then {
 								_light3 setLightAmbient [1,0.9,0.6];
 								} else {
 								_light3 setLightAmbient _color3;
@@ -170,7 +170,7 @@
 							_light3 setLightFlareSize 1;
 
 							sleep (random 1);
-							_nul3 say3D (_singleFizz2 call BIS_fnc_selectRandom);
+							_nul3 say3D [(_singleFizz2 call BIS_fnc_selectRandom), 600, 1];
 
 							sleep (2 - (random 1.5));
 							
@@ -185,11 +185,11 @@
 					};
 				};
 
-				if (_type2 == "rain")  then {
+				if (_type2 isEqualTo "rain")  then {
 					sleep 1.0;
 					
 					
-					_nul2 say3D _bangSound1;
+					_nul2 say3D [_bangSound1, 600, 1];
 				
 					[_nul2,_type2,_fragments,_color2,_selector,_randomSleep2,_randomSleepLong2,_singleFizz1,_groupFizz1,_bangSound1] spawn {
 							_rocket2 = _this select 0;
@@ -221,7 +221,7 @@
 
 							_light3 = "#lightpoint" createVehicleLocal [0,0,0];
 							_light3 setLightBrightness 2;
-							if (_type2 == "normal" || _type2 == "fizzer") then {
+							if (_type2 isEqualTo "normal" || _type2 isEqualTo "fizzer") then {
 								_light3 setLightAmbient [1,0.9,0.6];
 								} else {
 								_light3 setLightAmbient _color3;
@@ -234,7 +234,7 @@
 							_light3 setLightFlareSize 1;
 
 							sleep (random 1);
-							_nul3 say3D (_singleFizz2 call BIS_fnc_selectRandom);
+							_nul3 say3D [(_singleFizz2 call BIS_fnc_selectRandom), 600, 1];
 
 							sleep (2 - (random 1.5));
 							
@@ -258,7 +258,7 @@
 
 		sleep 1;
 
-		_nul2 say3D (_groupFizz call BIS_fnc_selectRandom);
+		_nul2 say3D [(_groupFizz call BIS_fnc_selectRandom), 600, 1];
 		sleep 2;
 		deleteVehicle _nul2;
  

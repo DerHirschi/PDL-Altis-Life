@@ -102,6 +102,9 @@ switch ((side player)) do {
             [] spawn life_fnc_initGang;
         };
         [] spawn life_fnc_initHouses;
+		
+		liga_ladenhouses = _this select (_count - 1);
+		[]spawn LIGACL_fnc_initLaden;
     };
 
     case independent: {

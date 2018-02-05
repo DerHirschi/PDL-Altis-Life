@@ -1,4 +1,4 @@
-#include "\life_server\Liga_Macros.hpp"
+#include "\pdl_server\script_macros.hpp"
 /*
 	BLAH BLAH
 	I LOVE NOTEPAD++ GET OVER IT
@@ -8,18 +8,18 @@ private["_house","_houseID","_containers","_query"];
 _house 		= [_this,0,ObjNull,[ObjNull]] call BIS_fnc_param;
 diag_log str _house;
 if(isNull _house) 		exitWith {diag_log "LADEN HAUS NULL";};
-_houseID 	= _house GVAR["laden_id",-1];
+_houseID 	= _house getVariable["laden_id",-1];
 diag_log str _houseID;
-if(EQUAL(_houseID,-1)) 	exitWith {diag_log "LADEN ID -1 ";};
+if(_houseID isEqualTo -1) 	exitWith {diag_log "LADEN ID -1 ";};
 
-_containers = _house GVAR ["kassen",[]];
-_extra	 	= _house GVAR ["ladextra",["",0,0]];
+_containers = _house getVariable ["kassen",[]];
+_extra	 	= _house getVariable ["ladextra",["",0,0]];
 diag_log str _containers;
 _kassin 	= [];
 _kasspreis 	= [];
 {
-	_kassin 	pushBack (SEL(_x,0) GVAR ["kassinh",-1]);
-	_kasspreis 	pushBack (SEL(_x,0) GVAR ["kasspreis",[-1,-1,-1]]);	
+	_kassin 	pushBack ((_x select 0) getVariable ["kassinh",-1]);
+	_kasspreis 	pushBack ((_x select 0) getVariable ["kasspreis",[-1,-1,-1]]);	
 	
 } foreach _containers;
 

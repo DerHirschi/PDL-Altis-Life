@@ -1,4 +1,3 @@
-#include "\life_server\Liga_Macros.hpp"
 /*
 	Vorlage: Bryan "Tonic" Boardwine
 	Author: Hirschi
@@ -67,4 +66,4 @@ diag_log format["║ _queryResult	: %1",_queryResult];
 diag_log "╚══════════════════════════════════════════════════╝";
 
 
-_house SVAR["laden_id",(_queryResult select 0),true];
+_house setVariable["laden_id",(_queryResult select 0),true];

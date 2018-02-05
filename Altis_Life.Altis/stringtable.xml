@@ -7157,7 +7157,17 @@
             <Portuguese></Portuguese>
             <Polish></Polish>
         </Key>
-
+		<Key ID="STR_Item_Firework">
+            <Original></Original>
+            <Czech></Czech>
+            <Spanish></Spanish>
+            <Russian></Russian>
+            <German>Feuerwerk</German>
+            <French></French>
+            <Italian></Italian>
+            <Portuguese></Portuguese>
+            <Polish></Polish>
+        </Key>
 		<Key ID="STR_Item_CopCont_Hint">
             <Original></Original>
             <Czech></Czech>

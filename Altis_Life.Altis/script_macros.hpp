@@ -4,6 +4,7 @@
 #define CASH life_cash
 #define BANK life_atmbank
 #define GANG_FUNDS group player getVariable ["gang_bank",0];
+#define steamid getPlayerUID player
 
 //RemoteExec Macros
 #define RSERV 2 //Only server

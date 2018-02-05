@@ -1,4 +1,4 @@
-#include "\life_server\Liga_Macros.hpp"
+#include "\pdl_server\script_macros.hpp"
 /*
 	Author: Hirschi
 */
