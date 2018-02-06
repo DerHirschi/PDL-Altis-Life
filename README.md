@@ -49,3 +49,4 @@ Altis Life RPG by AsYetUntitled is licensed under a [Creative Commons Attributio
  - Verschiedene Objekte zum hinstellen wie Stühle, Absperrungen, Pylonen
  - Feuerwerk Script
  - Läden kaufbar ( Liga Laden Script )
+ - Ohrenstöpsel

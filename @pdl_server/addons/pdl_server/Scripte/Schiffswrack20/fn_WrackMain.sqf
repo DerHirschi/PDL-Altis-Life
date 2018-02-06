@@ -8,7 +8,7 @@ _sleep = getArray(missionConfigFile >> "Schiffswrack" >> "sleep");
 uiSleep ((floor random (_sleep select 1) max (_sleep select 0)) * 60);
 
 _schiffsw_positions = getArray (missionConfigFile >> "Schiffswrack" >> "Positionen" );
-_schiffsw_loot_array = getArray (missionConfigFile >> "Schiffswrack" >> "Loot" );
+
 _ranZeugClassNames = getArray (missionConfigFile >> "Schiffswrack" >> "ZeugClassNames" );
 _triggerRad = getNumber (missionConfigFile >> "Schiffswrack" >> "TriggerRadius" );
 _markerRad = getNumber (missionConfigFile >> "Schiffswrack" >> "MarkerRadius" );
@@ -53,6 +53,7 @@ for "_i" from 1 to (getNumber (missionConfigFile >> "Schiffswrack" >> "ZeugMenge
 	_ranzeugPos = [(_schiffsw_positions select 0) +_xPOS,(_schiffsw_positions select 1) +_yPOS, 0.3];
 	_zeug = (_ranZeugClassNames select (floor (random ((count _ranZeugClassNames) - 1)))) createVehicle [0,0,-20];
 	_zeug setPos _ranzeugPos;
+	_zeug setDir (floor random 359);
 	_ranZeugOBJ pushBack _zeug;
 };
 _trgsink = createTrigger ["EmptyDetector", _schiffspos];
@@ -73,6 +74,7 @@ _safe setVariable ["opened",false,true];
 
 waitUntil {sleep 3.3; schiffwoffen}; 
 diag_log "OFFEN";
+/*
 _safe setVariable ["opened",true,true];
 _schiffsw_loot_array = _schiffsw_loot_array select (floor random ((count _schiffsw_loot_array)-1 ));
 _stk = _schiffsw_loot_array select 1;
@@ -82,7 +84,7 @@ _gew = 0;
 }forEach _schiffsw_loot_array;
 
 _safe setVariable ["Trunk",[_schiffsw_loot_array,_gew ],true];	
-
+*/
 sleep (_cooldownTime * 60);
 "schiffswmarker" setMarkerAlpha 0;
 "schiffswmarkertext" setMarkerAlpha 0;

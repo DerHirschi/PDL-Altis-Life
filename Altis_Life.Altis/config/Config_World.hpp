@@ -38,7 +38,7 @@ class Schiffswrack {
 		"Land_CratesPlastic_F",
 		"Land_CratesWooden_F"
 	};
-	sleep[]		= {30, 120}; // Von Bis in Minuten
+	sleep[]		= {1, 5}; // Von Bis in Minuten
 
 	/*SafeDespawn*/
 	coolDownTimer			= 90;//Minute(n) + sleep
