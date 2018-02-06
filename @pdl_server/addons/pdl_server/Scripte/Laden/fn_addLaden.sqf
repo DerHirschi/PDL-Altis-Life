@@ -59,12 +59,7 @@ _query = format["INSERT INTO laden (class, pid, pos, inventory, preistabelle, ka
 	1
 ];
 _queryResult = [_query,2] call DB_fnc_asyncCall;
-diag_log "╔══════════════════════════════════════════════════╗";
-diag_log "║ Laden wurde gekauft !! DB LOG ";
-diag_log "╠══════════════════════════════════════════════════╣";
-diag_log format["║ Query		: %1",_query];
-diag_log format["║ _queryResult	: %1",_queryResult];
-diag_log "╚══════════════════════════════════════════════════╝";
+
 _query = format["SELECT id FROM laden WHERE pos='%2' AND pid='%1' AND owned='1';",_uid,_housePos];
 _queryResult = [_query,2] call DB_fnc_asyncCall;
 diag_log "╔══════════════════════════════════════════════════╗";
