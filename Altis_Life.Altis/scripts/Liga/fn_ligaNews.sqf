@@ -24,8 +24,8 @@ switch (_mode) do {
 	case 1: {[parseText format["<t size='2'>Die Liga - Nachricht </t><img size='3.3' color='#FFFFFF' image='icons\Lnews\heli.paa'/>"],parseText format["<t size='1.2'>%1 - %1 - %1</t>","Warlord entsendet Waffen für die Rebellen!!! Die Abwurfzone wird noch bekannt gegeben!!!"]] spawn BIS_fnc_AAN;sleep 13;};	// Airdrop
 	case 3: {[parseText format["<t size='2'>Die Liga - Nachricht </t><img size='3.3' color='#FFFFFF' image='icons\Lnews\heli.paa'/>"],parseText format["<t size='1.2'>%1 - %1 - %1</t>","Ankunft der Waffenlieferung: 5 Minuten!!!"]] spawn BIS_fnc_AAN;sleep 13;};	// Airdrop
 	case 4: {[parseText format["<t size='2'>Die Liga - Nachricht </t><img size='3.3' color='#FFFFFF' image='icons\Lnews\heli.paa'/>"],parseText format["<t size='1.2'>%1 - %1 - %1</t>","Die Waffenkiste wurde abgeworfen! In 20 Minuten zerstört sie sich selbst !!!"]] spawn BIS_fnc_AAN;sleep 13;};	// Airdrop
-/*EVENT*/	//case 5: {[parseText format["<t size='2'>Die Liga - Nachricht </t><img size='5' color='#ff0000' image='icons\money.paa'/>"],parseText format["<t size='1.2'>%1 - %1 - %1</t>",_msg]] spawn BIS_fnc_AAN;};	// Event
-/*ADMIN*/ //	case 6: {[parseText format["<t size='2'>Die Liga - Nachricht </t><img size='5' color='#ff0000' image='icons\money.paa'/>"],parseText format["<t size='1.2'>%1 - %1 - %1</t>",_msg]] spawn BIS_fnc_AAN;};	// Event
+/*EVENT*/	//case 5: {[parseText format["<t size='2'>Die Liga - Nachricht </t><img size='5' color='#ff0000' image='icons\ico_money.paa'/>"],parseText format["<t size='1.2'>%1 - %1 - %1</t>",_msg]] spawn BIS_fnc_AAN;};	// Event
+/*ADMIN*/ //	case 6: {[parseText format["<t size='2'>Die Liga - Nachricht </t><img size='5' color='#ff0000' image='icons\ico_money.paa'/>"],parseText format["<t size='1.2'>%1 - %1 - %1</t>",_msg]] spawn BIS_fnc_AAN;};	// Event
 	/*USER*/ 	
 	case 7: {[parseText format["<t size='2'>Die Liga - Nachricht </t>"],parseText format["<t size='1.2'>%1 - %1 - %1</t>",_msg]] spawn BIS_fnc_AAN; sleep 40;};	// Event
 	/*Lotto*/

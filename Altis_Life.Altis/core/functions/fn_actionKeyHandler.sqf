@@ -24,6 +24,10 @@ if (LIFE_SETTINGS(getNumber,"global_ATM") isEqualTo 1) then{
     };
 };
 
+if((_curObject isKindOf "Land_CashDesk_F") && ( ((nearestObjects[player,["House_F"],25]) select 0) in life_vehicles))exitWith{
+	[cursorTarget] spawn LIGACL_fnc_LigaLadenMenu;
+};
+
 if (isNull _curObject) exitWith {
     if (_isWater) then {
         _fish = (nearestObjects[player,(LIFE_SETTINGS(getArray,"animaltypes_fish")),3]) select 0;

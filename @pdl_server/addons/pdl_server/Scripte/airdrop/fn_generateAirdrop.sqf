@@ -9,7 +9,7 @@
 
 
 _pos = getArray(missionConfigFile >> "Airdrop" >> "posi");
-_dest = _pos select ((random (count _pos)) - 1);
+_dest = _pos select (random ((count _pos)- 1));
 
 if !(isNil "airdrop_goingon") exitWith {};
 airdrop_goingon = true;

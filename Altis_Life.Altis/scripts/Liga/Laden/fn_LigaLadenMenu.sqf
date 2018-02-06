@@ -53,7 +53,7 @@ _house spawn
 };
 //_tInv = (findDisplay 3500) displayCtrl 3502;//Ges
 ctrlSetText[3501,(_extra select 0)];
-ctrlSetText[3503,(format["%1 - [$%2]",(_extra select 0),([_kassinh] call life_fnc_numberText)])];
+ctrlSetText[3503,(format["%1 - [$%2]",(_extra select 0),(_kassinh call life_fnc_numberText)])];
 
 if((_extra select 1) isEqualTo 1)then {	
 	((findDisplay 3500) displayCtrl 3551)ctrlSetBackgroundColor [0, 0.3, 0, 0.5];
@@ -70,7 +70,7 @@ lbClear ((findDisplay 3500) displayCtrl 3504);//It1;
 lbClear ((findDisplay 3500) displayCtrl 3505);//It1;
 lbClear ((findDisplay 3500) displayCtrl 3506);//It1;
 /*Kohle*/
-ctrlSetText[3507,([_kassinh] call life_fnc_numberText)];
+ctrlSetText[3507,(_kassinh call life_fnc_numberText)];
 
 /*Akt Item´s 1 - 3*/
 {
@@ -81,7 +81,7 @@ ctrlSetText[3507,([_kassinh] call life_fnc_numberText)];
 	if(_val > 0) then
 	{
 		_name = ITEM_NAME(_x select 0);
-		_icon = M_CONFIG(getText,"VirtualLigaItems",(_x select 0),"icon");
+		_icon = M_CONFIG(getText,"VirtualItems",(_x select 0),"icon");
 		((findDisplay 3500) displayCtrl _ctrl_n) lbAdd format	["[%1 $] - %2",_val,_name];
 		((findDisplay 3500) displayCtrl _ctrl_n) lbSetData 	[(lbSize ((findDisplay 3500) displayCtrl _ctrl_n))-1,(_x select 0)];
 		((findDisplay 3500) displayCtrl _ctrl_n) lbSetPicture [(lbSize ((findDisplay 3500) displayCtrl _ctrl_n))-1,_icon];
@@ -110,8 +110,8 @@ _i = 1;
 				if(_val > 0) then
 				{
 					_name = ITEM_NAME(_x select 0);
-					_icon = M_CONFIG(getText,"VirtualLigaItems",(_x select 0),"icon");
-					((findDisplay 3500) displayCtrl 3502) lbAdd format["[%1] - %2",_val,_name];
+					_icon = M_CONFIG(getText,"VirtualItems",(_x select 0),"icon");
+					((findDisplay 3500) displayCtrl 3502) lbAdd format["[%1] - %2",_val,localize _name];
 					((findDisplay 3500) displayCtrl 3502) lbSetData [(lbSize ((findDisplay 3500) displayCtrl 3502))-1,(_x select 0)];
 					((findDisplay 3500) displayCtrl 3502) lbSetPicture [(lbSize ((findDisplay 3500) displayCtrl 3502))-1,_icon];
 				};

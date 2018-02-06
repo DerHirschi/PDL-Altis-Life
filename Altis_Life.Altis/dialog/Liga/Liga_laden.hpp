@@ -50,7 +50,7 @@ class LadenMenu
 		{//GeldPi
 			
 			idc = -1;
-			text = "icons\Money.paa";
+			text = "icons\ico_money.paa";
 			x = 0.505156 * safezoneW + safezoneX;
 			y = 0.324 * safezoneH + safezoneY;
 			w = 0.0257812 * safezoneW;
@@ -506,7 +506,7 @@ class LadenMenu
 			//shortcuts[] = {0x00050000 + 2};
 			colorBackground[] ={0.6, 0.6, 0, 0.9};
 			text = "Feuerwerk 80.000 $";
-			onButtonClick = "closeDialog 0; []spawn {if(life_atmcash < 80000)exitWith{hint 'Du hast nicht genug Geld auf dem Konto..'};	_house	= (nearestObject [(getPosATL player), 'House_F']);	[_house] remoteExec ['TON_fnc_LadenFeuerwerk',2]; life_atmcash = life_atmcash - 80000;	};";
+			onButtonClick = "closeDialog 0; []spawn {if(life_atmbank < 80000)exitWith{hint 'Du hast nicht genug Geld auf dem Konto..'};	_house	= (nearestObject [(getPosATL player), 'House_F']);	[_house] remoteExec ['TON_fnc_LadenFeuerwerk',2]; life_atmbank = life_atmbank - 80000;	};";
 			x = 0.463906 * safezoneW + safezoneX; 
 			y = 0.725 * safezoneH + safezoneY;
 			w = 0.108281 * safezoneW; 

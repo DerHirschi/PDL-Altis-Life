@@ -8,10 +8,10 @@
 private["_query","_houses","_class","_pos","_dir","_house","_trunk","_arr","_kassin","_zucont","_kasslot","_positions"];
 if((_this select 0) isEqualTo "") exitWith {};
 
-_query = format["LadenFetchPlayerLaden:%1",(_this select 0)];
+_query = format["SELECT pid, pos, inventory, preistabelle, kassen, upgrade, class FROM laden WHERE pid='%1' AND owned='1';",(_this select 0)];
 
 _houses = [_query,2,true] call DB_fnc_asyncCall;
-//diag_log format [">>>>Laden Fetch Det>>> %1",_houses];
+diag_log format [">>>>Laden Fetch Det>>> %1",_houses];
 
 _return = [];
 {
@@ -20,9 +20,9 @@ _return = [];
 	//_pos = [_x select 1] call DB_fnc_mresString;
 	_pos = call compile format["%1",(_x select 1)];
 	_class = (_x select 6);
-	//diag_log format [">>Laden Det>>>>> _x %1",_x];
-	//diag_log format [">>Laden Det>>>>> class %1",_class];
-	//diag_log format [">>>>>>> _x select 1 %1",_x select 1];
+	diag_log format [">>Laden Det>>>>> _x %1",_x];
+	diag_log format [">>Laden Det>>>>> class %1",_class];
+	diag_log format [">>>>>>> _x select 1 %1",_x select 1];
 	if(_class isEqualTo "") then {
 		_house = nearestBuilding _pos;
 	}else{	
@@ -75,7 +75,7 @@ _return = [];
 				_house setVariable["slots",_slots,true];
 				_pos = (_x select 0);
 				_dir = (_x select 1);
-				//diag_log format [">>>>Laden Kassen>>> _x _pos %1",_x];
+				diag_log format [">>>>Laden Kassen>>> _x _pos %1",_x];
 			};
 		} foreach _positions;
 		
@@ -84,7 +84,7 @@ _return = [];
 		_container = createVehicle["Land_CashDesk_F",_pos,[],0,"NONE"];
 		waitUntil{!isNil "_container"};
 		_container enableSimulationGlobal false;
-		//diag_log format [">>>>>>> _container %1",_container];
+		diag_log format [">>>>>>> _container %1",_container];
 		_container allowDamage false;		
 		uiSleep 0.5;
 		_container setPosATL (_house modelToWorld _pos);
@@ -106,7 +106,7 @@ _return = [];
 			if((count _x) isEqualTo 0) exitWith {}; //No containers / items			
 			//{
 				_pos = [0,0,0];
-				//diag_log format [">>>>>>> _positionsSchrank %1",_positions];
+				diag_log format [">>>>>>> _positionsSchrank %1",_positions];
 				
 				{
 					_slots = _container getVariable ["zuslots",[]];
@@ -115,7 +115,7 @@ _return = [];
 						_container setVariable["zuslots",_slots,true];
 						_pos = (_x select 0);
 						_dir = (_x select 1);
-					//	diag_log format [">>>>Laden Schrank>>> _x _pos %1",_x];
+						diag_log format [">>>>Laden Schrank>>> _x _pos %1",_x];
 					};
 				} foreach (_positions select _kasslot);
 				
@@ -124,7 +124,7 @@ _return = [];
 				_zucontainer = createVehicle["Land_ShelvesMetal_F",_pos,[],0,"NONE"];
 				waitUntil{!isNil "_zucontainer"};
 				_zucontainer enableSimulationGlobal false;
-			//	diag_log format [">>>>>>> _zucontainer %1",_zucontainer];
+				diag_log format [">>>>>>> _zucontainer %1",_zucontainer];
 				_zucontainer allowDamage false;		
 				uiSleep 0.5;
 				_zucontainer setPosATL (_house modelToWorld _pos);

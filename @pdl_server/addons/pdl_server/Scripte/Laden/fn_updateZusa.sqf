@@ -21,6 +21,7 @@ _alltrunk 	= [];
 	_alltrunk pushBack _trunk;
 }forEach _containers;
 
-_query = format["LadenUpdateTrunk:%1:%2",_alltrunk,_houseID];
+//_query = format["LadenUpdateTrunk:%1:%2",_alltrunk,_houseID];
+_query = format["UPDATE laden SET upgrade='%1' WHERE id='%2';",_alltrunk,_houseID];
 
 [_query,1] call DB_fnc_asyncCall;

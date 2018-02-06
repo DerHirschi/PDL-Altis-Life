@@ -15,7 +15,7 @@ class VirtualShops {
         name = "STR_Shops_Market";
         side = "civ";
         conditions = "";
-        items[] = { "waterBottle", "rabbit", "apple", "redgull", "tbacon", "pickaxe", "toolkit", "fuelFull", "peach", "storagesmall", "storagebig", "rabbit_raw", "hen_raw", "rooster_raw", "sheep_raw", "goat_raw", "fireWo" };
+        items[] = { "schrank","kasse","waterBottle", "rabbit", "apple", "redgull", "tbacon", "pickaxe", "toolkit", "fuelFull", "peach", "storagesmall", "storagebig", "rabbit_raw", "hen_raw", "rooster_raw", "sheep_raw", "goat_raw", "fireWo" };
     };
 
     class med_market {
@@ -532,6 +532,62 @@ class VirtualItems {
         icon = "icons\ico_storageBig.paa";
 		sound 		= "";
     };
+	
+    class kasse {
+        variable 	= "kasse";
+        displayName = "STR_Item_KassTisch";        
+        buyPrice 	= 520000;
+        sellPrice 	= -1;
+        illegal 	= -1;
+        		
+		saveable	= true;
+		closeDiag	= true;
+		
+		weight 		= 25;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = + 0.5
+
+        verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+        
+		allowside[]	= {"CIV"};
+        useablefnc	= "[_this] spawn LIGACL_fnc_LigaAddKass;";       
+		hinttext	= "";
+		titletext	= "";
+
+		icon 		= "";
+        sound 		= "";
+    };	
+
+    class schrank {
+        variable 	= "schrank";
+        displayName = "STR_Item_Regal";        
+        buyPrice 	= 360000;
+        sellPrice 	= -1;
+        illegal 	= -1;
+        		
+		saveable	= true;
+		closeDiag	= true;
+		
+		weight 		= 28;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = + 0.5
+
+        verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"",-1},{"",-1}}	ITEM,stk		
+        
+		allowside[]	= {"CIV"};
+        useablefnc	= "[_this] spawn LIGACL_fnc_LigaAddKass;";       
+		hinttext	= "";
+		titletext	= "";
+
+		icon 		= "";
+        sound 		= "";
+    };	
 
     //Mined Items
     class oil_unprocessed {

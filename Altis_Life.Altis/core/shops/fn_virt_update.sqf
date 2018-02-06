@@ -12,7 +12,11 @@ disableSerialization;
 //Setup control vars.
 _item_list = CONTROL(2400,2401);
 _gear_list = CONTROL(2400,2402);
+_Btn3 	   = CONTROL(2400,2408);
 
+//////////////////////////
+_Btn3 buttonSetAction "[] call life_fnc_virt_buy;";
+//////////////////////////
 //Purge list
 lbClear _item_list;
 lbClear _gear_list;

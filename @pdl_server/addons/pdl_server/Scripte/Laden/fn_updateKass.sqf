@@ -27,6 +27,7 @@ _kasspreis 	= [];
 //_arr = [_arr] call DB_fnc_mresArray;
 //_arr = call compile format ["%1",_arr];
 
-_query = format["LadenUpdateKassen:%1:%2:%3:%4",_kassin,_kasspreis,_extra,_houseID];
+//_query = format["LadenUpdateKassen:%1:%2:%3:%4",_kassin,_kasspreis,_extra,_houseID];
+_query = format["UPDATE laden SET kassen='%1', preistabelle='%2', inventory='%3' WHERE id='%4';",_kassin,_kasspreis,_extra,_houseID];
 
 [_query,1] call DB_fnc_asyncCall;

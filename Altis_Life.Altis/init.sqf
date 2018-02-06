@@ -13,4 +13,8 @@ if (hasInterface) then {
 [] execVM "KRON_Strings.sqf";
 
 StartProgress = true;
-[]spawn LIGACL_fnc_initTaxen;
+
+/*!!!!! Dummys !!!!!!*/
+
+LIGACL_fnc_LottoQuesttWin = compileFinal "";
+ligacl_fnc_lottodialog = compileFinal "";

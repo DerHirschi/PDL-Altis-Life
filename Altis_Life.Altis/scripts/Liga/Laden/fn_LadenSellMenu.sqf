@@ -34,15 +34,12 @@ if((_allObj isEqualTo []) || (_kasspr isEqualTo []) ) exitWith {closeDialog 0; }
 _regale 		= [];
 {
 	if(life_shop_npc in _x)exitWith {_regale = _x select 1;};
-}forEach _allObj;
-	
+}forEach _allObj;	
 _data 		= [];
-
 {
 	_flag = _x getVariable ["Trunk",[]];
 	if((count _flag) isEqualTo 0) then {_x setVariable["Trunk",[[],0],true]; _flag = [];} else {_flag = _flag select 0;};
-	
-	
+		
 	{
 		_i = [(_x select 0),_data]call TON_fnc_index;
 		if(_i isEqualTo -1)then {
@@ -63,11 +60,11 @@ ctrlSetText[2403,format["%1",((life_shop_type getVariable ["ladextra",["",0,0]])
 	if!(_index isEqualTo -1) then {
 		
 		_name = ITEM_NAME(_item);
-		_icon = M_CONFIG(getText,"VirtualLigaItems",_item,"icon");
+		_icon = M_CONFIG(getText,"VirtualItems",_item,"icon");
 	
 		_price = (_kasspr select _index) select 1;		
 		
-		_item_list lbAdd format["%1  (%3Stk) ($%2)",_name,[_price] call life_fnc_numberText,(_x select 1)];	
+		_item_list lbAdd format["%1  (%3Stk) ($%2)",localize _name,_price call life_fnc_numberText,(_x select 1)];	
 
 		_item_list lbSetData [(lbSize _item_list)-1,(str[_item,(_x select 1)])];
 		_item_list lbSetValue [(lbSize _item_list)-1,_price];

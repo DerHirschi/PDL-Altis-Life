@@ -30,7 +30,8 @@ if(isNull _house OR _uid isEqualTo "") exitWith {};
 _housePos = getPosATL _house;
 
 
-_query = format["LadenAddLaden:%1:%2:%3:%4:%5:%6:%7:%8",(typeOf _house),_uid,_housePos,	
+//_query = format["LadenAddLaden:%1:%2:%3:%4:%5:%6:%7:%8",(typeOf _house),_uid,_housePos,	
+_query = format["INSERT INTO laden (class, pid, pos, inventory, preistabelle, kassen, upgrade, owned) VALUES('%1', '%2', '%3', '%4', '%5', '%6', '%7', '%8'); ",str(typeOf _house),_uid,_housePos,	
 	[	//Extras
 		"Liga Laden",	//Name	
 		0,				//Marker
@@ -64,6 +65,13 @@ diag_log "╠══════════════════════�
 diag_log format["║ Query		: %1",_query];
 diag_log format["║ _queryResult	: %1",_queryResult];
 diag_log "╚══════════════════════════════════════════════════╝";
-
+_query = format["SELECT id FROM laden WHERE pos='%2' AND pid='%1' AND owned='1';",_uid,_housePos];
+_queryResult = [_query,2] call DB_fnc_asyncCall;
+diag_log "╔══════════════════════════════════════════════════╗";
+diag_log "║ Laden wurde gekauft !! DB LOG ";
+diag_log "╠══════════════════════════════════════════════════╣";
+diag_log format["║ Query		: %1",_query];
+diag_log format["║ _queryResult	: %1",_queryResult];
+diag_log "╚══════════════════════════════════════════════════╝";
 
 _house setVariable["laden_id",(_queryResult select 0),true];

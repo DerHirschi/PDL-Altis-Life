@@ -6319,6 +6319,28 @@
             <Portuguese></Portuguese>
             <Polish></Polish>
         </Key>		
+		<Key ID="STR_Item_KassTisch">
+            <Original></Original>
+            <Czech></Czech>
+            <Spanish></Spanish>
+            <Russian></Russian>
+            <German>Kassentisch</German>
+            <French></French>
+            <Italian></Italian>
+            <Portuguese></Portuguese>
+            <Polish></Polish>
+        </Key>	
+		<Key ID="STR_Item_Regal">
+            <Original></Original>
+            <Czech></Czech>
+            <Spanish></Spanish>
+            <Russian></Russian>
+            <German>Regal</German>
+            <French></French>
+            <Italian></Italian>
+            <Portuguese></Portuguese>
+            <Polish></Polish>
+        </Key>	
         <Key ID="STR_Item_Apples">
             <Original>Apples</Original>
             <Czech>jablka</Czech>

@@ -75,7 +75,7 @@ switch ((side player)) do {
         life_alaclevel 		= _this select 17;
         life_flusilevel 	= _this select 19;
         
-        life_houses = _this select (_count - 3);
+        life_houses = _this select (_count - 4);
         if (LIFE_SETTINGS(getNumber,"save_playerStats") isEqualTo 1) then {
             life_hunger = ((_this select 9) select 0);
             life_thirst = ((_this select 9) select 1);
@@ -97,13 +97,13 @@ switch ((side player)) do {
             life_vehicles pushBack _house;
         } forEach life_houses;
 
-        life_gangData = _this select (_count - 2);
+        life_gangData = _this select (_count - 3);
         if !(count life_gangData isEqualTo 0) then {
             [] spawn life_fnc_initGang;
         };
         [] spawn life_fnc_initHouses;
 		
-		liga_ladenhouses = _this select (_count - 1);
+		liga_ladenhouses = _this select (_count - 2);
 		[]spawn LIGACL_fnc_initLaden;
     };
 

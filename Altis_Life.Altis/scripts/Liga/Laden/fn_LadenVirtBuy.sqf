@@ -45,7 +45,7 @@ _type			= call compile format["%1",_type];
 //_name 			= [([(_type select 0),0] call life_fnc_varHandle)] call life_fnc_varToStr;
 _name 			= (_type select 0);
 //ITEM_VAR(var)
-hint str _name;
+
 if(!([_amount] call TON_fnc_isnumber)) exitWith {hint localize "STR_Shop_Virt_NoNum";};
 _amount = parseNumber(_amount);
 
@@ -65,13 +65,15 @@ if(([true,(_type select 0),_amount] call life_fnc_handleInv)) then{
 	
 	[(_type select 0),_amount] call _fnc_handleLadenInv;
 	
-	//hint format[localize "STR_Shop_Virt_BoughtItem",_amount,_name,[_price * _amount] call life_fnc_numberText];	
+	hint format[localize "STR_Shop_Virt_BoughtItem",_amount,_name,(_price * _amount) call life_fnc_numberText];	
 	
 	[life_shop_type] remoteExec ["TON_fnc_updateKass",RSERV];	
 	[life_shop_type] remoteExec ["TON_fnc_updateZusa",RSERV];
+
 };
 closeDialog 0; 
 [0] call SOCK_fnc_updatePartial;
 [3] call SOCK_fnc_updatePartial;
 waitUntil {(isNull (findDisplay 2400))};
 [_kassObj] spawn LIGACL_fnc_LadenSellMenu;
+

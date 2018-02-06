@@ -30,27 +30,16 @@ if (_num > _value) exitWith {hint localize "STR_MISC_NotEnough"};
 _num = [_ctrl,_num,life_carryWeight,life_maxWeight] call life_fnc_calWeightDiff;
 if (_num isEqualTo 0) exitWith {hint localize "STR_NOTF_InvFull"};
 _weight = ([_ctrl] call life_fnc_itemWeight) * _num;
-if (_ctrl == "money") then {
-    if (_num == _value) then {
-        _data deleteAt _index;
-    } else {
-        _data set[_index,[_ctrl,(_value - _num)]];
-    };
 
-    CASH = CASH + _num;
-    [0] call SOCK_fnc_updatePartial;
-    life_trunk_vehicle setVariable ["Trunk",[_data,(_old select 1) - _weight],true];
-    [life_trunk_vehicle] call life_fnc_vehInventory;
+if ([true,_ctrl,_num] call life_fnc_handleInv) then {
+	if (_num == _value) then {
+		_data deleteAt _index;
+	} else {
+		_data set[_index,[_ctrl,(_value - _num)]];
+	};
+	life_trunk_vehicle setVariable ["Trunk",[_data,(_old select 1) - _weight],true];
+	[life_trunk_vehicle] call life_fnc_vehInventory;
 } else {
-    if ([true,_ctrl,_num] call life_fnc_handleInv) then {
-        if (_num == _value) then {
-            _data deleteAt _index;
-        } else {
-            _data set[_index,[_ctrl,(_value - _num)]];
-        };
-        life_trunk_vehicle setVariable ["Trunk",[_data,(_old select 1) - _weight],true];
-        [life_trunk_vehicle] call life_fnc_vehInventory;
-    } else {
-        hint localize "STR_NOTF_InvFull";
-    };
+	hint localize "STR_NOTF_InvFull";
 };
+

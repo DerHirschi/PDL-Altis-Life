@@ -26,10 +26,10 @@ if(!([_num] call TON_fnc_isnumber)) exitWith {hint localize "STR_MISC_WrongNumFo
 _num 	= parseNumber(_num);
 if(_num isEqualTo 0) exitWith {hint localize "STR_MISC_Under1";};
 
-_var  = [_ctrl,0] call life_fnc_varHandle;
-_name = [_var] call life_fnc_varToStr;
-_icon = [_var] call life_fnc_itemIcon;
-((findDisplay 3500) displayCtrl _ctrl_n) lbAdd format	["[%1 $] - %2",_num,_name];
+_name = ITEM_NAME(_ctrl);
+_icon = ITEM_ICON(_ctrl);
+
+((findDisplay 3500) displayCtrl _ctrl_n) lbAdd format	["[%1 $] - %2",_num,localize _name];
 ((findDisplay 3500) displayCtrl _ctrl_n) lbSetData 	[(lbSize ((findDisplay 3500) displayCtrl _ctrl_n))-1,_ctrl];
 ((findDisplay 3500) displayCtrl _ctrl_n) lbSetPicture [(lbSize ((findDisplay 3500) displayCtrl _ctrl_n))-1,_icon];
 

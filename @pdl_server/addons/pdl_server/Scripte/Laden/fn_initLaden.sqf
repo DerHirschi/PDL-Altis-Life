@@ -10,7 +10,8 @@
 private["_queryResult","_house","_pos","_class"];
 
 	
-_queryResult = ["LadenInit",2,true] call DB_fnc_asyncCall;
+// _queryResult = ["LadenInit",2,true] call DB_fnc_asyncCall;
+_queryResult = ["SELECT laden.id, laden.pid, laden.pos, players.name, laden.class FROM laden INNER JOIN players ON laden.pid=players.pid WHERE laden.owned='1';",2,true] call DB_fnc_asyncCall;
 
 //diag_log format ["<<<LADEN INIT<<<<< _queryResult%1",_queryResult];
 

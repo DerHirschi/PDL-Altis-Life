@@ -186,8 +186,9 @@ switch (_code) do {
                     };
                 } else {
                     _list = ["landVehicle","Air","Ship"];
-                    if (KINDOF_ARRAY(cursorObject,_list) && {player distance cursorObject < 7} && {isNull objectParent player} && {alive cursorObject} && {!life_action_inUse}) then {
-                        if (cursorObject in life_vehicles || {locked cursorObject isEqualTo 0}) then {
+                    //if (KINDOF_ARRAY(cursorObject,_list) && {player distance cursorObject < 7} && {isNull objectParent player} && {alive cursorObject} && {!life_action_inUse}) then {
+                    if( (isClass (missionConfigFile >> "LifeCfgVehicles" >> ( typeOf cursorObject ))) && {player distance cursorObject < 10} && {isNull objectParent player} && {alive cursorObject}  && {!life_action_inUse}) then {
+						if (cursorObject in life_vehicles || {locked cursorObject isEqualTo 0}) then {
                             [cursorObject] spawn life_fnc_openInventory;
                         };
                     };

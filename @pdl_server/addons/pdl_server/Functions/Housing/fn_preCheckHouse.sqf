@@ -15,9 +15,11 @@ if(_mode isEqualTo -1) exitWith {
 };
 
 switch (_mode)do {
-	case 0: {_query = ([format["housingCheckHouse:%1", _housePos], 2] call DB_fnc_asyncCall) select 0;	};
-	case 1: {_query = ([format["LadenCheckHouse:%1",   _housePos], 2] call DB_fnc_asyncCall) select 0;	};
+	// case 0: {_query = ([format["housingCheckHouse:%1", _housePos], 2] call DB_fnc_asyncCall) select 0;	};
+	case 0: {_query = ([format["SELECT CASE WHEN EXISTS(SELECT id FROM houses WHERE pos='%1' AND owned='1') THEN 'false' ELSE 'true' END;", _housePos], 2] call DB_fnc_asyncCall) select 0;	};
+	// case 1: {_query = ([format["LadenCheckHouse:%1",   _housePos], 2] call DB_fnc_asyncCall) select 0;	};
+	case 1: {_query = ([format["SELECT CASE WHEN EXISTS(SELECT id FROM laden WHERE pos='%1' AND owned='1') THEN 'false' ELSE 'true' END;",   _housePos], 2] call DB_fnc_asyncCall) select 0;	};
 };
 
-kaufmich = _query;
+kaufmich = call compile _query;
 (owner _player) publicVariableClient "kaufmich";

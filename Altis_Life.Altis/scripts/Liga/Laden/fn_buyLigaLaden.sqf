@@ -23,13 +23,14 @@ if((count _houseCfg) isEqualTo 0) exitWith {};
 [life_pInact_curTarget,player,1] remoteExec ["TON_fnc_preCheckHouse",RSERV];
 
 waitUntil{	!isNil "kaufmich" };
+
 if!(kaufmich) exitWith {hint "Dieses Geschaeft gehoert bereits jemanden... "};
 
 kaufmich = nil;
 
 _action = [
 	format[localize "STR_Laden_BuyMSG",
-	[(_houseCfg select 0)] call life_fnc_numberText,
+	(_houseCfg select 0) call life_fnc_numberText,
 	(_houseCfg select 1) , (_houseCfg select 2)],localize "STR_Laden_Purchase",localize "STR_Global_Buy",localize "STR_Global_Cancel"
 ] call BIS_fnc_guiMessage;
 

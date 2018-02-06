@@ -6,9 +6,11 @@ _houseID = _house getVariable["laden_id",-1];
 if(_houseID isEqualTo -1) then {
 	_housePos = getPosATL _house;
 	_ownerID = (_house getVariable "house_owner") select 0;
-	_query = format["LadenSellHouse:%1:%2:%3",[],_ownerID,_housePos];
+	// _query = format["LadenSellHouse:%1:%2:%3",[],_ownerID,_housePos];
+	_query = format["UPDATE laden SET owned='0', pos='[]', inventory='[''LigaLaden'',0,0]', preistabelle='[]', kassen='[]', upgrade='[]' WHERE pid='%1' AND pos='%2' AND owned='1';",_ownerID,_housePos];
 } else {
-	_query = format["LadenSellHouse2:%1",_houseID];
+	//_query = format["LadenSellHouse2:%1",_houseID];
+	_query = format["UPDATE laden SET owned='0', pos='[]', inventory='[''LigaLaden'',0,0]', preistabelle='[]', kassen='[]', upgrade='[]' WHERE id='%1';",_houseID];
 };
 
 _house setVariable["laden_id",nil,true];
