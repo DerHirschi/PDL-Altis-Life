@@ -312,6 +312,10 @@ switch (_code) do {
                             _veh animateDoor ['Door_1_source',1];
                             _veh animateDoor ['Door_2_source',1];
                             _veh animateDoor ['Door_3_source',1];
+                            _veh animateDoor ['Door_4_source',1];
+                            _veh animateDoor ['Door_5_source',1];
+                            _veh animateDoor ['Door_6_source',1];
+                           
                             _veh animateDoor ['Door_LM',1];
                             _veh animateDoor ['Door_RM',1];
                             _veh animateDoor ['Door_LF',1];
@@ -345,6 +349,11 @@ switch (_code) do {
                             _veh animateDoor ['DoorR_Front_Open',1];
                             _veh animateDoor ['DoorL_Back_Open',1];
                             _veh animateDoor ['DoorR_Back_Open ',1];
+							_veh animateDoor ["door_back_R",1];				
+							_veh animateDoor ['Door_4_source',1];
+							_veh animateDoor ['Door_5_source',1];
+							_veh animateDoor ['Door_6_source',1];
+				
                         };
                         systemChat localize "STR_MISC_VehUnlock";
                         [_veh,"unlockCarSound",50,1] remoteExec ["life_fnc_say3D",RANY];
@@ -362,6 +371,9 @@ switch (_code) do {
                             _veh animateDoor ['Door_1_source',0];
                             _veh animateDoor ['Door_2_source',0];
                             _veh animateDoor ['Door_3_source',0];
+                            _veh animateDoor ['Door_4_source',0];
+                            _veh animateDoor ['Door_5_source',0];
+                            _veh animateDoor ['Door_6_source',0];
                             _veh animateDoor ['Door_LM',0];
                             _veh animateDoor ['Door_RM',0];
                             _veh animateDoor ['Door_LF',0];
@@ -385,6 +397,9 @@ switch (_code) do {
                             _veh animateDoor ['Door_1_source',0];
                             _veh animateDoor ['Door_2_source',0];
                             _veh animateDoor ['Door_3_source',0];
+                            _veh animateDoor ['Door_4_source',0];
+                            _veh animateDoor ['Door_5_source',0];
+                            _veh animateDoor ['Door_6_source',0];
                             _veh animateDoor ['Door_LM',0];
                             _veh animateDoor ['Door_RM',0];
                             _veh animateDoor ['Door_LF',0];
@@ -406,9 +421,11 @@ switch (_code) do {
 	
 	case 207: {
 		switch (player getVariable["Earplugs",0]) do {
-			case 0: {hint composeText [ image "icons\sound.paa"," 90% Leiser"]; 1 fadeSound 0.1; player setVariable ["Earplugs", 10]; };
-			case 10: {hint composeText [ image "icons\sound.paa"," 60% Leiser"]; 1 fadeSound 0.4; player setVariable ["Earplugs", 40]; };
-			case 40: {hint composeText [ image "icons\sound.paa"," 30% Leiser"]; 1 fadeSound 0.7; player setVariable ["Earplugs", 70]; };
+			case 0: {hint composeText [ image "icons\sound.paa"," 90% Leiser"]; 1 fadeSound 0.1; player setVariable ["Earplugs", 9]; };
+			case 9: {hint composeText [ image "icons\sound.paa"," 70% Leiser"]; 1 fadeSound 0.3; player setVariable ["Earplugs", 15]; };
+			case 15: {hint composeText [ image "icons\sound.paa"," 50% Leiser"]; 1 fadeSound 0.5; player setVariable ["Earplugs", 40]; };
+			case 40: {hint composeText [ image "icons\sound.paa"," 30% Leiser"]; 1 fadeSound 0.7; player setVariable ["Earplugs", 60]; };
+			case 60: {hint composeText [ image "icons\sound.paa"," 10% Leiser"]; 1 fadeSound 0.9; player setVariable ["Earplugs", 70]; };
 			case 70: {hint composeText [ image "icons\sound_new.paa"," Normaler Sound"]; 1 fadeSound 1; player setVariable ["Earplugs", 0]; };
 		};
 	};	

@@ -46,33 +46,11 @@ _query = switch (_side) do {
 									FROM players WHERE pid='%1'",_uid];
 					};
 
-	// West - 11 entries returned
-    case west: {format ["SELECT pid, name, cash, bankacc, adminlevel, donorlevel, cop_licenses, coplevel, cop_gear, blacklist, cop_stats, playtime FROM players WHERE pid='%1'",_uid];};
-    // Independent - 10 entries returned
-    case independent: {format ["SELECT pid, name, cash, bankacc, adminlevel, donorlevel, med_licenses, mediclevel, med_gear, med_stats, playtime FROM players WHERE pid='%1'",_uid];};
-    case east: {format ["SELECT pid, \
-									name,\
-									cash,\
-									bankacc,\
-									adminlevel,\
-									donorlevel,\
-									civ_licenses,\
-									arrested,\
-									civ_gear,\
-									civ_stats,\
-									civ_alive,\
-									civ_position,\
-									playtime, \
-									coplevel, \
-									cop_licenses, \
-									mediclevel, \
-									med_licenses, \
-									alaclevel, \
-									alac_licenses, \
-									flusilevel, \
-									flusi_licenses \
-									FROM players WHERE pid='%1'",_uid];
-					};
+	
+    case west: 			{format ["SELECT pid, cop_gear FROM players WHERE pid='%1'",_uid];	};    
+    case independent: 	{format ["SELECT pid, med_gear FROM players WHERE pid='%1'",_uid];	};
+    case east: 			{format ["SELECT pid, alac_gear FROM players WHERE pid='%1'",_uid];	};
+    // case flusi: {format ["SELECT flusi_gear FROM players WHERE pid='%1'",_uid];};
 };
 
 _tickTime = diag_tickTime;
@@ -92,6 +70,10 @@ if (_queryResult isEqualType "") exitWith {
 
 if (count _queryResult isEqualTo 0) exitWith {
     [] remoteExecCall ["SOCK_fnc_insertPlayerInfo",_ownerID];
+};
+/* JOBS ( no CIV )*/
+if!(_side isEqualTo civilian)exitWith{
+	_queryResult remoteExec ["SOCK_fnc_requestReceived",_ownerID];
 };
 /* DEBUG
 for "_i" from 0 to ((count _queryResult) - 1) do {
