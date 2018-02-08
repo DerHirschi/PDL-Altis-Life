@@ -12,7 +12,7 @@ private ["_mode","_packet","_array","_flag"];
 _mode = param [0,0,[0]];
 _packet = [getPlayerUID player,(side player),nil,_mode];
 _array = [];
-_flag = switch ((side player)) do {case west: {"cop"}; case civilian: {"civ"}; case independent: {"med"}; case east: {"alac"};};
+_flag = switch (side player) do {case west: {"cop"}; case civilian: {"civ"}; case independent: {"med"}; case east: {"alac"};};
 
 switch (_mode) do {
     case 0: {
@@ -58,6 +58,14 @@ switch (_mode) do {
 	case 8: {
         // Job Level Update
 		_packet set[2,[life_coplevel,life_medicLevel,life_alaclevel,life_flusilevel]];
+    };
+	case 9: {
+        [] call life_fnc_saveGear;
+		switch(side player)do {
+			case west: 			{_packet set[2,[spint_cop ,life_gear] ];};
+			case east: 			{_packet set[2,[spint_alac,life_gear] ];};
+			case independent: 	{_packet set[2,[spint_med ,life_gear] ];};
+		};        
     };
 };
 

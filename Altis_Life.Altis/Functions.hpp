@@ -420,8 +420,7 @@ class LigaClient{
 	
 	};	
 	
-	class Laden
-	{
+	class Laden	{
 		file = "scripts\Liga\Laden";
 		
 		class LigaLadenCfg		{};		//LIGACL_fnc_LigaLadenCfg
@@ -438,4 +437,13 @@ class LigaClient{
 		class buyCheck			{};		//LIGACL_fnc_buyCheck
 		
 	};
+	
+	class Jobs	{
+		file = "scripts\Liga\Jobs";
+		
+		class spint		{};		//LIGACL_fnc_spint
+		
+	};
+	
+	
 };

@@ -14,22 +14,7 @@ _handle = [] spawn life_fnc_stripDownPlayer;
 waitUntil {scriptDone _handle};
 
 if (count _itemArray isEqualTo 0) exitWith {
-    switch (side player) do {
-        case west: {
-            [] call life_fnc_copLoadout;
-        };
-
-        case civilian: {
-            [] call life_fnc_civLoadout;
-        };
-
-        case independent: {
-            [] call life_fnc_medicLoadout;
-        };
-		case east: {
-            // [] call life_fnc_medicLoadout;
-        };
-    };
+	if(side player) then {[] call life_fnc_civLoadout;};    
 };
 
 _itemArray params [

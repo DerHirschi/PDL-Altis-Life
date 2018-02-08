@@ -41,6 +41,7 @@ class JobsCFG {
 		class life_coplevel_0 {
 			rang 	 	= "Praktikant"; // Dummy
 			paycheck 	= 200;
+			spintslots	= 1;
 			einsperren  = false;
 			vehimpoun	= false;
 			wanteddel	= false;
@@ -52,6 +53,7 @@ class JobsCFG {
 		class life_coplevel_1 {
 			rang 	 	= "Azubi"; // Dummy
 			paycheck 	= 500;
+			spintslots	= 1;
 			einsperren  = false;
 			vehimpoun	= false;
 			wanteddel	= false;
@@ -63,6 +65,7 @@ class JobsCFG {
 		class life_coplevel_2 {
 			rang 	 	= "Azubi"; // Dummy
 			paycheck 	= 1000;
+			spintslots	= 1;
 			einsperren  = false;
 			vehimpoun	= false;
 			wanteddel	= false;
@@ -95,6 +98,7 @@ class JobsCFG {
 		class life_medicLevel_0 {
 			rang 	 	= "Praktikant"; // Dummy
 			paycheck 	= 200;
+			spintslots	= 1;
 			einsperren  = false;
 			vehimpoun	= false;
 			wanteddel	= false;
@@ -106,6 +110,7 @@ class JobsCFG {
 		class life_medicLevel_1 {
 			rang 	 	= "Azubi"; // Dummy
 			paycheck 	= 500;
+			spintslots	= 1;
 			einsperren  = false;
 			vehimpoun	= false;
 			wanteddel	= false;
@@ -117,6 +122,7 @@ class JobsCFG {
 		class life_medicLevel_2 {
 			rang 	 	= "Azubi"; // Dummy
 			paycheck 	= 1000;
+			spintslots	= 1;
 			einsperren  = false;
 			vehimpoun	= false;
 			wanteddel	= false;
@@ -149,6 +155,7 @@ class JobsCFG {
 		class life_alaclevel_0 {
 			rang 	 	= "Praktikant"; // Dummy
 			paycheck 	= 200;
+			spintslots	= 1;
 			einsperren  = false;
 			vehimpoun	= false;
 			wanteddel	= false;
@@ -160,6 +167,7 @@ class JobsCFG {
 		class life_alaclevel_1 {
 			rang 	 	= "Azubi"; // Dummy
 			paycheck 	= 500;
+			spintslots	= 1;
 			einsperren  = false;
 			vehimpoun	= false;
 			wanteddel	= false;
@@ -171,6 +179,7 @@ class JobsCFG {
 		class life_alaclevel_2 {
 			rang 	 	= "Azubi"; // Dummy
 			paycheck 	= 1000;
+			spintslots	= 1;
 			einsperren  = false;
 			vehimpoun	= false;
 			wanteddel	= false;
@@ -203,6 +212,7 @@ class JobsCFG {
 		class life_flusilevel_0 {
 			rang 	 	= "Praktikant"; // Dummy
 			paycheck 	= 200;
+			spintslots	= 1;
 			einsperren  = false;
 			vehimpoun	= false;
 			wanteddel	= false;
@@ -214,6 +224,7 @@ class JobsCFG {
 		class life_flusilevel_1 {
 			rang 	 	= "Azubi"; // Dummy
 			paycheck 	= 500;
+			spintslots	= 1;
 			einsperren  = false;
 			vehimpoun	= false;
 			wanteddel	= false;
@@ -225,6 +236,7 @@ class JobsCFG {
 		class life_flusilevel_2 {
 			rang 	 	= "Azubi"; // Dummy
 			paycheck 	= 1000;
+			spintslots	= 1;
 			einsperren  = false;
 			vehimpoun	= false;
 			wanteddel	= false;
