@@ -14,7 +14,7 @@ _handle = [] spawn life_fnc_stripDownPlayer;
 waitUntil {scriptDone _handle};
 
 if (count _itemArray isEqualTo 0) exitWith {
-    switch ((side player)) do {
+    switch (side player) do {
         case west: {
             [] call life_fnc_copLoadout;
         };
@@ -25,6 +25,9 @@ if (count _itemArray isEqualTo 0) exitWith {
 
         case independent: {
             [] call life_fnc_medicLoadout;
+        };
+		case east: {
+            // [] call life_fnc_medicLoadout;
         };
     };
 };
@@ -90,4 +93,4 @@ if (!(_seco isEqualTo "")) then {_handle = [_seco,true,false,false,false] spawn 
     };
 } forEach (_hItems);
 
-[] call life_fnc_playerSkins;
+[] call life_fnc_ligaSetClothText;

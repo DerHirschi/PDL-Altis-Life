@@ -19,7 +19,7 @@ switch ((side player)) do
 {
     case west: {
         if (_item in ["U_Rangemaster"]) then {
-            [] call life_fnc_playerSkins;
+            [] call life_fnc_ligaSetClothText;
         };
     };
     case civilian: {
@@ -34,12 +34,12 @@ switch ((side player)) do
             };
         };
         if (_item in ["U_C_Poloshirt_blue","U_C_Poloshirt_burgundy","U_C_Poloshirt_stripped","U_C_Poloshirt_tricolour","U_C_Poloshirt_salmon","U_C_Poloshirt_redwhite","U_C_Commoner1_1"]) then {
-            [] call life_fnc_playerSkins;
+            [] call life_fnc_ligaSetClothText;
         };
     };
     case independent: {
         if (_item in ["U_Rangemaster"]) then {
-            [] call life_fnc_playerSkins;
+            [] call life_fnc_ligaSetClothText;
         };
         // -- Restrict Weapons
         if (LIFE_SETTINGS(getNumber,"restrict_medic_weapons") isEqualTo 1) then {
