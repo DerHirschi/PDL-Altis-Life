@@ -90,14 +90,16 @@ switch (_mode) do {
         _query = format ["UPDATE players SET coplevel='%1', mediclevel='%2', alaclevel='%3', flusilevel='%4' WHERE pid='%5'",(_array select 0),(_array select 1),(_array select 2),(_array select 3),_uid];
     };
 	case 9: {
-        _value = [_this,2,[],[[]]] call BIS_fnc_param;
-        _value1 = [(_value select 0)] call DB_fnc_mresArray;
-        _value2 = [(_value select 1)] call DB_fnc_mresArray;
+        _value1 = [_this,2,[],[[]]] call BIS_fnc_param;		
+		_value2 = [_this,4,[],[[]]] call BIS_fnc_param;       
+        _value1 = [_value1] call DB_fnc_mresArray;
+        _value2 = [_value2] call DB_fnc_mresArray;
+        
 		
         switch (_side) do {
-            case west: {_query = format ["UPDATE players SET cop_gear='%1', civ_gear='%2' WHERE pid='%2'",_value1, _value2,_uid];};
-            case independent: {_query = format ["UPDATE players SET med_gear='%1', civ_gear='%2' WHERE pid='%2'",_value1, _value2,_uid];};
-            case east: {_query = format ["UPDATE players SET alac_gear='%1', civ_gear='%2' WHERE pid='%2'",_value1, _value2,_uid];};
+            case west: {_query = format ["UPDATE players SET cop_gear='%1', civ_gear='%2' WHERE pid='%3'",_value1, _value2,_uid];};
+            case independent: {_query = format ["UPDATE players SET med_gear='%1', civ_gear='%2' WHERE pid='%3'",_value1, _value2,_uid];};
+            case east: {_query = format ["UPDATE players SET alac_gear='%1', civ_gear='%2' WHERE pid='%3'",_value1, _value2,_uid];};
         };		
     };
 	

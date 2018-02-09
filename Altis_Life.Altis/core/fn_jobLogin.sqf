@@ -38,6 +38,7 @@ if!(_onvar) then {
 	}else{
 		[player] join (call compileFinal _groupvar);
 	};	
+	[] call SOCK_fnc_dataQuery;
 	life_paycheck  = getNumber(missionConfigFile >> "JobsCFG" >> _job >> (_levelvar + "_" + (str _level)) >> "paycheck");
 	_rank  = getText(missionConfigFile >> "JobsCFG" >> _job >> (_levelvar + "_" + (str _level)) >> "rang");
 	

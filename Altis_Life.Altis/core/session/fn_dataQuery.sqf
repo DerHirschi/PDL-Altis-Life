@@ -8,12 +8,15 @@
     the server to check for player information.
 */
 private ["_uid","_side","_sender"];
-if (life_session_completed) exitWith {}; //Why did this get executed when the client already initialized? Fucking arma...
+_side = side player;
+if (life_session_completed && (_side isEqualTo civilian)) exitWith {}; //Why did this get executed when the client already initialized? Fucking arma...
 _sender = player;
 _uid = getPlayerUID _sender;
-_side = (side player);
-cutText[format [localize "STR_Session_Query",_uid],"BLACK FADED"];
-0 cutFadeOut 999999999;
+
+if((_side isEqualTo civilian))then{
+	cutText[format [localize "STR_Session_Query",_uid],"BLACK FADED"];
+	0 cutFadeOut 999999999;
+};
 
 if (life_HC_isActive) then {
     [_uid,_side,_sender] remoteExec ["HC_fnc_queryRequest",HC_Life];

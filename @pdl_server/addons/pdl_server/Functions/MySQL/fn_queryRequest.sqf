@@ -36,21 +36,17 @@ _query = switch (_side) do {
 									civ_position,\
 									playtime, \
 									coplevel, \
-									cop_licenses, \
 									mediclevel, \
-									med_licenses, \
 									alaclevel, \
-									alac_licenses, \
-									flusilevel, \
-									flusi_licenses \
+									flusilevel \
 									FROM players WHERE pid='%1'",_uid];
 					};
 
 	
-    case west: 			{format ["SELECT pid, cop_gear FROM players WHERE pid='%1'",_uid];	};    
-    case independent: 	{format ["SELECT pid, med_gear FROM players WHERE pid='%1'",_uid];	};
-    case east: 			{format ["SELECT pid, alac_gear FROM players WHERE pid='%1'",_uid];	};
-    // case flusi: {format ["SELECT flusi_gear FROM players WHERE pid='%1'",_uid];};
+    case west: 			{format ["SELECT pid, cop_gear, cop_licenses FROM players WHERE pid='%1'",_uid];	};    
+    case independent: 	{format ["SELECT pid, med_gear, med_licenses FROM players WHERE pid='%1'",_uid];	};
+    case east: 			{format ["SELECT pid, alac_gear, alac_licenses FROM players WHERE pid='%1'",_uid];	};
+    // case flusi: {format ["SELECT flusi_gear, flusi_licenses FROM players WHERE pid='%1'",_uid];};
 };
 
 _tickTime = diag_tickTime;
@@ -73,6 +69,12 @@ if (count _queryResult isEqualTo 0) exitWith {
 };
 /* JOBS ( no CIV )*/
 if!(_side isEqualTo civilian)exitWith{
+	{
+		_new = [(_queryResult select _x)] call DB_fnc_mresToArray;
+		if (_new isEqualType "") then {_new = call compile format ["%1", _new];};
+		_queryResult set[_x,_new];
+	}forEach [2, 3];	
+	
 	_queryResult remoteExec ["SOCK_fnc_requestReceived",_ownerID];
 };
 /* DEBUG
@@ -85,7 +87,7 @@ _tmp = _queryResult select 2;
 _queryResult set[2,[_tmp] call DB_fnc_numberSafe];
 _tmp = _queryResult select 3;
 _queryResult set[3,[_tmp] call DB_fnc_numberSafe];
-
+/*
 //Parse licenses (Always index 6)
 _temp = [6,14,16,18,20];
 for "_i" from 0 to ((count _temp) - 1) do {
@@ -103,10 +105,67 @@ for "_i" from 0 to ((count _temp) - 1) do {
 
 	_queryResult set[_ind,_old];
 };
+*/
+//Parse licenses (Always index 6)
+_new = [(_queryResult select 6)] call DB_fnc_mresToArray;
+if (_new isEqualType "") then {_new = call compile format ["%1", _new];};
+_queryResult set[6,_new];
+
+//Convert tinyint to boolean
+_old = _queryResult select 6;
+for "_i" from 0 to (count _old)-1 do {
+    _data = _old select _i;
+    _old set[_i,[_data select 0, ([_data select 1,1] call DB_fnc_bool)]];
+};
+_queryResult set[6,_old];
+
 _new = [(_queryResult select 8)] call DB_fnc_mresToArray;
 if (_new isEqualType "") then {_new = call compile format ["%1", _new];};
 _queryResult set[8,_new];
 //Parse data for specific side.
+
+_queryResult set[7,([_queryResult select 7,1] call DB_fnc_bool)];
+
+//Parse Stats
+_new = [(_queryResult select 9)] call DB_fnc_mresToArray;
+if (_new isEqualType "") then {_new = call compile format ["%1", _new];};
+_queryResult set[9,_new];
+
+//Position
+_queryResult set[10,([_queryResult select 10,1] call DB_fnc_bool)];
+_new = [(_queryResult select 11)] call DB_fnc_mresToArray;
+if (_new isEqualType "") then {_new = call compile format ["%1", _new];};
+_queryResult set[11,_new];
+
+//Playtime
+_new = [(_queryResult select 12)] call DB_fnc_mresToArray;
+if (_new isEqualType "") then {_new = call compile format ["%1", _new];};
+_index = TON_fnc_playtime_values_request find [_uid, _new];
+if (_index != -1) then {
+	TON_fnc_playtime_values_request set[_index,-1];
+	TON_fnc_playtime_values_request = TON_fnc_playtime_values_request - [-1];
+	TON_fnc_playtime_values_request pushBack [_uid, _new];
+} else {
+	TON_fnc_playtime_values_request pushBack [_uid, _new];
+};
+[_uid,_new select 2] call TON_fnc_setPlayTime;
+// Job Level
+
+/* Make sure nothing else is added under here */
+_houseData = _uid spawn TON_fnc_fetchPlayerHouses;
+waitUntil {scriptDone _houseData};
+_queryResult pushBack (missionNamespace getVariable [format ["houses_%1",_uid],[]]);
+_gangData = _uid spawn TON_fnc_queryPlayerGang;
+waitUntil{scriptDone _gangData};
+_queryResult pushBack (missionNamespace getVariable [format ["gang_%1",_uid],[]]);
+
+/*Laeden*/
+_ladenData = [_uid,_side] spawn TON_fnc_fetchPlayerLaden;
+waitUntil {scriptDone _ladenData};
+_queryResult pushBack (missionNamespace getVariable[format["laden_%1",_uid],[]]);			
+		
+
+/*
 switch (_side) do {
     case west: {
         _queryResult set[9,([_queryResult select 9,1] call DB_fnc_bool)];
@@ -158,7 +217,7 @@ switch (_side) do {
         [_uid,_new select 2] call TON_fnc_setPlayTime;
 		// Job Level
 
-        /* Make sure nothing else is added under here */
+        // Make sure nothing else is added under here 
         _houseData = _uid spawn TON_fnc_fetchPlayerHouses;
         waitUntil {scriptDone _houseData};
         _queryResult pushBack (missionNamespace getVariable [format ["houses_%1",_uid],[]]);
@@ -166,7 +225,7 @@ switch (_side) do {
         waitUntil{scriptDone _gangData};
         _queryResult pushBack (missionNamespace getVariable [format ["gang_%1",_uid],[]]);
 		
-		/*Laeden*/
+		//Laeden
 		_ladenData = [_uid,_side] spawn TON_fnc_fetchPlayerLaden;
 		waitUntil {scriptDone _ladenData};
 		_queryResult pushBack (missionNamespace getVariable[format["laden_%1",_uid],[]]);			
@@ -194,6 +253,7 @@ switch (_side) do {
         [_uid,_new select 1] call TON_fnc_setPlayTime;
     };
 };
+*/
 
 publicVariable "TON_fnc_playtime_values_request";
 

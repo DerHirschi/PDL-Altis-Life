@@ -8,28 +8,28 @@
     Information gets passed here from the client side file: core\session\fn_updateRequest.sqf
 */
 private ["_uid","_side","_cash","_bank","_licenses","_gear","_stats","_name","_alive","_position","_query","_thread","_level"];
-_uid = [_this,0,"",[""]] call BIS_fnc_param;
-_name = [_this,1,"",[""]] call BIS_fnc_param;
-_side = [_this,2,sideUnknown,[civilian]] call BIS_fnc_param;
-_cash = [_this,3,0,[0]] call BIS_fnc_param;
-_bank = [_this,4,5000,[0]] call BIS_fnc_param;
-_licenses = [_this,5,[],[[]]] call BIS_fnc_param;
-_gear = [_this,6,[],[[]]] call BIS_fnc_param;
-_stats = [_this,7,[100,100],[[]]] call BIS_fnc_param;
-_alive = [_this,9,false,[true]] call BIS_fnc_param;
-_position = [_this,10,[],[[]]] call BIS_fnc_param;
-_level = [_this,11,[0,0,0,0],[[]]] call BIS_fnc_param;
+_uid 		= [_this,0,"",[""]] call BIS_fnc_param;
+_name 		= [_this,1,"",[""]] call BIS_fnc_param;
+_side 		= [_this,2,sideUnknown,[civilian]] call BIS_fnc_param;
+_cash 		= [_this,3,0,[0]] call BIS_fnc_param;
+_bank 		= [_this,4,5000,[0]] call BIS_fnc_param;
+_licenses 	= [_this,5,[],[[]]] call BIS_fnc_param;
+_gear 		= [_this,6,[],[[]]] call BIS_fnc_param;
+_stats 		= [_this,7,[100,100],[[]]] call BIS_fnc_param;
+_alive 		= [_this,9,false,[true]] call BIS_fnc_param;
+_position 	= [_this,10,[],[[]]] call BIS_fnc_param;
+_level 		= [_this,11,[0,0,0,0],[[]]] call BIS_fnc_param;
 
 //Get to those error checks.
 if ((_uid isEqualTo "") || (_name isEqualTo "")) exitWith {};
 
 //Parse and setup some data.
-_name = [_name] call DB_fnc_mresString;
-_gear = [_gear] call DB_fnc_mresArray;
-_stats = [_stats] call DB_fnc_mresArray;
-_cash = [_cash] call DB_fnc_numberSafe;
-_bank = [_bank] call DB_fnc_numberSafe;
-_position = if (_side isEqualTo civilian) then {[_position] call DB_fnc_mresArray} else {[]};
+_name 		= [_name] call DB_fnc_mresString;
+_gear 		= [_gear] call DB_fnc_mresArray;
+_stats 		= [_stats] call DB_fnc_mresArray;
+_cash 		= [_cash] call DB_fnc_numberSafe;
+_bank 		= [_bank] call DB_fnc_numberSafe;
+_position 	= [_position] call DB_fnc_mresArray;
 
 //Does something license related but I can't remember I only know it's important?
 for "_i" from 0 to count(_licenses)-1 do {

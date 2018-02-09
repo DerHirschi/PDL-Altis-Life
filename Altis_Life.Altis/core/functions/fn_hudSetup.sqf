@@ -1,4 +1,3 @@
-#include "..\..\script_macros.hpp"
 /*
     File: fn_hudSetup.sqf
     Author: Bryan "Tonic" Boardwine

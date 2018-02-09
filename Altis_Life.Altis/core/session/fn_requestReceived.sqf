@@ -9,21 +9,22 @@
     sort through the information, validate it and if all valid
     set the client up.
 */
-private _count = count _this;
-life_session_tries = life_session_tries + 1;
-if (life_session_completed) exitWith {}; //Why did this get executed when the client already initialized? Fucking arma...
-if (life_session_tries > 3) exitWith {cutText[localize "STR_Session_Error","BLACK FADED"]; 0 cutFadeOut 999999999;};
-
-0 cutText [localize "STR_Session_Received","BLACK FADED"];
-0 cutFadeOut 9999999;
-
-//Error handling and junk..
-if (isNil "_this") exitWith {[] call SOCK_fnc_insertPlayerInfo;};
-if (_this isEqualType "") exitWith {[] call SOCK_fnc_insertPlayerInfo;};
-if (count _this isEqualTo 0) exitWith {[] call SOCK_fnc_insertPlayerInfo;};
-if ((_this select 0) isEqualTo "Error") exitWith {[] call SOCK_fnc_insertPlayerInfo;};
-if (!(getPlayerUID player isEqualTo (_this select 0))) exitWith {[] call SOCK_fnc_dataQuery;};
 if((side player) isEqualTo civilian) then {
+	private _count = count _this;
+	life_session_tries = life_session_tries + 1;
+	if (life_session_completed) exitWith {}; //Why did this get executed when the client already initialized? Fucking arma...
+	if (life_session_tries > 3) exitWith {cutText[localize "STR_Session_Error","BLACK FADED"]; 0 cutFadeOut 999999999;};
+
+	0 cutText [localize "STR_Session_Received","BLACK FADED"];
+	0 cutFadeOut 9999999;
+
+	//Error handling and junk..
+	if (isNil "_this") exitWith {[] call SOCK_fnc_insertPlayerInfo;};
+	if (_this isEqualType "") exitWith {[] call SOCK_fnc_insertPlayerInfo;};
+	if (count _this isEqualTo 0) exitWith {[] call SOCK_fnc_insertPlayerInfo;};
+	if ((_this select 0) isEqualTo "Error") exitWith {[] call SOCK_fnc_insertPlayerInfo;};
+	if (!(getPlayerUID player isEqualTo (_this select 0))) exitWith {[] call SOCK_fnc_dataQuery;};
+
 	
 	//Lets make sure some vars are not set before hand.. If they are get rid of them, hopefully the engine purges past variables but meh who cares.
 	if (!isServer && (!isNil "life_adminlevel" || !isNil "life_coplevel" || !isNil "life_donorlevel")) exitWith {
@@ -49,18 +50,24 @@ if((side player) isEqualTo civilian) then {
 	};
 
 	//Loop through licenses
+	/*
 	_temp = [6,14,16,18,20];
 	for "_i" from 0 to ((count _temp) - 1) do {
 		if (count (_this select (_temp select _i)) > 0) then {
 			{missionNamespace setVariable [(_x select 0),(_x select 1)];} forEach (_this select (_temp select _i));
 		};
 	};		
+	*/
+	//Loop through licenses
+	if (count (_this select 6) > 0) then {
+		{missionNamespace setVariable [(_x select 0),(_x select 1)];} forEach (_this select 6);
+	};
 	
 	life_is_arrested 	= _this select 7;
 	life_coplevel 		= _this select 13;
-	life_medicLevel 	= _this select 15;
-	life_alaclevel 		= _this select 17;
-	life_flusilevel 	= _this select 19;
+	life_medicLevel 	= _this select 14;
+	life_alaclevel 		= _this select 15;
+	life_flusilevel 	= _this select 16;
 	
 	life_houses = _this select (_count - 4);
 	if (LIFE_SETTINGS(getNumber,"save_playerStats") isEqualTo 1) then {
@@ -105,16 +112,20 @@ if((side player) isEqualTo civilian) then {
 	life_session_completed = true;			
 	
 }else{
+	//Loop through licenses
+	if (count (_this select 2) > 0) then {
+		{missionNamespace setVariable [(_x select 0),(_x select 1)];} forEach (_this select 2);
+	};
 	//Parse side specific information.
 	switch (side player) do {
 		case west: {
-			spint_cop  = _this select 1;
+			spint_cop  = _this select 1;			
 		};
 		case independent: {
-			spint_med  = _this select 1;
+			spint_med  = _this select 1;			
 		};
 		case east: {
-			spint_alac = _this select 1;
+			spint_alac = _this select 1;			
 		};
-	};
+	};	
 };

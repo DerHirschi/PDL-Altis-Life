@@ -441,7 +441,7 @@ class LigaClient{
 	class Jobs	{
 		file = "scripts\Liga\Jobs";
 		
-		class spint		{};		//LIGACL_fnc_spint
+	//	class spint		{};		//LIGACL_fnc_spint
 		
 	};
 	

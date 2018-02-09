@@ -12,7 +12,7 @@ _packet = [getPlayerUID player,(profileName),(side player),CASH,BANK];
 _array = [];
 _alive = alive player;
 _position = getPosATL player;
-_flag = switch ((side player)) do {case west: {"cop"}; case civilian: {"civ"}; case independent: {"med"}; case east: {"alac"};};
+_flag = switch (side player) do {case west: {"cop"}; case civilian: {"civ"}; case independent: {"med"}; case east: {"alac"};};
 
 {
     _varName = LICENSE_VARNAME(configName _x,_flag);
