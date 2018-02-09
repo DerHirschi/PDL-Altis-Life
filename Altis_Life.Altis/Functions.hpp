@@ -26,8 +26,7 @@ class Life_Client_Core {
 
     class Master_Directory {
         file = "core";
-        class initMapActions 		{};
-        class jobLogin 				{};
+        
         class initCiv 				{};
         class initCop 				{};
         class initMedic 			{};
@@ -403,6 +402,7 @@ class LigaClient{
 	{
 		file = "scripts\Liga";		
 
+		class initMapActions 	{}; // LIGACL_fnc_initMapActions
 		class ligaNews 			{};
 		class IgiVehInit		{};
 		class fuel 				{};	// LIGACL_fnc_fuel
@@ -441,7 +441,8 @@ class LigaClient{
 	class Jobs	{
 		file = "scripts\Liga\Jobs";
 		
-	//	class spint		{};		//LIGACL_fnc_spint
+		class jobLogin	{};		//LIGACL_fnc_jobLogin
+		class spint		{};		//LIGACL_fnc_spint
 		
 	};
 	

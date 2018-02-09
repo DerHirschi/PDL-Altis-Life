@@ -13,10 +13,9 @@
     STRING - The request had invalid handles or an unknown error and is logged to the RPT.
 */
 private ["_uid","_side","_query","_queryResult","_tickTime","_tmp"];
-_uid = [_this,0,"",[""]] call BIS_fnc_param;
-_side = [_this,1,sideUnknown,[civilian]] call BIS_fnc_param;
+_uid	 = [_this,0,"",[""]] call BIS_fnc_param;
+_side 	 = [_this,1,sideUnknown,[civilian]] call BIS_fnc_param;
 _ownerID = [_this,2,objNull,[objNull]] call BIS_fnc_param;
-
 if (isNull _ownerID) exitWith {};
 _ownerID = owner _ownerID;
 
@@ -73,8 +72,16 @@ if!(_side isEqualTo civilian)exitWith{
 		_new = [(_queryResult select _x)] call DB_fnc_mresToArray;
 		if (_new isEqualType "") then {_new = call compile format ["%1", _new];};
 		_queryResult set[_x,_new];
-	}forEach [2, 3];	
+	}forEach [1, 2];	
 	
+	//Parse licenses (Always index 2)
+	//Convert tinyint to boolean
+	_old = _queryResult select 2;
+	for "_i" from 0 to (count _old)-1 do {
+		_data = _old select _i;
+		_old set[_i,[_data select 0, ([_data select 1,1] call DB_fnc_bool)]];
+	};
+	_queryResult set[2,_old];	
 	_queryResult remoteExec ["SOCK_fnc_requestReceived",_ownerID];
 };
 /* DEBUG

@@ -1,9 +1,9 @@
-#include "..\script_macros.hpp"
+#include "..\..\..\script_macros.hpp"
 /*
 	Author: Hirschi - Die Liga
 	
 	Cop Login
-	LIFE_fnc_jobLogin
+	LIGACL_fnc_jobLogin
 	Vers: 2.0
 */
 private _e = false;

@@ -31,10 +31,10 @@ class JobsCFG {
 		stechuhren[]	= {"cop_uhr_1","cop_uhr_2"};
 		stechaction[]	= {
 			{
-				"<t color='#FF0000'>Stechuhr</t>",//Action
-				"['Cops'] call life_fnc_jobLogin",//Code
-				"license_civ_jobCop",			  //Bedingung
-				20								  //Reichweite
+				"<t color='#FF0000'>Stechuhr</t>",	//Action
+				"['Cops'] call LIGACL_fnc_jobLogin",//Code
+				"license_civ_jobCop",			  	//Bedingung
+				20								  	//Reichweite
 			}
 		};
 		
@@ -88,10 +88,10 @@ class JobsCFG {
 		stechuhren[]	= {"medic_uhr_1","medic_uhr_2"};
 		stechaction[]	= {
 			{
-				"<t color='#FF0000'>Stechuhr</t>",//Action
-				"['Medics'] call life_fnc_jobLogin",//Code
-				"license_civ_jobMedic",			  //Bedingung
-				20								  //Reichweite
+				"<t color='#FF0000'>Stechuhr</t>",		//Action
+				"['Medics'] call LIGACL_fnc_jobLogin",	//Code
+				"license_civ_jobMedic",			  		//Bedingung
+				20								  		//Reichweite
 			}
 		};
 		
@@ -145,10 +145,10 @@ class JobsCFG {
 		stechuhren[]	= {"alac_uhr_1","alac_uhr_2"};
 		stechaction[]	= {
 			{
-				"<t color='#FF0000'>Stechuhr</t>",//Action
-				"['Alac'] call life_fnc_jobLogin",//Code
-				"license_civ_jobAlac",			  //Bedingung
-				20								  //Reichweite
+				"<t color='#FF0000'>Stechuhr</t>",	//Action
+				"['Alac'] call LIGACL_fnc_jobLogin",//Code
+				"license_civ_jobAlac",			  	//Bedingung
+				20								  	//Reichweite
 			}
 		};
 		
@@ -202,10 +202,10 @@ class JobsCFG {
 		stechuhren[]	= {"flusi_uhr_1","flusi_uhr_2"};
 		stechaction[]	= {
 			{
-				"<t color='#FF0000'>Stechuhr</t>",//Action
-				"['Flusi'] call life_fnc_jobLogin",//Code
-				"license_civ_jobFlusi",			  //Bedingung
-				20								  //Reichweite
+				"<t color='#FF0000'>Stechuhr</t>",		//Action
+				"['Flusi'] call LIGACL_fnc_jobLogin",	//Code
+				"license_civ_jobFlusi",			  		//Bedingung
+				20								  		//Reichweite
 			}
 		};
 		

@@ -181,7 +181,7 @@ life_hideoutBuildings = [];
 } count ["gang_area_1","gang_area_2","gang_area_3"];
 
 
-[]call life_fnc_initMapActions;
+[]call LIGACL_fnc_initMapActions;
 []execVM "scripts\IgiLoad\IgiLoadInit.sqf"; 
 []spawn LIGACL_fnc_initTaxen;
 

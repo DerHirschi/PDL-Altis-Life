@@ -20,9 +20,11 @@ _maxSlots = getNumber(missionConfigFile >> "JobsCFG" >> (_spint select 1) >> (_l
 _tempSlot = life_gear; 
 _slot 	  = ((_slot min (_maxSlots - 1)) max 0);
 private _flag 	  = missionNamespace getVariable [(_spint select 0),[]]; 
+/*
 if(_flag isEqualType "") then {
 	_flag = call compile _flag;
 };
+*/
 // autom. Sloterweiterung
 _count    = count _flag;
 if(_count < _maxSlots) then {
