@@ -11,7 +11,7 @@ disableSerialization;
 
 cutRsc ["playerHUD", "PLAIN", 2, false];
 [] call life_fnc_hudUpdate;
-
+/*
 [] spawn{
     private ["_dam"];
     for "_i" from 0 to 1 step 0 do {
@@ -21,3 +21,4 @@ cutRsc ["playerHUD", "PLAIN", 2, false];
 		if!(alive player) exitWith {};
     };
 };
+*/
