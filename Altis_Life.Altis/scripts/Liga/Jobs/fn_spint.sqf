@@ -17,6 +17,7 @@ private _spint = switch(side player) do {
 
 _levelVar = getText(missionConfigFile >> "JobsCFG" >> (_spint select 1) >> "levelvar");
 _maxSlots = getNumber(missionConfigFile >> "JobsCFG" >> (_spint select 1) >> (_levelVar + "_" + str(missionNamespace getVariable[_levelVar,0])) >> "spintslots");
+[]call life_fnc_saveGear;
 _tempSlot = life_gear; 
 _slot 	  = ((_slot min (_maxSlots - 1)) max 0);
 private _flag 	  = missionNamespace getVariable [(_spint select 0),[]]; 

@@ -38,6 +38,14 @@ class JobsCFG {
 			}
 		};
 		
+		spinnte[]		= {"cop_spinnt_1","cop_spinnt_2","cop_spinnt_3"};
+		spinntaction[]	= {
+							
+	//		"((side player) isEqualTo (call compileFinal (getText(missionConfigFile >> 'JobsCFG' >> %4 >> 'side'))))",			  	//Bedingung
+			20								  	//Reichweite
+			
+		};
+		
 		class life_coplevel_0 {
 			rang 	 	= "Praktikant"; // Dummy
 			paycheck 	= 200;
@@ -93,6 +101,14 @@ class JobsCFG {
 				"license_civ_jobMedic",			  		//Bedingung
 				20								  		//Reichweite
 			}
+		};
+		
+		spinnte[]		= {"med_spinnt_1"};
+		spinntaction[]	= {
+							
+	//		"((side player) isEqualTo (call compileFinal (getText(missionConfigFile >> 'JobsCFG' >> %4 >> 'side'))))",			  	//Bedingung
+			20								  	//Reichweite
+			
 		};
 		
 		class life_medicLevel_0 {
@@ -151,6 +167,13 @@ class JobsCFG {
 				20								  	//Reichweite
 			}
 		};
+		spinnte[]		= {"alac_spinnt_1"};
+		spinntaction[]	= {
+							
+	//		"((side player) isEqualTo (call compileFinal (getText(missionConfigFile >> 'JobsCFG' >> %4 >> 'side'))))",			  	//Bedingung
+			20								  	//Reichweite
+			
+		};
 		
 		class life_alaclevel_0 {
 			rang 	 	= "Praktikant"; // Dummy
@@ -207,6 +230,14 @@ class JobsCFG {
 				"license_civ_jobFlusi",			  		//Bedingung
 				20								  		//Reichweite
 			}
+		};
+		
+		spinnte[]		= {"flusi_spinnt_1"};
+		spinntaction[]	= {
+							
+	//		"((side player) isEqualTo (call compileFinal (getText(missionConfigFile >> 'JobsCFG' >> %4 >> 'side'))))",			  	//Bedingung
+			20								  	//Reichweite
+			
 		};
 		
 		class life_flusilevel_0 {
