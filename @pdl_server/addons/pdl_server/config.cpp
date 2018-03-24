@@ -166,6 +166,15 @@ class CfgFunctions {
 			class LadenFeuerwerk	{};	//TON_fnc_LadenFeuerwerk
 
 		};
+		
+		class LigaDestille {
+			file = "\pdl_server\Scripte\Destille";
+			
+			class ligaDestObj 		{};
+			class ligaDest 			{};
+			class processDest 		{};
+			class processMaisch 	{};
+		};
     };
 };
 

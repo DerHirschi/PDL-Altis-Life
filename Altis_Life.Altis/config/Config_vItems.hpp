@@ -1201,36 +1201,9 @@ class VirtualItems {
         icon 		= "icons\ico_waterBottle.paa";
 		sound 		= "drink";
     };
-
-	class eBottle {
-        variable 	= "eBottle";
-        displayName = "STR_Item_EWaterBottle";        
-        buyPrice 	= 2250;
-        sellPrice 	= 1600;
-        illegal 	= -1;
-        		
-		saveable	= true;
-		closeDiag	= true;
 		
-		weight 		= 1;
-        essbar 		= -1;
-        trinkbar 	= -1;
-		gulltime 	= -1;
-		fat			= -1;	// 0.5 = - 0.5
 
-        verbrauch 	= -1;
-        dazu[]	 	= {}; //{{"a10",1},{"",-1}}	ITEM,stk		
-        
-		allowside[]	= {"CIV","EAST","WEST","GUER"};
-        // useablefnc	= "if (!(life_is_processing)) exitWith {  [ObjNull,'','','moon'] spawn life_fnc_processAction; playSound 'FlBef';};";       
-        useablefnc	= "";       
-		hinttext	= "";
-		titletext	= "";
-
-		icon 		= "icons\flasche.paa";
-        sound 		= "";
-    };		
-
+	// Benutzbares
 	class uwsl {
         variable 	= "uwsl";
         displayName = "STR_Item_WassBomb";        
@@ -1258,7 +1231,210 @@ class VirtualItems {
 
 		icon 		= "icons\wbe.paa";
         sound 		= "";
-    };		
+    };	
+	/* Destille u co */
+	class desti {
+        variable 	= "desti";
+        displayName = "STR_Item_desti";        
+        buyPrice 	= -1;
+        sellPrice 	= -1;
+        illegal 	= -1;
+        		
+		saveable	= true;
+		closeDiag	= true;
+		
+		weight 		= 42;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+
+        verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"a10",1},{"",-1}}	ITEM,stk		
+        
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        // useablefnc	= "if (!(life_is_processing)) exitWith {  [ObjNull,'','','moon'] spawn life_fnc_processAction; playSound 'FlBef';};";       
+        useablefnc	= "if(!isNull life_dest) exitWith {hint 'Du stellst schon ein Destille auf !'};	if(([false,_this,1] call life_fnc_handleInv)) then	{	[] spawn LIGACL_fnc_ligaDes;	};";       
+		hinttext	= "";
+		titletext	= "";
+
+		icon 		= "icons\des.paa";
+        sound 		= "";
+    };	
+
+	class maifass {
+        variable 	= "maifass";
+        displayName = "STR_Item_maifass";        
+        buyPrice 	= -1;
+        sellPrice 	= -1;
+        illegal 	= -1;
+        		
+		saveable	= true;
+		closeDiag	= true;
+		
+		weight 		= 38;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+
+        verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"a10",1},{"",-1}}	ITEM,stk		
+        
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        // useablefnc	= "if (!(life_is_processing)) exitWith {  [ObjNull,'','','moon'] spawn life_fnc_processAction; playSound 'FlBef';};";       
+        useablefnc	= "if(!isNull life_fass) exitWith {hint 'Du stellst schon ein Maischefass auf !'};	if(([false,_this,1] call life_fnc_handleInv)) then	{	[] spawn LIGACL_fnc_ligaFass;	};";       
+		hinttext	= "";
+		titletext	= "";
+
+		icon 		= "icons\mfs.paa";
+        sound 		= "";
+    };	
+
+	class maische {
+        variable 	= "maische";
+        displayName = "STR_Item_maische";        
+        buyPrice 	= -1;
+        sellPrice 	= -1;
+        illegal 	= -1;
+        		
+		saveable	= false;
+		closeDiag	= false;
+		
+		weight 		= 3;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+
+        verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"a10",1},{"",-1}}	ITEM,stk		
+        
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        // useablefnc	= "if (!(life_is_processing)) exitWith {  [ObjNull,'','','moon'] spawn life_fnc_processAction; playSound 'FlBef';};";       
+        useablefnc	= "";       
+		hinttext	= "";
+		titletext	= "";
+
+		icon 		= "icons\maische.paa";
+        sound 		= "";
+    };	
+	
+	class methyl {
+        variable 	= "methyl";
+        displayName = "STR_Item_methyl";        
+        buyPrice 	= -1;
+        sellPrice 	= 821;
+        illegal 	= -1;
+        		
+		saveable	= false;
+		closeDiag	= false;
+		
+		weight 		= 3;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+
+        verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"a10",1},{"",-1}}	ITEM,stk		
+        
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        // useablefnc	= "if (!(life_is_processing)) exitWith {  [ObjNull,'','','moon'] spawn life_fnc_processAction; playSound 'FlBef';};";       
+        useablefnc	= "";       
+		hinttext	= "";
+		titletext	= "";
+
+		icon 		= "icons\Methyl.paa";
+        sound 		= "";
+    };
+
+	class eBottle {
+        variable 	= "eBottle";
+        displayName = "STR_Item_EWaterBottle";        
+        buyPrice 	= 2250;
+        sellPrice 	= 1600;
+        illegal 	= -1;
+        		
+		saveable	= true;
+		closeDiag	= true;
+		
+		weight 		= 1;
+        essbar 		= -1;
+        trinkbar 	= -1;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+
+        verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"a10",1},{"",-1}}	ITEM,stk		
+        
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "if (!(life_is_processing)) exitWith {  [ObjNull,'','','moon'] spawn life_fnc_processAction; };";       
+        useablefnc	= "";       
+		hinttext	= "";
+		titletext	= "";
+
+		icon 		= "icons\flasche.paa";
+        sound 		= "FlBef";
+    };
+	
+	class moonsh {
+        variable 	= "moonsh";
+        displayName = "STR_Item_moonsh";        
+        buyPrice 	= -1;
+        sellPrice 	= -1;
+        illegal 	= -1;
+        		
+		saveable	= false;
+		closeDiag	= true;
+		
+		weight 		= 5;
+        essbar 		= -1;
+        trinkbar 	= 12;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+
+        verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"a10",1},{"",-1}}	ITEM,stk		
+        
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "	if((player getVariable ['inDrink',false])) exitWith {hint localize 'Du hast schon was getrunken.';};	if(([false,_this,1] call life_fnc_handleInv)) then	{	playSound 'drink';		if(isNil 'life_drink') then {life_drink = 0;};	life_drink = life_drink + 2.25;		if (life_drink < 0.2) exitWith {};	[] spawn life_fnc_drinkbeer; };";       
+        useablefnc	= "";       
+		hinttext	= "";
+		titletext	= "";
+
+		icon 		= "icons\Moons.paa";
+        sound 		= "";
+    };
+
+	class moonshfl {
+        variable 	= "moonshfl";
+        displayName = "STR_Item_moonshfl";        
+        buyPrice 	= -1;
+        sellPrice 	= 275;
+        illegal 	= 15000;
+        		
+		saveable	= false;
+		closeDiag	= true;
+		
+		weight 		= 2;
+        essbar 		= -1;
+        trinkbar 	= 19;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+
+        verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"a10",1},{"",-1}}	ITEM,stk		
+        
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "	if((player getVariable ['inDrink',false])) exitWith {hint localize 'Du hast schon was getrunken.';};	if(([false,_this,1] call life_fnc_handleInv)) then	{	playSound 'drink';		if(isNil 'life_drink') then {life_drink = 0;};	life_drink = life_drink + 0.85;		if (life_drink < 0.2) exitWith {};	[] spawn life_fnc_drinkbeer; [true,'eBottle',1] call life_fnc_handleInv;};";       
+        useablefnc	= "";       
+		hinttext	= "";
+		titletext	= "";
+
+		icon 		= "icons\Moonf.paa";
+        sound 		= "";
+    };
 
     //Food
     class apple {

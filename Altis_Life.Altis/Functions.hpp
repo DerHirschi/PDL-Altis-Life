@@ -261,17 +261,19 @@ class Life_Client_Core {
 
     class Items {
         file = "core\items";
-        class blastingCharge {};
-        class boltcutter {};
-        class defuseKit {};
-        class flashbang {};
-        class jerrycanRefuel {};
-        class jerryRefuel {};
-        class lockpick {};
-        class placestorage {};
-        class spikeStrip {};
-        class storageBox {};
-        class mauer {};
+		
+        class blastingCharge 	{};
+        class boltcutter 		{};
+        class defuseKit 		{};
+        class flashbang 		{};
+        class jerrycanRefuel 	{};
+        class jerryRefuel 		{};
+        class lockpick 			{};
+        class placestorage 		{};
+        class spikeStrip 		{};
+        class storageBox 		{};
+        class mauer 			{};
+        class drinkbeer 		{};
     };
 
     class Medical_System {
@@ -446,5 +448,17 @@ class LigaClient{
 		
 	};
 	
+	class LigaDest    {
+        file = "scripts\Liga\Destille";
+		
+		class DestInv 			{};
+		class ligaDes 			{};
+		class ligaFass 			{};
+		class ligaFassInv 		{};	
+		class DestSmoke 		{};
+		class DestSmoke1 		{};		
+		class ligaDesAdAc 		{};
+		class statMaisch 		{};
+	};
 	
 };

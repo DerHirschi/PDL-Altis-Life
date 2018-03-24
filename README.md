@@ -50,3 +50,4 @@ Altis Life RPG by AsYetUntitled is licensed under a [Creative Commons Attributio
  - Feuerwerk Script
  - Läden kaufbar ( Liga Laden Script )
  - Ohrenstöpsel
+ - Spinnts für Cops, Medic, ALAC, Flusi ( verschiedene Loadouts speicherbar )

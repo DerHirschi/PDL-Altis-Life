@@ -307,6 +307,13 @@ class CfgSounds {
 		sound[] = {"\scripts\nuke\nuke.ogg",  1.0, 1};
 		titles[] = {};
 	};
+	class FlBef
+	{
+		name = "FlBef";
+		sound[] = {"\sounds\Flaschenbefullen.ogg", 1.0, 1};
+		titles[] = {};
+	};
+
 };
 
 class CfgDebriefing {
