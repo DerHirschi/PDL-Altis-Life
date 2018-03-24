@@ -6384,6 +6384,17 @@
             <Italian></Italian>
             <Portuguese></Portuguese>
             <Polish></Polish>
+        </Key>		
+		<Key ID="STR_Item_baumsta">
+            <Original></Original>
+            <Czech></Czech>
+            <Spanish></Spanish>
+            <Russian></Russian>
+            <German>Baumstamm</German>
+            <French></French>
+            <Italian></Italian>
+            <Portuguese></Portuguese>
+            <Polish></Polish>
         </Key>			
 		<Key ID="STR_Item_KassTisch">
             <Original></Original>

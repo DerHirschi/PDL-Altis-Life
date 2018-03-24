@@ -89,6 +89,9 @@ class CfgRemoteExec {
 		F(LIGACL_fnc_removeHeliAc,CLIENT)
         F(LIGACL_fnc_HeliTaxen,CLIENT)
 		
+		F(LIGACL_fnc_ligaDesAdAc,CLIENT)
+		F(LIGACL_fnc_DestSmoke,CLIENT)
+		
 
         /* Server only functions */
         F(BIS_fnc_execVM,SERVER)
@@ -143,6 +146,8 @@ class CfgRemoteExec {
         F(TON_fnc_updateZusa,SERVER)
         F(TON_fnc_KassAction,SERVER)
         F(TON_fnc_sellLaden,SERVER)	
+		
+		F(TON_fnc_ligaDest,SERVER)		
 
         /* HeadlessClient only functions */
         F(HC_fnc_addContainer,HC)

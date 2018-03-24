@@ -455,8 +455,7 @@ class LigaClient{
 		class ligaDes 			{};
 		class ligaFass 			{};
 		class ligaFassInv 		{};	
-		class DestSmoke 		{};
-		class DestSmoke1 		{};		
+		class DestSmoke 		{};	
 		class ligaDesAdAc 		{};
 		class statMaisch 		{};
 	};

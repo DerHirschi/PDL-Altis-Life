@@ -1253,7 +1253,6 @@ class VirtualItems {
         dazu[]	 	= {}; //{{"a10",1},{"",-1}}	ITEM,stk		
         
 		allowside[]	= {"CIV","EAST","WEST","GUER"};
-        // useablefnc	= "if (!(life_is_processing)) exitWith {  [ObjNull,'','','moon'] spawn life_fnc_processAction; playSound 'FlBef';};";       
         useablefnc	= "if(!isNull life_dest) exitWith {hint 'Du stellst schon ein Destille auf !'};	if(([false,_this,1] call life_fnc_handleInv)) then	{	[] spawn LIGACL_fnc_ligaDes;	};";       
 		hinttext	= "";
 		titletext	= "";
@@ -1370,7 +1369,7 @@ class VirtualItems {
         
 		allowside[]	= {"CIV","EAST","WEST","GUER"};
         useablefnc	= "if (!(life_is_processing)) exitWith {  [ObjNull,'','','moon'] spawn life_fnc_processAction; };";       
-        useablefnc	= "";       
+        //useablefnc	= "";       
 		hinttext	= "";
 		titletext	= "";
 
@@ -1399,7 +1398,7 @@ class VirtualItems {
         
 		allowside[]	= {"CIV","EAST","WEST","GUER"};
         useablefnc	= "	if((player getVariable ['inDrink',false])) exitWith {hint localize 'Du hast schon was getrunken.';};	if(([false,_this,1] call life_fnc_handleInv)) then	{	playSound 'drink';		if(isNil 'life_drink') then {life_drink = 0;};	life_drink = life_drink + 2.25;		if (life_drink < 0.2) exitWith {};	[] spawn life_fnc_drinkbeer; };";       
-        useablefnc	= "";       
+        //useablefnc	= "";       
 		hinttext	= "";
 		titletext	= "";
 
@@ -1428,7 +1427,7 @@ class VirtualItems {
         
 		allowside[]	= {"CIV","EAST","WEST","GUER"};
         useablefnc	= "	if((player getVariable ['inDrink',false])) exitWith {hint localize 'Du hast schon was getrunken.';};	if(([false,_this,1] call life_fnc_handleInv)) then	{	playSound 'drink';		if(isNil 'life_drink') then {life_drink = 0;};	life_drink = life_drink + 0.85;		if (life_drink < 0.2) exitWith {};	[] spawn life_fnc_drinkbeer; [true,'eBottle',1] call life_fnc_handleInv;};";       
-        useablefnc	= "";       
+        //useablefnc	= "";       
 		hinttext	= "";
 		titletext	= "";
 
@@ -1436,6 +1435,34 @@ class VirtualItems {
         sound 		= "";
     };
 
+	class baumsta {
+        variable 	= "baumsta";
+        displayName = "STR_Item_baumsta";        
+        buyPrice 	= -1;
+        sellPrice 	= -1;
+        illegal 	= -1;
+        		
+		saveable	= false;
+		closeDiag	= false;
+		
+		weight 		= 5;
+        essbar 		= -1;
+        trinkbar 	= 19;
+		gulltime 	= -1;
+		fat			= -1;	// 0.5 = - 0.5
+
+        verbrauch 	= -1;
+        dazu[]	 	= {}; //{{"a10",1},{"",-1}}	ITEM,stk		
+        
+		allowside[]	= {"CIV","EAST","WEST","GUER"};
+        useablefnc	= "";       
+              
+		hinttext	= "";
+		titletext	= "";
+
+		icon 		= "icons\holz.paa";
+        sound 		= "";
+    };
     //Food
     class apple {
         variable = "apple";

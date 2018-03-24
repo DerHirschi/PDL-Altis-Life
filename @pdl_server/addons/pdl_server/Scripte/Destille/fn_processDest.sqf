@@ -1,3 +1,4 @@
+#include "\pdl_server\script_macros.hpp"
 /*
 ╔══════════════════════════════════════════════════╗
 ║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░║
@@ -14,7 +15,7 @@
 ║ Dann erwecken wir die Höllenmaschine mal zum Leben ........
 ╚══════════════════════════════════════════════════╝
 */
-
+debugRPT_srv = true;
 private ["_InMode","_id","_start","_exit","_ver_holz","_ver_mai","_zu_meth","_zu_moon","_PS","_OBJ","_it_meth","_it_holz","_it_maisch","_weight","_it_moon","_index","_destOb_ar",
 			"_data_dest","_data_metheim","_data_sfass","_smoke_ar","_holz","_maisch","_schnap","_methy","_rauch","_gew_dest","_gew_metheim","_gew_sfass","_tuse_d","_tuse_e","_tuse_f"];
 // _InMode
@@ -68,8 +69,8 @@ while {true} do {
 	switch (_InMode) do {		
 		case 0: {
 			_exit = true;
-			_destOb_ar select 0 enableSimulationGlobal false;	
-			_destOb_ar select 2 enableSimulationGlobal false; 
+			//_destOb_ar select 0 enableSimulationGlobal false;	
+			//_destOb_ar select 2 enableSimulationGlobal false; 
 			deleteVehicle _PS;
 
 			if (_tuse_d) then { _destOb_ar select 1 setVariable["trunk_in_use",false,true];};
@@ -92,8 +93,8 @@ while {true} do {
 					
 					if((_destOb_ar select 1 getVariable ["trunk_in_use",false])) then {
 						
-						[[1],"life_fnc_ligaDesAdAc",_id,false] spawn life_fnc_MP;  // hint "Die Destille kann nicht arbeiten waehrend du reinschaust !!";
-						
+						//[[1],"life_fnc_ligaDesAdAc",_id,false] spawn life_fnc_MP;  // hint "Die Destille kann nicht arbeiten waehrend du reinschaust !!";
+						[1] remoteExec ["LIGACL_fnc_ligaDesAdAc",_id];
 						waitUntil {!(_destOb_ar select 1 getVariable ["trunk_in_use",false])};
 					};					
 					_destOb_ar select 1 setVariable["trunk_in_use",true,true]; 	
@@ -106,7 +107,8 @@ while {true} do {
 					if (_index == -1) exitWith { 
 						_exit = true; 
 						_InMode = 0; 
-						[[2],"life_fnc_ligaDesAdAc",_id,false] spawn life_fnc_MP; //hint "Du brauchst 2 Baumstaemme um das Teil anzuheizen und 1 um es weiter im Betrieb zu halte...";
+						//[[2],"life_fnc_ligaDesAdAc",_id,false] spawn life_fnc_MP; //hint "Du brauchst 2 Baumstaemme um das Teil anzuheizen und 1 um es weiter im Betrieb zu halte...";
+						[2] remoteExec ["LIGACL_fnc_ligaDesAdAc",_id];
 						_destOb_ar select 1 setVariable["trunk_in_use",false,true]; 
 						_tuse_d = false;
 						_destOb_ar select 1 setVariable["destpro",false,true] ;			
@@ -115,7 +117,8 @@ while {true} do {
 					if (_holz < _ver_holz) exitWith { 
 						_exit = true;
 						_InMode = 0;
-						[[3],"life_fnc_ligaDesAdAc",_id,false] spawn life_fnc_MP; 
+						//[[3],"life_fnc_ligaDesAdAc",_id,false] spawn life_fnc_MP;
+						[3] remoteExec ["LIGACL_fnc_ligaDesAdAc",_id];
 						_destOb_ar select 1 setVariable["trunk_in_use",false,true];
 						_tuse_d = false;
 						_destOb_ar select 1 setVariable["destpro",false,true] ;			
@@ -148,7 +151,8 @@ while {true} do {
 					_zu_moon = 5;
 
 					if((_destOb_ar select 1 getVariable ["trunk_in_use",false])) then {
-						[[1],"life_fnc_ligaDesAdAc",_id,false] spawn life_fnc_MP;  // hint "Die Destille kann nicht arbeiten waehrend du reinschaust !!";
+						//[[1],"life_fnc_ligaDesAdAc",_id,false] spawn life_fnc_MP;  // hint "Die Destille kann nicht arbeiten waehrend du reinschaust !!";
+						[1] remoteExec ["LIGACL_fnc_ligaDesAdAc",_id];
 						waitUntil {!(_destOb_ar select 1 getVariable ["trunk_in_use",false]) };
 					};					
 					_destOb_ar select 1 setVariable["trunk_in_use",true,true]; 	
@@ -163,7 +167,8 @@ while {true} do {
 					if (_index == -1) then { 
 						_InMode = 0; 
 						_rauch = 2; 
-						[[3],"life_fnc_ligaDesAdAc",_id,false] spawn life_fnc_MP; //hint "Deine Destille hat kein Brennholz !!!";
+						//[[3],"life_fnc_ligaDesAdAc",_id,false] spawn life_fnc_MP; //hint "Deine Destille hat kein Brennholz !!!";
+						[3] remoteExec ["LIGACL_fnc_ligaDesAdAc",_id];
 					}
 					else
 					{	
@@ -171,7 +176,8 @@ while {true} do {
 						if (_holz < _ver_holz) then {
 							_InMode = 0;
 							_rauch = 2; 
-							[[3],"life_fnc_ligaDesAdAc",_id,false] spawn life_fnc_MP; //hint "Deine Destille hat kein Brennholz mehr...";
+							//[[3],"life_fnc_ligaDesAdAc",_id,false] spawn life_fnc_MP; //hint "Deine Destille hat kein Brennholz mehr...";
+							[3] remoteExec ["LIGACL_fnc_ligaDesAdAc",_id];
 						}
 						else
 						{							
@@ -192,7 +198,8 @@ while {true} do {
 							_zu_meth = 0;
 							_zu_moon = 0;
 							_rauch = 2; 
-							[[4],"life_fnc_ligaDesAdAc",_id,false] spawn life_fnc_MP; //hint "Deine Destille hat keine Maische mehr und verbraucht Sinnlos Brennholz..";
+							//[[4],"life_fnc_ligaDesAdAc",_id,false] spawn life_fnc_MP; //hint "Deine Destille hat keine Maische mehr und verbraucht Sinnlos Brennholz..";
+							[4] remoteExec ["LIGACL_fnc_ligaDesAdAc",_id];
 						}
 						else
 						{
@@ -201,7 +208,8 @@ while {true} do {
 							{ 
 								
 								_rauch = 2; 
-								[[4],"life_fnc_ligaDesAdAc",_id,false] spawn life_fnc_MP; //hint "Deine Destille hat keine Maische mehr und verbraucht Sinnlos Brennholz..";
+								//[[4],"life_fnc_ligaDesAdAc",_id,false] spawn life_fnc_MP; //hint "Deine Destille hat keine Maische mehr und verbraucht Sinnlos Brennholz..";
+								[4] remoteExec ["LIGACL_fnc_ligaDesAdAc",_id];
 								_ver_mai = _maisch;
 								_zu_meth = 0;
 								_zu_moon = 0;
@@ -258,14 +266,15 @@ while {true} do {
 				case 3: {
 					deleteVehicle _PS;
 					_PS = "#particlesource" createVehicle getPos _OBJ;	
-					[[_PS,_OBJ,_smoke_ar],"life_fnc_DestSmoke",true] spawn life_fnc_MP; // Noch neue Funktion schreiben!!!!!!!!!!
-					
+					//[[_PS,_OBJ,_smoke_ar],"life_fnc_DestSmoke",true] spawn life_fnc_MP; // Noch neue Funktion schreiben!!!!!!!!!!
+					[_PS,_OBJ,_smoke_ar] remoteExec ["LIGACL_fnc_DestSmoke",RCLIENT];
 					sleep 80;
 															
 					// Methyl Mode Check 18
 					if((_destOb_ar select 5 getVariable ["trunk_in_use",false])) then 
 					{
-						[[1],"life_fnc_ligaDesAdAc",_id,false] spawn life_fnc_MP;  // hint "Die Destille kann nicht arbeiten waehrend du reinschaust !!";
+						//[[1],"life_fnc_ligaDesAdAc",_id,false] spawn life_fnc_MP;  // hint "Die Destille kann nicht arbeiten waehrend du reinschaust !!";
+						[1] remoteExec ["LIGACL_fnc_ligaDesAdAc",_id];
 						waitUntil {!(_destOb_ar select 5 getVariable ["trunk_in_use",false]) };
 					};					
 					_destOb_ar select 5 setVariable["trunk_in_use",true,true]; 	
@@ -294,7 +303,8 @@ while {true} do {
 						{
 							
 							//_rauch = 2;
-							[[5],"life_fnc_ligaDesAdAc",_id,false] spawn life_fnc_MP;		//hint "Der Methyl Eimer ist voll !!!";
+							//[[5],"life_fnc_ligaDesAdAc",_id,false] spawn life_fnc_MP;		//hint "Der Methyl Eimer ist voll !!!";
+							[5] remoteExec ["LIGACL_fnc_ligaDesAdAc",_id];
 						}
 						else
 						{
@@ -343,7 +353,8 @@ while {true} do {
 					
 					if((_destOb_ar select 6 getVariable ["trunk_in_use",false])) then 
 					{
-						[[1],"life_fnc_ligaDesAdAc",_id,false] spawn life_fnc_MP;  // hint "Die Destille kann nicht arbeiten waehrend du reinschaust !!";
+						//[[1],"life_fnc_ligaDesAdAc",_id,false] spawn life_fnc_MP;  // hint "Die Destille kann nicht arbeiten waehrend du reinschaust !!";
+						[1] remoteExec ["LIGACL_fnc_ligaDesAdAc",_id];
 						waitUntil {!(_destOb_ar select 6 getVariable ["trunk_in_use",false]) };
 					};
 					_destOb_ar select 6 setVariable["trunk_in_use",true,true]; 	
@@ -400,7 +411,8 @@ while {true} do {
 							else
 							{
 								_rauch = 2;
-								[[6],"life_fnc_ligaDesAdAc",_id,false] spawn life_fnc_MP; //	hint "Das Schnapps-Fass ist voll !!!";	
+								//[[6],"life_fnc_ligaDesAdAc",_id,false] spawn life_fnc_MP; //	hint "Das Schnapps-Fass ist voll !!!";	
+								[6] remoteExec ["LIGACL_fnc_ligaDesAdAc",_id];
 							};							
 						}
 						else
@@ -454,7 +466,8 @@ while {true} do {
 					};	
 					deleteVehicle _PS;
 					_PS = "#particlesource" createVehicle getPos _OBJ;	
-					[[_PS,_OBJ,_smoke_ar],"life_fnc_DestSmoke",true] spawn life_fnc_MP; 
+					//[[_PS,_OBJ,_smoke_ar],"life_fnc_DestSmoke",true] spawn life_fnc_MP; 
+					[_PS,_OBJ,_smoke_ar] remoteExec ["LIGACL_fnc_DestSmoke",RCLIENT];
 					sleep 20;
 				};				
 			};		

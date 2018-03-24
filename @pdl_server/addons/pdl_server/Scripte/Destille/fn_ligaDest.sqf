@@ -20,7 +20,7 @@ _pos = _this select 2;
 _destOb_ar = [];
 _dat_obj = ObjNull;
 
-closeDialog 0;
+//closeDialog 0;
 _dest = [2] call TON_fnc_ligaDestObj;
 _dest attachTo[_player,[0,5.5,0.2]];
 _dest allowDamage true;
@@ -28,7 +28,7 @@ _dest enableSimulation true;
 _dest setDir 90;
 _dest setVariable["item","destDeployed",true];
 
-[0,_dest] remoteExec ["life_fnc_ligaDesAdAc",_id];
+[0,_dest] remoteExec ["LIGACL_fnc_ligaDesAdAc",_id];
 
 
 life_dest = _dest;
@@ -46,10 +46,10 @@ _dest = [3] call TON_fnc_ligaDestObj;
 _dest setPos [(_pos select 0),(_pos select 1),0];
 _dest setDir _dir;
 sleep 1;
-		_dat_obj = nearestObjects[ getPos _dest,["Land_HeatPump_F"],3] select 0;
-		_destOb_ar = _dat_obj getVariable ["lig_dest_ar",[]];	
+_dat_obj = nearestObjects[ getPos _dest,["Land_HeatPump_F"],3] select 0;
+_destOb_ar = _dat_obj getVariable ["lig_dest_ar",[]];	
 
-					_destOb_ar select 0 removeAction 0;
-					_destOb_ar select 2 removeAction 0;	
-					_destOb_ar select 0 enableSimulationGlobal false;	
-					_destOb_ar select 2 enableSimulationGlobal false;			
+_destOb_ar select 0 removeAction 0;
+_destOb_ar select 2 removeAction 0;	
+//_destOb_ar select 0 enableSimulationGlobal false;	
+//_destOb_ar select 2 enableSimulationGlobal false;			

@@ -8,7 +8,7 @@
 
 life_actions = [];
 
-switch ((side player)) do {
+switch (side player) do {
 
     //Civilian
     case civilian: {
@@ -26,5 +26,7 @@ switch ((side player)) do {
     
     //EMS
     case independent: { };
+	// ALAC
+    case east: { };
 
 };
