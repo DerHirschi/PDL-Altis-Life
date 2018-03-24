@@ -7,8 +7,10 @@ _house 			= [_this,0,objNull	,[objNull]	] call BIS_fnc_param;
 _dur 			= [_this,1,5		,[1]		] call BIS_fnc_param;
 _dur1 			= [_this,2,20		,[1]		] call BIS_fnc_param;
 if(isNull _house) exitWith {};
+_t = false;
 if(!isClass (missionConfigFile >> "LigaLadenClass" >> (typeOf _house))) then {
 	_startpositions1 = [getPos _house];
+	_t = true;
 }else{
 	
 	_startpositions1 = [];
@@ -28,4 +30,8 @@ for "_a" from 0 to _dur do {
 		sleep (0.6 max(random 3));
 	};	
 	sleep (5 max(random 25));
+};
+if(_t) then {
+	sleep 60;
+	deleteVehicle _house;
 };
