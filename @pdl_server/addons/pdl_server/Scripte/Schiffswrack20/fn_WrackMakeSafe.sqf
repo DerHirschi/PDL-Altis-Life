@@ -21,7 +21,7 @@ _wrack2 setVectorUp _vec1;
 
 _safe = "Land_CargoBox_V1_F" createVehicle [0,0,-50];
 
-_safe setPos ( (getPos _wrack1) vectorAdd   [4.5, -9.3, -2.5 ] ); 
+_safe setPos ( (getPos _wrack1) vectorAdd   [3, -10, 5 ] ); 
 _safe setVectorUp [-8.7,-1,1]; 
 	
 wrack_objs = [_wrack1,_wrack2,_safe];

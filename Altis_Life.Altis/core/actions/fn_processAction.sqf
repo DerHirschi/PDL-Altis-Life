@@ -26,6 +26,7 @@ if (isClass (missionConfigFile >> "ProcessAction" >> _type)) then {
 if (_filter) exitWith {life_action_inUse = false;};
 
 _itemInfo = [_materialsRequired,_materialsGiven,_noLicenseCost,(localize format ["%1",_text])];
+// ?????????????? 
 if (count _itemInfo isEqualTo 0) exitWith {life_action_inUse = false;};
 
 //Setup vars.
